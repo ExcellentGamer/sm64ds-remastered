@@ -1,4 +1,4 @@
-const Collision si_area_1_collision[] = {
+const Collision sunshine_isles_collision[] = {
 	COL_INIT(),
 	COL_VERTEX_INIT(599),
 	COL_VERTEX(-810, 0, 4446),
@@ -1640,5 +1640,5 @@ const Collision si_area_1_collision[] = {
 	COL_TRI(578, 531, 598),
 	COL_TRI(531, 532, 598),
 	COL_TRI_STOP(),
-    COL_END(),
+	COL_END()
 };

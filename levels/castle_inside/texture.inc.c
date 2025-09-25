@@ -194,10 +194,10 @@ ALIGNED8 static const Texture inside_castle_seg7_texture_07020800[] = {
 
 // Sunshine Isles Painting Top Texture
 ALIGNED8 static const Texture si_painting_top_tex[] = {
-//#include "levels/castle_inside/41.rgba16.inc.c"
+#include "levels/castle_inside/si_painting_top.rgba16.inc.c"
 };
 
 // Sunshine Isles Painting Bottom Texture
 ALIGNED8 static const Texture si_painting_bottom_tex[] = {
-//#include "levels/castle_inside/42.rgba16.inc.c"
+#include "levels/castle_inside/si_painting_bottom.rgba16.inc.c"
 };

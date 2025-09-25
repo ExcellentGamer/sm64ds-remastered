@@ -16,4 +16,6 @@ extern const LevelScript level_si_entry[];
 
 #include "levels/si/si_model/geo_header.h"
 
+#include "levels/si/sunshine_isles_collision/collision_header.h"
+
 #endif

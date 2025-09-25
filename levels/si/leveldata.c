@@ -14,3 +14,4 @@
 #include "levels/si/areas/1/macro.inc.c"
 
 #include "levels/si/si_model/model.inc.c"
+#include "levels/si/sunshine_isles_collision/collision.inc.c"
