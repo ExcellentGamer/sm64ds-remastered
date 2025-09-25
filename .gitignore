@@ -69,6 +69,7 @@ sm64dsr_config.txt
 /sound/**/*.aiff
 
 # DS Remastered Assets Allowed
+!/levels/castle_inside/*painting*.png
 !/levels/**/ds_*.png
 !/levels/**/ds_*/**/*.png
 !/actors/**/ds_*.png
