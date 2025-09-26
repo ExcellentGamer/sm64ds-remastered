@@ -183,7 +183,7 @@ const LevelScript script_func_global_1[] = {
     LOAD_MODEL_FROM_GEO(MODEL_KOOPA_SHELL,             koopa_shell_geo),
     LOAD_MODEL_FROM_GEO(MODEL_METAL_BOX,               metal_box_geo),
     LOAD_MODEL_FROM_DL (MODEL_METAL_BOX_DL,            metal_box_dl,                             LAYER_OPAQUE),
-    LOAD_MODEL_FROM_GEO(MODEL_BLACK_BOBOMB,            black_bobomb_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_BLACK_BOBOMB,            bobomb_geo),
     LOAD_MODEL_FROM_GEO(MODEL_BOBOMB_BUDDY,            bobomb_buddy_geo),
     LOAD_MODEL_FROM_DL (MODEL_DL_CANNON_LID,           cannon_lid_seg8_dl_080048E0,              LAYER_OPAQUE),
     LOAD_MODEL_FROM_GEO(MODEL_BOWLING_BALL,            bowling_ball_geo),

@@ -31,3 +31,5 @@
 #include "star_switch/geo.inc.c"
 #include "question_box/geo.inc.c"
 #include "power_flower/geo.inc.c"
+
+#include "bobomb_buddy/geo.inc.c"

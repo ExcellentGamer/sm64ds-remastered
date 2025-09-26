@@ -5,10 +5,6 @@
 0x48dde054, actors/blue_coin_switch/blue_coin_switch_side.rgba16.png
 0x8850ff36, actors/blue_coin_switch/blue_coin_switch_top.rgba16.png
 0xc3996a4f, actors/blue_fish/blue_fish.rgba16.png
-0xbdfeb7e9, actors/bobomb/bob-omb_buddy_left_side.rgba16.png
-0x0b1833a6, actors/bobomb/bob-omb_buddy_right_side.rgba16.png
-0xae5a9812, actors/bobomb/bob-omb_eyes.rgba16.png
-0x6cf0fe65, actors/bobomb/bob-omb_eyes_blink.rgba16.png
 0x6348045f, actors/bomb/bomb_left_side.rgba16.png
 0x83895fa8, actors/bomb/bomb_right_side.rgba16.png
 0x6edb77dd, actors/bomb/bomb_spike.rgba16.png

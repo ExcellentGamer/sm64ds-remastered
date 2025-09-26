@@ -88,6 +88,6 @@ extern const struct Animation *const toad_animations[];
 
 #include "toad/geo_header.h"
 
-
 #include "toad/anim_header.h"
+
 #endif

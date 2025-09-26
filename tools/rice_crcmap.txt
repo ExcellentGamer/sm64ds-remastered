@@ -1004,7 +1004,6 @@
 0x58f28a81, textures/skybox_tiles/ccm.20.rgba16.png
 0x58c547bd, textures/skybox_tiles/bidw.19.rgba16.png
 0x58a11d1e, textures/skybox_tiles/bits.37.rgba16.png
-0x585285d7, actors/bobomb/bob-omb_buddy_left_side.rgba16.png
 0x57f55b58, actors/sparkle/sparkle_2.rgba16.png
 0x57dd4de0, textures/skybox_tiles/cloud_floor.34.rgba16.png
 0x57c29c7d, textures/machine/ttc_textures.02800.rgba16.png
@@ -1194,7 +1193,6 @@
 0x36b1482f, actors/pokey/pokey_face_blink.rgba16.png
 0x35bbd200, actors/bullet_bill/bullet_bill_eye.rgba16.png
 0x3556a0c8, textures/skybox_tiles/bbh.4.rgba16.png
-0x35456b51, actors/bobomb/bob-omb_eyes_blink.rgba16.png
 0x354089bb, actors/dorrie/dorrie_tongue.rgba16.png
 0x354089bb, actors/chain_chomp/chain_chomp_tongue.rgba16.png
 0x34e02944, textures/skybox_tiles/bits.46.rgba16.png
@@ -1224,7 +1222,6 @@
 0x2f5f1297, actors/door/metal_door.rgba16.png
 0x2f3fdba3, textures/skybox_tiles/clouds.21.rgba16.png
 0x2f25120f, actors/pokey/pokey_body.rgba16.png
-0x2ed4ba24, actors/bobomb/bob-omb_eyes.rgba16.png
 0x2ece83fa, textures/skybox_tiles/bits.8.rgba16.png
 0x2eb2480c, textures/spooky/bbh_textures.0B800.ia16.png
 0x2eb2480c, levels/castle_inside/2.ia16.png
@@ -1258,7 +1255,6 @@
 0x29f15a68, actors/piranha_plant/piranha_plant_stem.rgba16.png
 0x29c0c7d2, actors/koopa/koopa_eyes_closed.rgba16.png
 0x29904548, textures/skybox_tiles/water.63.rgba16.png
-0x292e5fd8, actors/bobomb/bob-omb_buddy_right_side.rgba16.png
 0x292c40a1, textures/skybox_tiles/cake.13.rgba16.png
 0x28df6c96, actors/flame/flame_1.ia16.png
 0x2811c57f, textures/segment2/segment2.06880.rgba16.png
