@@ -1,5 +1,9 @@
 // 0x06020A04
-const struct Animation *const whomp_seg6_anims_06020A04[] = {
-    &whomp_seg6_anim_060209EC,
-    &whomp_seg6_anim_060202DC,
+const struct Animation *const whomp_animations[] = {
+    &whomp_anim_walk,
+    &whomp_anim_attack1,
+    &whomp_anim_attack2,
+	&whomp_anim_recover,
+    &whomp_anim_walkstart,
+	NULL,
 };

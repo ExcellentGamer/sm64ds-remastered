@@ -1,2 +1,7 @@
 #include "anim_060202DC.inc.c"
 #include "anim_060209EC.inc.c"
+#include "anim_walk.inc.c"
+#include "anim_walkstart.inc.c"
+#include "anim_recover.inc.c"
+#include "anim_attack2.inc.c"
+#include "anim_attack1.inc.c"

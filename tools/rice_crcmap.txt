@@ -274,7 +274,6 @@
 0xd4e4f405, textures/mountain/ttm_textures.09800.rgba16.png
 0xd4c2dc38, textures/skybox_tiles/wdw.25.rgba16.png
 0xd494eb3b, levels/lll/1.rgba16.png
-0xd42e66e7, actors/whomp/whomp_back.rgba16.png
 0xd4291cf0, textures/grass/wf_textures.02800.rgba16.png
 0xd4178125, actors/sushi/sushi_tooth.rgba16.png
 0xd41593d8, levels/ttm/2.rgba16.png
@@ -729,7 +728,6 @@
 0x84788778, levels/menu/main_menu_seg7_us.0B000.ia8.png
 0x846a6656, levels/menu/main_menu_seg7_us.0B080.ia8.png
 0x84651765, textures/skybox_tiles/cloud_floor.32.rgba16.png
-0x8464cc0c, actors/whomp/whomp_surface.rgba16.png
 0x83d5ba14, textures/machine/ttc_textures.04000.rgba16.png
 0x83101fa2, levels/rr/quarter_flying_carpet.rgba16.png
 0x8300dd14, levels/castle_inside/25.rgba16.png
@@ -925,7 +923,6 @@
 0x677cf935, textures/skybox_tiles/cloud_floor.43.rgba16.png
 0x677a5e03, textures/skybox_tiles/bits.41.rgba16.png
 0x674fa5c8, actors/water_splash/water_splash_2.rgba16.png
-0x6695e997, actors/whomp/whomp_face.rgba16.png
 0x66799dcc, levels/menu/main_menu_seg7.06328.rgba16.png
 0x6626c09a, textures/fire/lll_textures.07800.rgba16.png
 0x65bfa19a, levels/hmc/1.rgba16.png
@@ -1068,7 +1065,6 @@
 0x4e6eca8d, textures/cave/hmc_textures.0A000.rgba16.png
 0x4e43931b, actors/wiggler/wiggler_nose_left_side.rgba16.png
 0x4e0a3338, levels/lll/16.rgba16.png
-0x4dedbc41, actors/whomp/whomp_hand.rgba16.png
 0x4dc0bbdf, actors/power_meter/power_meter_seven_segments.rgba16.png
 0x4d606a9b, textures/skybox_tiles/water.45.rgba16.png
 0x4d03386e, textures/generic/bob_textures.03000.rgba16.png

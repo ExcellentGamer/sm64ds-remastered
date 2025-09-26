@@ -360,10 +360,6 @@
 0x43c09930, actors/whirlpool/whirlpool.ia16.png
 0x053b1cf1, actors/white_particle/snow_particle.rgba16.png
 0xf0bb14a0, actors/white_particle_small/small_snow_particle.rgba16.png
-0x28eb23a5, actors/whomp/whomp_back.rgba16.png
-0xb29261b3, actors/whomp/whomp_face.rgba16.png
-0x18602905, actors/whomp/whomp_hand.rgba16.png
-0x7bb8fef7, actors/whomp/whomp_surface.rgba16.png
 0xe343a70a, actors/wiggler/wiggler_eye.rgba16.png
 0x1f3f7866, actors/wiggler/wiggler_flower.rgba16.png
 0x5abb875f, actors/wiggler/wiggler_frown.rgba16.png
