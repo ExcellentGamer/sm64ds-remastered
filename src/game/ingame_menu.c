@@ -2896,11 +2896,13 @@ void render_save_confirmation(s16 x, s16 y, s8 *index, s16 yOffset)
         { TEXT_SAVE_AND_QUIT_DE }
     };
 
+#if !defined(TARGET_WII_U)
     u8 textSaveExitGame[][28] = { // New text to exit game
         { TEXT_SAVE_EXIT_GAME },
         { TEXT_SAVE_EXIT_GAME_FR },
         { TEXT_SAVE_EXIT_GAME_DE }
     };
+#endif
 
     u8 textContinueWithoutSave[][27] = {
         { TEXT_CONTINUE_WITHOUT_SAVING },
@@ -2924,7 +2926,9 @@ void render_save_confirmation(s16 x, s16 y, s8 *index, s16 yOffset)
 
     print_generic_string(TXT_SAVEOPTIONS_X, y + TXT_SAVECONT_Y, LANGUAGE_ARRAY(textSaveAndContinue));
     print_generic_string(TXT_SAVEOPTIONS_X, y - TXT_SAVEQUIT_Y, LANGUAGE_ARRAY(textSaveAndQuit));
+#if !defined(TARGET_WII_U)
     print_generic_string(TXT_SAVEOPTIONS_X, y - TXT_SAVE_EXIT_GAME_Y, LANGUAGE_ARRAY(textSaveExitGame));
+#endif
     print_generic_string(TXT_SAVEOPTIONS_X, y - TXT_CONTNOSAVE_Y, LANGUAGE_ARRAY(textContinueWithoutSave));
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
