@@ -74,8 +74,6 @@
 0x0c8d30ca, actors/bubba/bubba_sunglasses.rgba16.png
 0x332edb92, actors/bubble/bubble.rgba16.png
 0xcdf0fa68, actors/bubble/mr_i_bubble.rgba16.png
-0x21fe5d40, actors/bullet_bill/bullet_bill_eye.rgba16.png
-0xb1b85895, actors/bullet_bill/bullet_bill_mouth.rgba16.png
 0x5a12c79d, actors/bully/bully_eye.rgba16.png
 0xec266038, actors/bully/bully_horn.rgba16.png
 0x49520b07, actors/bully/bully_left_side.rgba16.png

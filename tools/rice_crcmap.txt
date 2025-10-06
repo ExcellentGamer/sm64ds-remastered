@@ -1187,7 +1187,6 @@
 0x36f00556, textures/cave/hmc_textures.0A800.rgba16.png
 0x36d9c81e, actors/bully/bully_right_side.rgba16.png
 0x36b1482f, actors/pokey/pokey_face_blink.rgba16.png
-0x35bbd200, actors/bullet_bill/bullet_bill_eye.rgba16.png
 0x3556a0c8, textures/skybox_tiles/bbh.4.rgba16.png
 0x354089bb, actors/dorrie/dorrie_tongue.rgba16.png
 0x354089bb, actors/chain_chomp/chain_chomp_tongue.rgba16.png
@@ -1475,7 +1474,6 @@
 0x0391ee74, textures/skybox_tiles/wdw.24.rgba16.png
 0x038be28f, textures/snow/ccm_textures.07000.rgba16.png
 0x0374425d, textures/skybox_tiles/wdw.26.rgba16.png
-0x03298536, actors/bullet_bill/bullet_bill_mouth.rgba16.png
 0x031dc071, textures/skybox_tiles/cloud_floor.49.rgba16.png
 0x0303136f, textures/inside/inside_castle_textures.00000.rgba16.png
 0x02cfd740, actors/mr_i_eyeball/mr_i_eyeball_left_side.rgba16.png

@@ -5,10 +5,24 @@
 
 // bullet_bill
 extern const GeoLayout bullet_bill_geo[];
-extern const Gfx bullet_bill_seg5_dl_0500E5E8[];
-extern const Gfx bullet_bill_seg5_dl_0500E678[];
-extern const Gfx bullet_bill_seg5_dl_0500E730[];
-extern const Gfx bullet_bill_seg5_dl_0500E8A8[];
+extern Lights1 bullet_bill_lights;
+extern u8 bullet_bill_metal[];
+extern u8 bullet_bill_2[];
+extern u8 bullet_bill_1[];
+extern Vtx bullet_bill_model_1_vtx_0[91];
+extern Gfx bullet_bill_model_1_tri_0[];
+extern Vtx bullet_bill_model_2_vtx_0[48];
+extern Gfx bullet_bill_model_2_tri_0[];
+extern Vtx bullet_bill_model_2_vtx_1[42];
+extern Gfx bullet_bill_model_2_tri_1[];
+extern Gfx bullet_bill_metal_material[];
+extern Gfx bullet_bill_metal_material_revert[];
+extern Gfx bullet_bill_2_material[];
+extern Gfx bullet_bill_2_material_revert[];
+extern Gfx bullet_bill_1_material[];
+extern Gfx bullet_bill_1_material_revert[];
+extern Gfx bullet_bill_model_1[];
+extern Gfx bullet_bill_model_2[];
 
 // heave_ho
 extern const GeoLayout heave_ho_geo[];
