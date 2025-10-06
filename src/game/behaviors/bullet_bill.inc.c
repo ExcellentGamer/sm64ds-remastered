@@ -13,7 +13,8 @@ void bhv_white_puff_smoke_init(void) {
 // Bullet Bill Initialization Function
 void bhv_bullet_bill_init(void) {
     o->oBulletBillInitialMoveYaw = o->oMoveAngleYaw;
-    o->oHomeY = o->oHomeY + 100.0f; // Spawn's the bullet bill higher to account for the difference in DS/N64's positioning
+    o->oHomeY = o->oHomeY + 165.0f; // Spawn's the bullet bill higher to account for the difference in DS/N64's positioning
+    spawn_object(o, MODEL_LEVEL_GEOMETRY_09, bhvBulletBillCannon); // Spawns the cannon model on top of the bullet bill
 }
 
 // Bullet Bill Act 0: Set up initial state

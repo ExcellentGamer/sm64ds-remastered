@@ -101,6 +101,8 @@ sm64dsr_config.txt
 !/actors/bobomb/*.png
 !/actors/bobomb_buddy/*.png
 !/actors/bullet_bill/*.png
+!/levels/wf/bullet_bill_cannon_front.rgba16.png
+!/levels/wf/bullet_bill_cannon_sides.rgba16.png
 
 # Android files
 !/textures/touchcontrols/*.png

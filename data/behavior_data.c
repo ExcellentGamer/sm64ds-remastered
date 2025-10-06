@@ -725,7 +725,7 @@ const BehaviorScript bhvTower[] = {
 const BehaviorScript bhvBulletBillCannon[] = {
     BEGIN(OBJ_LIST_SURFACE),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
-    LOAD_COLLISION_DATA(wf_seg7_collision_bullet_bill_cannon),
+    LOAD_COLLISION_DATA(bullet_bill_cannon_collision),
     CALL_NATIVE(load_object_static_model),
     BREAK(),
 };

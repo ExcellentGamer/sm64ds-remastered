@@ -11,7 +11,7 @@ extern const GeoLayout wf_geo_000860[];
 extern const GeoLayout wf_geo_000878[];
 extern const GeoLayout wf_geo_000890[];
 extern const GeoLayout wf_tower_geo[];
-extern const GeoLayout wf_geo_0008E8[];
+extern const GeoLayout bullet_bill_cannon_geo[];
 extern const GeoLayout wf_geo_000900[];
 extern const GeoLayout wf_geo_000940[];
 extern const GeoLayout wf_geo_000958[];
@@ -51,7 +51,6 @@ extern const Gfx wf_seg7_dl_07007220[];
 extern const Gfx wf_seg7_dl_07007518[];
 extern const Gfx wf_seg7_dl_070087B0[];
 extern const Gfx wf_seg7_dl_07008FE8[];
-extern const Gfx wf_seg7_dl_07009278[];
 extern const Gfx wf_seg7_dl_07009780[];
 extern const Gfx wf_seg7_dl_07009890[];
 extern const Gfx wf_seg7_dl_07009DB0[];
@@ -78,6 +77,16 @@ extern const Gfx wf_seg7_dl_0700F340[];
 extern const Gfx wf_seg7_dl_0700F610[];
 extern const Gfx wf_seg7_dl_0700F6C0[];
 extern const Gfx wf_seg7_dl_0700F7F8[];
+extern const Gfx bullet_bill_cannon_cannon_mesh_layer_1_tri_0[];
+extern const Gfx bullet_bill_cannon_cannon_mesh_layer_1_tri_1[];
+extern const Gfx mat_bullet_bill_cannon_f3dlite_material_004[];
+extern const Gfx mat_revert_bullet_bill_cannon_f3dlite_material_004[];
+extern const Gfx mat_bullet_bill_cannon_f3dlite_material_005[];
+extern const Gfx mat_revert_bullet_bill_cannon_f3dlite_material_005[];
+extern const Gfx bullet_bill_cannon_cannon_mesh_layer_1[];
+extern const Vtx bullet_bill_cannon_cannon_mesh_layer_1_vtx_cull[8];
+extern const Vtx bullet_bill_cannon_cannon_mesh_layer_1_vtx_0[4];
+extern const Vtx bullet_bill_cannon_cannon_mesh_layer_1_vtx_1[19];
 extern const Collision wf_seg7_collision_small_bomp[];
 extern const Collision wf_seg7_collision_large_bomp[];
 extern const Collision wf_seg7_collision_clocklike_rotation[];
@@ -91,10 +100,18 @@ extern const Collision wf_seg7_collision_kickable_board[];
 extern const Collision wf_seg7_collision_tower_door[];
 extern const Collision wf_seg7_collision_rotating_platform[];
 extern const Collision wf_seg7_collision_tower[];
-extern const Collision wf_seg7_collision_bullet_bill_cannon[];
+extern const Collision bullet_bill_cannon_collision[];
 extern const Collision wf_col[];
 extern const MacroObject macro_wf[];
 extern const struct MovtexQuadCollection wf_movtex_water[];
+
+// Lights
+extern Lights1 bullet_bill_cannon_lights;
+
+// Textures
+extern u8 bullet_bill_cannon_cannon_front[];
+extern u8 bullet_bill_cannon_sides[];
+
 
 // script
 extern const LevelScript level_wf_entry[];

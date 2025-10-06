@@ -23,7 +23,6 @@
 #include "levels/wf/areas/1/9/model.inc.c"
 #include "levels/wf/areas/1/10/1.inc.c"
 #include "levels/wf/areas/1/10/2.inc.c"
-#include "levels/wf/areas/1/11/model.inc.c"
 #include "levels/wf/areas/1/12/1.inc.c"
 #include "levels/wf/areas/1/12/2.inc.c"
 #include "levels/wf/areas/1/13/model.inc.c"
@@ -64,10 +63,11 @@
 #include "levels/wf/tower_door/collision.inc.c"
 #include "levels/wf/rotating_platform/collision.inc.c" // This is odd... TODO: investigate this.
 #include "levels/wf/areas/1/10/collision.inc.c"
-#include "levels/wf/areas/1/11/collision.inc.c"
 #include "levels/wf/areas/1/collision.inc.c"
 #include "levels/wf/areas/1/macro.inc.c"
 #include "levels/wf/areas/1/movtext.inc.c"
 
 #include "levels/wf/ds_geo/model.inc.c"
 #include "levels/wf/small_bomp/model.inc.c"
+#include "levels/wf/bullet_bill_cannon/model.inc.c"
+#include "levels/wf/bullet_bill_cannon/collision.inc.c"
