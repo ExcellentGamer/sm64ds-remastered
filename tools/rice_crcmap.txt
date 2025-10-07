@@ -65,7 +65,6 @@
 0xf6bb8446, textures/skybox_tiles/cloud_floor.25.rgba16.png
 0xf6affec8, levels/lll/19.rgba16.png
 0xf69986ce, textures/skybox_tiles/bits.45.rgba16.png
-0xf66ca88b, actors/piranha_plant/piranha_plant_tongue.rgba16.png
 0xf66ca88b, actors/bowser/bowser_tongue.rgba16.png
 0xf66738c7, textures/skybox_tiles/cake.42.rgba16.png
 0xf5e69d71, textures/skybox_tiles/bbh.26.rgba16.png
@@ -718,7 +717,6 @@
 0x86712a04, actors/amp/amp_electricity.rgba16.png
 0x861dc3cf, textures/grass/wf_textures.00000.rgba16.png
 0x85a91338, textures/skybox_tiles/ssl.13.rgba16.png
-0x85887ee4, actors/piranha_plant/piranha_plant_tooth.rgba16.png
 0x8541d92c, textures/skybox_tiles/ccm.47.rgba16.png
 0x852361b6, actors/koopa/koopa_eye_border.rgba16.png
 0x85204772, levels/ssl/3.rgba16.png
@@ -981,10 +979,8 @@
 0x5c3873c6, textures/grass/wf_textures.03000.rgba16.png
 0x5c293288, textures/skybox_tiles/ccm.5.rgba16.png
 0x5c153daf, textures/skybox_tiles/bits.34.rgba16.png
-0x5bc5ca75, actors/piranha_plant/piranha_plant_leaf.rgba16.png
 0x5b8676cf, actors/white_particle/snow_particle.rgba16.png
 0x5af9dfde, levels/ssl/2.rgba16.png
-0x5aea7079, actors/piranha_plant/piranha_plant_bottom_lip.rgba16.png
 0x5ac90b8d, levels/cotmc/4.rgba16.png
 0x5a967a74, levels/menu/main_menu_seg7_us.0B280.ia8.png
 0x5a838c70, textures/skybox_tiles/clouds.30.rgba16.png
@@ -1180,7 +1176,6 @@
 0x381ea750, levels/bbh/3.rgba16.png
 0x37f10a8c, actors/bookend/bookend_tooth.rgba16.png
 0x374e253a, actors/bowser/bowser_armband_spike.rgba16.png
-0x373df028, actors/piranha_plant/piranha_plant_skin.rgba16.png
 0x370fc06b, textures/outside/castle_grounds_textures.0A000.rgba16.png
 0x36fc4c04, levels/lll/24.rgba16.png
 0x36f00556, textures/cave/hmc_textures.0A800.rgba16.png
@@ -1246,7 +1241,6 @@
 0x2a93afc0, actors/mr_i_iris/mr_i_iris_open.rgba16.png
 0x2a83d55a, levels/lll/0.rgba16.png
 0x2a283a6a, actors/sparkle_animation/sparkle_animation_2.ia16.png
-0x29f15a68, actors/piranha_plant/piranha_plant_stem.rgba16.png
 0x29c0c7d2, actors/koopa/koopa_eyes_closed.rgba16.png
 0x29904548, textures/skybox_tiles/water.63.rgba16.png
 0x292c40a1, textures/skybox_tiles/cake.13.rgba16.png

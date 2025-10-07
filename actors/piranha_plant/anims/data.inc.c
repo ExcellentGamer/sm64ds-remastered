@@ -8,3 +8,7 @@
 #include "anim_0601AF34.inc.c"
 #include "anim_0601B634.inc.c"
 #include "anim_0601C304.inc.c"
+#include "anim_attack.inc.c"
+#include "anim_sleep.inc.c"
+#include "anim_start_sleeping.inc.c"
+#include "anim_die.inc.c"

@@ -242,12 +242,6 @@
 0x21ce109b, actors/penguin/penguin_eye_closed.rgba16.png
 0x25562c85, actors/penguin/penguin_eye_half_closed.rgba16.png
 0x1d74c023, actors/penguin/penguin_eye_open.rgba16.png
-0x9db9def2, actors/piranha_plant/piranha_plant_bottom_lip.rgba16.png
-0x329e5c61, actors/piranha_plant/piranha_plant_leaf.rgba16.png
-0x6888b5f7, actors/piranha_plant/piranha_plant_skin.rgba16.png
-0x1eac9092, actors/piranha_plant/piranha_plant_stem.rgba16.png
-0x5a9a602f, actors/piranha_plant/piranha_plant_tongue.rgba16.png
-0x68af8823, actors/piranha_plant/piranha_plant_tooth.rgba16.png
 0xd30fa85a, actors/pokey/pokey_body.rgba16.png
 0x273debaa, actors/pokey/pokey_face.rgba16.png
 0x6a13b542, actors/pokey/pokey_face_blink.rgba16.png

@@ -78,32 +78,55 @@ extern const struct Animation *const koopa_flag_seg6_anims_06001028[];
 
 // piranha_plant
 extern const GeoLayout piranha_plant_geo[];
-extern const Gfx piranha_plant_seg6_dl_06015438[];
-extern const Gfx piranha_plant_seg6_dl_06015480[];
-extern const Gfx piranha_plant_seg6_dl_06015530[];
-extern const Gfx piranha_plant_seg6_dl_06015578[];
-extern const Gfx piranha_plant_seg6_dl_06015798[];
-extern const Gfx piranha_plant_seg6_dl_06015850[];
-extern const Gfx piranha_plant_seg6_dl_06015E40[];
-extern const Gfx piranha_plant_seg6_dl_06015EA8[];
-extern const Gfx piranha_plant_seg6_dl_06015F68[];
-extern const Gfx piranha_plant_seg6_dl_06016060[];
-extern const Gfx piranha_plant_seg6_dl_060160B0[];
-extern const Gfx piranha_plant_seg6_dl_06016120[];
-extern const Gfx piranha_plant_seg6_dl_06016750[];
-extern const Gfx piranha_plant_seg6_dl_060167B8[];
-extern const Gfx piranha_plant_seg6_dl_06016890[];
-extern const Gfx piranha_plant_seg6_dl_06016960[];
-extern const Gfx piranha_plant_seg6_dl_060169A8[];
-extern const Gfx piranha_plant_seg6_dl_060169E8[];
-extern const Gfx piranha_plant_seg6_dl_06016A78[];
-extern const Gfx piranha_plant_seg6_dl_06016BA8[];
-extern const Gfx piranha_plant_seg6_dl_06016C10[];
-extern const Gfx piranha_plant_seg6_dl_06016D30[];
-extern const Gfx piranha_plant_seg6_dl_06016D98[];
-extern const Gfx piranha_plant_seg6_dl_06016EB8[];
-extern const Gfx piranha_plant_seg6_dl_06016F20[];
-extern const struct Animation *const piranha_plant_seg6_anims_0601C31C[];
+extern Lights1 piranha_plant_lights;
+extern u8 piranha_plant[];
+extern Vtx piranha_plant_4_vtx_0[8];
+extern Gfx piranha_plant_4_tri_0[];
+extern Vtx piranha_plant_hand_r_4_vtx_0[8];
+extern Gfx piranha_plant_hand_r_4_tri_0[];
+extern Vtx piranha_plant_neck1_4_vtx_0[4];
+extern Gfx piranha_plant_neck1_4_tri_0[];
+extern Vtx piranha_plant_neck1_2_4_vtx_0[4];
+extern Gfx piranha_plant_neck1_2_4_tri_0[];
+extern Vtx piranha_plant_neck2_4_vtx_0[4];
+extern Gfx piranha_plant_neck2_4_tri_0[];
+extern Vtx piranha_plant_neck2_2_4_vtx_0[4];
+extern Gfx piranha_plant_neck2_2_4_tri_0[];
+extern Vtx piranha_plant_neck2_2_4_vtx_1[4];
+extern Gfx piranha_plant_neck2_2_4_tri_1[];
+extern Vtx piranha_plant_neck3_4_vtx_0[6];
+extern Gfx piranha_plant_neck3_4_tri_0[];
+extern Vtx piranha_plant_neck3_2_vtx_0[4];
+extern Gfx piranha_plant_neck3_2_tri_0[];
+extern Vtx piranha_plant_neck3_2_vtx_1[7];
+extern Gfx piranha_plant_neck3_2_tri_1[];
+extern Vtx piranha_plant_upper_mouth_4_vtx_0[6];
+extern Gfx piranha_plant_upper_mouth_4_tri_0[];
+extern Vtx piranha_plant_upper_mouth_2_4_vtx_0[3];
+extern Gfx piranha_plant_upper_mouth_2_4_tri_0[];
+extern Vtx piranha_plant_upper_mouth_2_4_vtx_1[100];
+extern Gfx piranha_plant_upper_mouth_2_4_tri_1[];
+extern Vtx piranha_plant_lower_mouth_4_vtx_0[15];
+extern Gfx piranha_plant_lower_mouth_4_tri_0[];
+extern Vtx piranha_plant_lower_mouth_2_4_vtx_0[21];
+extern Gfx piranha_plant_lower_mouth_2_4_tri_0[];
+extern Vtx piranha_plant_lower_mouth_2_4_vtx_1[76];
+extern Gfx piranha_plant_lower_mouth_2_4_tri_1[];
+extern Gfx piranha_plant_material[];
+extern Gfx piranha_plant_material_revert[];
+extern Gfx piranha_plant_4[];
+extern Gfx piranha_plant_hand_r_4[];
+extern Gfx piranha_plant_neck1_4[];
+extern Gfx piranha_plant_neck1_2_4[];
+extern Gfx piranha_plant_neck2_4[];
+extern Gfx piranha_plant_neck2_2_4[];
+extern Gfx piranha_plant_neck3_4[];
+extern Gfx piranha_plant_neck_03_mesh_layer_4[];
+extern Gfx piranha_plant_upper_mouth_4[];
+extern Gfx piranha_plant_upper_mouth_2_4[];
+extern Gfx piranha_plant_lower_mouth_4[];
+extern Gfx piranha_plant_lower_mouth_2_4[];
+extern const struct Animation *const piranha_plant_animations[];
 
 // poundable_pole
 extern const GeoLayout wooden_post_geo[];
@@ -141,4 +164,6 @@ extern const Collision whomp_collision[];
 
 #include "whomp/collision_header.h"
 
+
+#include "piranha_plant/anim_header.h"
 #endif
