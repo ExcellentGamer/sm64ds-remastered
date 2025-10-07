@@ -1164,6 +1164,14 @@
     #define MIPS_STAR_STATUS_SHOULD_SPAWN_STAR    1
     #define MIPS_STAR_STATUS_ALREADY_SPAWNED_STAR 2
 
+    /* oBhvParams */
+    #define MIPS_YELLOW 0
+    #define MIPS_ORANGE 1
+    #define MIPS_PINK   2
+    #define MIPS_GREEN  3
+    #define MIPS_WHITE  4
+    #define MIPS_CYAN   5
+
     /* oBhvParams2ndByte */
     #define MIPS_BP_15_STARS   0
     #define MIPS_BP_50_STARS   1

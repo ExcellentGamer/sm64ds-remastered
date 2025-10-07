@@ -1997,7 +1997,7 @@ const BehaviorScript bhvBowser[] = {
     SET_HITBOX(/*Radius*/ 400, /*Height*/ 400),
     DROP_TO_FLOOR(),
     SET_HOME(),
-    LOAD_ANIMATIONS(oAnimations, bowser_seg6_anims_06057690),
+    LOAD_ANIMATIONS(oAnimations, bowser_animations),
     SPAWN_CHILD(/*Model*/ MODEL_NONE, /*Behavior*/ bhvBowserBodyAnchor),
     SPAWN_CHILD(/*Model*/ MODEL_BOWSER_BOMB_CHILD_OBJ, /*Behavior*/ bhvBowserFlameSpawn),
     SPAWN_OBJ(/*Model*/ MODEL_NONE, /*Behavior*/ bhvBowserTailAnchor),
@@ -5108,7 +5108,7 @@ const BehaviorScript bhvTreasureChestTop[] = {
 const BehaviorScript bhvMips[] = {
     BEGIN(OBJ_LIST_GENACTOR),
     OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
-    LOAD_ANIMATIONS(oAnimations, mips_seg6_anims_06015634),
+    LOAD_ANIMATIONS(oAnimations, mips_animations),
     SET_INT(oInteractType, INTERACT_GRABBABLE),
     DROP_TO_FLOOR(),
     SET_HITBOX(/*Radius*/ 50, /*Height*/ 75),
@@ -5122,7 +5122,7 @@ const BehaviorScript bhvMips[] = {
 const BehaviorScript bhvMipsCastle[] = {
     BEGIN(OBJ_LIST_GENACTOR),
     OR_INT(oFlags, (OBJ_FLAG_HOLDABLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
-    LOAD_ANIMATIONS(oAnimations, mips_seg6_anims_06015634),
+    LOAD_ANIMATIONS(oAnimations, mips_animations),
     SET_INT(oInteractType, INTERACT_GRABBABLE),
     DROP_TO_FLOOR(),
     SET_HITBOX(/*Radius*/ 50, /*Height*/ 75),

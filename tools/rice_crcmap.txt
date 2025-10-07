@@ -1087,7 +1087,6 @@
 0x49a828db, textures/skybox_tiles/cloud_floor.12.rgba16.png
 0x49a3631e, textures/grass/wf_textures.08000.rgba16.png
 0x49997119, levels/jrb/3.rgba16.png
-0x4944d2c9, actors/mips/mips_eyes.rgba16.png
 0x49313621, actors/haunted_cage/bbh_cage_wooden_base.rgba16.png
 0x48e57582, textures/skybox_tiles/bidw.13.rgba16.png
 0x48bc2fc8, textures/skybox_tiles/water.57.rgba16.png

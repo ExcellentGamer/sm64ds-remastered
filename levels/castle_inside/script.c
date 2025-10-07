@@ -293,7 +293,7 @@ const LevelScript level_castle_inside_entry[] = {
         OBJECT(/*model*/ MODEL_CASTLE_WATER_LEVEL_PILLAR, /*pos*/  7066, -1178,  -819, /*angle*/ 0,   0, 0, /*bhvParam*/ 0, /*bhv*/ bhvWaterLevelPillar),
         OBJECT(/*model*/ MODEL_CASTLE_WATER_LEVEL_PILLAR, /*pos*/  7066, -1178,  -205, /*angle*/ 0,   0, 0, /*bhvParam*/ 0, /*bhv*/ bhvWaterLevelPillar),
         OBJECT(/*model*/ MODEL_NONE,                      /*pos*/     0,     0,     0, /*angle*/ 0,   0, 0, /*bhvParam*/ 0, /*bhv*/ bhvDDDWarp),
-        OBJECT(/*model*/ MODEL_MIPS,                      /*pos*/ -1509, -1177, -1564, /*angle*/ 0,   0, 0, /*bhvParam*/ BPARAM2(MIPS_BP_15_STARS), /*bhv*/ bhvMips),
+        OBJECT(/*model*/ MODEL_MIPS,                      /*pos*/ -1509, -1177, -1564, /*angle*/ 0,   0, 0, /*bhvParam*/ BPARAM1(MIPS_YELLOW) | BPARAM2(MIPS_BP_15_STARS), /*bhv*/ bhvMips),
         OBJECT(/*model*/ MODEL_TOAD,                      /*pos*/  1787, -1381, -1957, /*angle*/ 0, 126, 0, /*bhvParam*/ BPARAM1(DIALOG_082), /*bhv*/ bhvToadMessage),
         OBJECT(/*model*/ MODEL_TOAD,                      /*pos*/ -4048, -1381, -1334, /*angle*/ 0,  30, 0, /*bhvParam*/ BPARAM1(DIALOG_136), /*bhv*/ bhvToadMessage),
         JUMP_LINK(script_func_local_3),

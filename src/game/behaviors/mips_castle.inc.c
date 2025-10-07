@@ -3,6 +3,9 @@
 void bhv_mips_castle_init(void) {
     u32 saveFlags = save_file_get_flags();
 
+    // Set MIPS Color
+    o->oAnimState = (o->oBhvParams >> 24) & 0xFF;
+
     // If the player hasn't collected the castle key
     if (!(saveFlags & SAVE_FLAG_UNLOCKED_CASTLE_DOOR)) {
         o->oBhvParams2ndByte = MIPS_BP_CASTLE_KEY;

@@ -1324,7 +1324,7 @@ s32 bowser_dead_final_stage_ending(void) {
         if (cur_obj_update_dialog(PLAYER_DIALOG_LOOK_UP,
             (DIALOG_FLAG_TEXT_DEFAULT | DIALOG_FLAG_TIME_STOP_ENABLED), dialogID, 0)) {
             // Dialog is done, fade out music and spawn grand star
-            cur_obj_set_model(MODEL_BOWSER_NO_SHADOW);
+            //cur_obj_set_model(MODEL_BOWSER_NO_SHADOW);
             seq_player_unlower_volume(SEQ_PLAYER_LEVEL, 60);
             seq_player_fade_out(SEQ_PLAYER_LEVEL, 1);
             bowser_spawn_collectable();

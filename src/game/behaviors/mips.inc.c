@@ -10,6 +10,9 @@ void bhv_mips_init(void) {
     // Retrieve star flags for Castle Secret Stars on current save file.
     u8 starFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_NUM_TO_INDEX(COURSE_NONE));
 
+    // Set MIPS Color
+    o->oAnimState = (o->oBhvParams >> 24) & 0xFF;
+
     // If the player has >= 15 stars and hasn't collected first MIPS star...
     if (save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1) >= MIPS1_STAR_REQ
         && !(starFlags & SAVE_FLAG_TO_STAR_FLAG(SAVE_FLAG_COLLECTED_MIPS_STAR_1))) {

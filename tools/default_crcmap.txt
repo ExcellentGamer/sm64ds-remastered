@@ -209,7 +209,6 @@
 0x2783aa5c, actors/manta/manta_fin_edge.rgba16.png
 0xfd83a1ff, actors/manta/manta_gills.rgba16.png
 0xd3bf1790, actors/metal_box/metal_box_side.rgba16.png
-0xaa35ca84, actors/mips/mips_eyes.rgba16.png
 0xaf1faaba, actors/mist/mist.ia16.png
 0x56094a62, actors/moneybag/moneybag_eyes.rgba16.png
 0x3dd1312a, actors/moneybag/moneybag_mouth.rgba16.png
