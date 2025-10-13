@@ -1384,21 +1384,30 @@ void update_player_button_inputs(struct PlayerState *m) {
 
     if (m->controller->buttonPressed & L_TRIG) {
         if (curChar > 2) {
-            curChar = 0;
+            curChar = -1;
         }
         curChar = curChar + 1;
     }
 
-    if (curChar == MARIO) {
-        m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO];
-    } else if (curChar == LUIGI) {
-        m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_LUIGI];
-    } else if (curChar == WARIO) {
-        m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_WARIO
-    } else if (curChar == WALUIGI) {
-        m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_WALUIGI
-    } else {
-        m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_YOSHI
+    switch (curChar) {
+        case MARIO:
+            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO];
+            break;
+        case LUIGI:
+            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_LUIGI];
+            break;
+        case WARIO:
+            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_WARIO
+            break;
+        case WALUIGI:
+            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_WALUIGI
+            break;
+        case YOSHI:
+            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_YOSHI];
+            break;
+        default:
+            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_YOSHI];
+            break;
     }
 
     if (m->input & INPUT_A_PRESSED) {

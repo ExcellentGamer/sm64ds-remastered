@@ -18,3 +18,4 @@
 #include "mario/geo.inc.c"
 
 #include "luigi/geo.inc.c"
+#include "yoshi/geo.inc.c"

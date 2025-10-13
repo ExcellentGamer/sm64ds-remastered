@@ -8,6 +8,7 @@
 #include "dialog_ids.h"
 #include "audio/external.h"
 #include "player_misc.h"
+#include "player.h"
 #include "game_init.h"
 #include "hud.h"
 #include "engine/math_util.h"
@@ -9440,10 +9441,6 @@ BAD_RETURN(s32) cutscene_intro_peach_handheld_shake_off(UNUSED struct Camera *c)
     set_handheld_shake(HAND_CAM_SHAKE_OFF);
 }
 
-BAD_RETURN(s32) intro_pipe_exit_text(UNUSED struct Camera *c) {
-    create_dialog_box(DIALOG_033);
-}
-
 BAD_RETURN(s32) play_sound_intro_turn_on_hud(UNUSED struct Camera *c) {
     play_sound_rbutton_changed();
 }
@@ -9465,22 +9462,17 @@ BAD_RETURN(s32) cutscene_intro_peach_fly_to_pipe(struct Camera *c) {
  * Lakitu flies around the warp pipe, then Player jumps out.
  */
 BAD_RETURN(s32) cutscene_intro_peach_player_appears(struct Camera *c) {
-    UNUSED u8 filler[8];
-
     sPlayerCamState->cameraEvent = 0;
     cutscene_event(cutscene_intro_peach_reset_spline, c, 0, 0);
     cutscene_event(cutscene_intro_peach_follow_pipe_spline, c, 0, -1);
     cutscene_event(cutscene_intro_peach_handheld_shake_off, c, 70, 70);
-    cutscene_event(intro_pipe_exit_text, c, 1525, 1525);
 
-    approach_f32_asymptotic_bool(&sCutsceneVars[1].point[1], 80.f + sPlayerGeometry.currFloorHeight +
-                                 (sPlayerCamState->pos[1] - sPlayerGeometry.currFloorHeight) * 1.1f, 0.4f);
+    approach_f32_asymptotic_bool(&sCutsceneVars[1].point[1], 80.f + sPlayerGeometry.currFloorHeight + (sPlayerCamState->pos[1] - sPlayerGeometry.currFloorHeight) * 1.1f, 0.4f);
 
     // Make the camera look up as Player jumps out of the pipe
     if (c->focus[1] < sCutsceneVars[1].point[1]) {
         c->focus[1] = sCutsceneVars[1].point[1];
     }
-
     sStatusFlags |= CAM_FLAG_UNUSED_CUTSCENE_ACTIVE;
 }
 
@@ -9506,7 +9498,6 @@ BAD_RETURN(s32) cutscene_intro_peach_letter(struct Camera *c) {
         // Start the next scene
         gCutsceneTimer = CUTSCENE_LOOP;
     }
-
     clamp_pitch(c->pos, c->focus, 0x3B00, -0x3B00);
 }
 

@@ -517,6 +517,30 @@ Gfx *geo_switch_player_cap_on_off(s32 callContext, struct GraphNode *node, UNUSE
 }
 
 /**
+ * Determine which yoshi face model to use TODO:
+ */
+Gfx *geo_switch_yoshi_face(s32 callContext, struct GraphNode *node, UNUSED Mat4 *c) {
+    struct GraphNode *next = node->next;
+    struct GraphNodeSwitchCase *switchCase = (struct GraphNodeSwitchCase *) node;
+    struct PlayerBodyState *bodyState = &gBodyStates[switchCase->numCases];
+
+    if (callContext == GEO_CONTEXT_RENDER) {
+        switchCase->selectedCase = bodyState->capState & 1;
+        while (next != node) {
+            if (next->type == GRAPH_NODE_TYPE_TRANSLATION_ROTATION) {
+                if (bodyState->capState & 2) {
+                    next->flags |= GRAPH_RENDER_ACTIVE;
+                } else {
+                    next->flags &= ~GRAPH_RENDER_ACTIVE;
+                }
+            }
+            next = next->next;
+        }
+    }
+    return NULL;
+}
+
+/**
  * Geo node script that makes the wings on Player's wing cap flap.
  * Should be placed before a rotation node.
  */

@@ -87,7 +87,6 @@ s32 sGameLoopTicked = 0;
 #define BOWS2 7 // Bowser Battle Laugh
 #define GRUNT 8
 #define WIGLR 9
-#define YOSHI 10
 #define _ 0xFF
 
 #if BUGFIX_DIALOG_SOUND_KTQ_WIN
@@ -114,7 +113,7 @@ u8 sDialogSpeaker[] = {
     /*13*/ _,     _,     TUXIE, _,     _,     _,     _,     _,     _,     _,
     /*14*/ _,     _,     _,     _,     _,     _,     _,     _,     _,     _,
     /*15*/ WIGLR, WIGLR, WIGLR, _,     _,     _,     _,     _,     _,     _,
-    /*16*/ _,     YOSHI, _,     _,     _,     _,     _,     _,     WIGLR, _,
+    /*16*/ _,     _,     _,     _,     _,     _,     _,     _,     WIGLR, _,
     /*17*/ BOWS1, _, _, KBOMB, _, _, _, _, _
 };
 #undef _

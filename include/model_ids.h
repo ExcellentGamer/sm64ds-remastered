@@ -14,6 +14,7 @@
 
 /* Global models that are loaded for every level */
 
+#define MODEL_YOSHI                       0x57        // yoshi_geo
 #define MODEL_MARIO                       0x01        // mario_geo
 #define MODEL_LUIGI                       0x02        // luigi_geo
 
@@ -327,7 +328,6 @@
 #define MODEL_BULLET_BILL                 0x54        // bullet_bill_geo
 #define MODEL_YELLOW_SPHERE               0x55        // yellow_sphere_geo
 #define MODEL_HOOT                        0x56        // hoot_geo
-#define MODEL_UNUSED                      0x57        // unused
 #define MODEL_THWOMP                      0x58        // thwomp_geo
 #define MODEL_HEAVE_HO                    0x59        // heave_ho_geo
 
