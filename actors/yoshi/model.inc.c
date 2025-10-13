@@ -18,12 +18,16 @@ Lights1 yoshi_yoshi_eyes_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Texture yoshi_yoshi_3_rgba16[] = {
-	#include "actors/yoshi/yoshi_3.rgba16.inc.c"
-};
-
 Texture yoshi_yoshi_1_rgba16[] = {
 	#include "actors/yoshi/yoshi_1.rgba16.inc.c"
+};
+
+Texture yoshi_yoshi_2_rgba16[] = {
+	#include "actors/yoshi/yoshi_2.rgba16.inc.c"
+};
+
+Texture yoshi_yoshi_3_rgba16[] = {
+	#include "actors/yoshi/yoshi_3.rgba16.inc.c"
 };
 
 Texture yoshi_yoshi_4_rgba16[] = {
@@ -32,10 +36,6 @@ Texture yoshi_yoshi_4_rgba16[] = {
 
 Texture yoshi_metal_shade_rgba16[] = {
 	#include "actors/yoshi/metal_shade.rgba16.inc.c"
-};
-
-Texture yoshi_yoshi_2_rgba16[] = {
-	#include "actors/yoshi/yoshi_2.rgba16.inc.c"
 };
 
 Texture yoshi_yoshi_eye_rgba16[] = {

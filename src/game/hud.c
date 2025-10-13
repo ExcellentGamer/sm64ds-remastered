@@ -315,14 +315,19 @@ void render_red_coins(void) {
  **/
 void render_hud_player_lives(void) {
     gSPDisplayList(gDisplayListHead++, dl_hud_img_begin);
-    if (curChar == 1) {
-        render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_mario_head);
-    } else if (curChar == 2) {
-        render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_luigi_head);
-    } else if (curChar == 3) {
-        render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_wario_head);
-    } else {
-        render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_yoshi_head);
+    switch (curChar) {
+        case 0:
+            render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_yoshi_head);
+            break;
+        case 1:
+            render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_mario_head);
+            break;
+        case 2:
+            render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_luigi_head);
+            break;
+        case 3:
+            render_hud_tex_lut(set_hud_auto_x_pos(HUD_LIVES_X), HUD_LIVES_Y, texture_hud_char_wario_head);
+            break;
     }
     gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
 

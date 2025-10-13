@@ -929,7 +929,6 @@ void update_hud_values(void) {
 
         gHudDisplay.stars = gPlayerState->numStars;
         gHudDisplay.lives = gPlayerState->numLives;
-        gHudDisplay.keys = gPlayerState->numKeys;
 
         if (numHealthWedges > gHudDisplay.wedges) {
             play_sound(SOUND_MENU_POWER_METER, gGlobalSoundSource);

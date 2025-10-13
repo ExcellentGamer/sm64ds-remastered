@@ -39,7 +39,7 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
             play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject);
             // fallthrough
         case 1:
-            set_player_animation(m, MARIO_ANIM_FIRST_PUNCH);
+            set_player_animation(m, CHAR_ANIM_FIRST_PUNCH);
             if (is_anim_past_end(m)) {
                 m->actionArg = 2;
             } else {
@@ -60,7 +60,7 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
             break;
 
         case 2:
-            set_player_animation(m, MARIO_ANIM_FIRST_PUNCH_FAST);
+            set_player_animation(m, CHAR_ANIM_FIRST_PUNCH_FAST);
 
             if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
                 m->flags |= PLAYER_PUNCHING;
@@ -79,7 +79,7 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
             play_sound(SOUND_MARIO_PUNCH_WAH, m->playerObj->header.gfx.cameraToObject);
             // fallthrough
         case 4:
-            set_player_animation(m, MARIO_ANIM_SECOND_PUNCH);
+            set_player_animation(m, CHAR_ANIM_SECOND_PUNCH);
             if (is_anim_past_end(m)) {
                 m->actionArg = 5;
             } else {
@@ -96,7 +96,7 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
             break;
 
         case 5:
-            set_player_animation(m, MARIO_ANIM_SECOND_PUNCH_FAST);
+            set_player_animation(m, CHAR_ANIM_SECOND_PUNCH_FAST);
             if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
                 m->flags |= PLAYER_PUNCHING;
             }
@@ -112,7 +112,7 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
 
         case 6:
             play_player_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
-            animFrame = set_player_animation(m, MARIO_ANIM_GROUND_KICK);
+            animFrame = set_player_animation(m, CHAR_ANIM_GROUND_KICK);
             if (animFrame == 0) {
                 m->playerBodyState->punchState = (2 << 6) | 6;
             }
@@ -128,7 +128,7 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
 
         case 9:
             play_player_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
-            set_player_animation(m, MARIO_ANIM_BREAKDANCE);
+            set_player_animation(m, CHAR_ANIM_BREAKDANCE);
             animFrame = m->playerObj->header.gfx.animInfo.animFrame;
 
             if (animFrame >= 2 && animFrame < 8) {
@@ -193,13 +193,13 @@ s32 act_picking_up(struct PlayerState *m) {
     if (m->actionState == 1) {
         if (m->heldObj->oInteractionSubtype & INT_SUBTYPE_GRABS_PLAYER) {
             m->playerBodyState->grabPos = GRAB_POS_HEAVY_OBJ;
-            set_player_animation(m, MARIO_ANIM_GRAB_HEAVY_OBJECT);
+            set_player_animation(m, CHAR_ANIM_GRAB_HEAVY_OBJECT);
             if (is_anim_at_end(m)) {
                 set_player_action(m, ACT_HOLD_HEAVY_IDLE, 0);
             }
         } else {
             m->playerBodyState->grabPos = GRAB_POS_LIGHT_OBJ;
-            set_player_animation(m, MARIO_ANIM_PICK_UP_LIGHT_OBJ);
+            set_player_animation(m, CHAR_ANIM_PICK_UP_LIGHT_OBJ);
             if (is_anim_at_end(m)) {
                 set_player_action(m, ACT_HOLD_IDLE, 0);
             }
@@ -226,7 +226,7 @@ s32 act_dive_picking_up(struct PlayerState *m) {
         return set_player_action(m, ACT_BEGIN_SLIDING, 0);
     }
 
-    animated_stationary_ground_step(m, MARIO_ANIM_STOP_SLIDE_LIGHT_OBJ, ACT_HOLD_IDLE);
+    animated_stationary_ground_step(m, CHAR_ANIM_STOP_SLIDE_LIGHT_OBJ, ACT_HOLD_IDLE);
     return FALSE;
 }
 
@@ -243,7 +243,7 @@ s32 act_placing_down(struct PlayerState *m) {
         player_drop_held_object(m);
     }
 
-    animated_stationary_ground_step(m, MARIO_ANIM_PLACE_LIGHT_OBJ, ACT_IDLE);
+    animated_stationary_ground_step(m, CHAR_ANIM_PLACE_LIGHT_OBJ, ACT_IDLE);
     return FALSE;
 }
 
@@ -269,7 +269,7 @@ s32 act_throwing(struct PlayerState *m) {
 #endif
     }
 
-    animated_stationary_ground_step(m, MARIO_ANIM_GROUND_THROW, ACT_IDLE);
+    animated_stationary_ground_step(m, CHAR_ANIM_GROUND_THROW, ACT_IDLE);
     return FALSE;
 }
 
@@ -291,7 +291,7 @@ s32 act_heavy_throw(struct PlayerState *m) {
 #endif
     }
 
-    animated_stationary_ground_step(m, MARIO_ANIM_HEAVY_THROW, ACT_IDLE);
+    animated_stationary_ground_step(m, CHAR_ANIM_HEAVY_THROW, ACT_IDLE);
     return FALSE;
 }
 
@@ -308,7 +308,7 @@ s32 act_stomach_slide_stop(struct PlayerState *m) {
         return set_player_action(m, ACT_BEGIN_SLIDING, 0);
     }
 
-    animated_stationary_ground_step(m, MARIO_ANIM_SLOW_LAND_FROM_DIVE, ACT_IDLE);
+    animated_stationary_ground_step(m, CHAR_ANIM_SLOW_LAND_FROM_DIVE, ACT_IDLE);
     return FALSE;
 }
 
@@ -324,7 +324,7 @@ s32 act_picking_up_bowser(struct PlayerState *m) {
         play_sound(SOUND_MARIO_HRMM, m->playerObj->header.gfx.cameraToObject);
     }
 
-    set_player_animation(m, MARIO_ANIM_GRAB_BOWSER);
+    set_player_animation(m, CHAR_ANIM_GRAB_BOWSER);
     if (is_anim_at_end(m)) {
         set_player_action(m, ACT_HOLDING_BOWSER, 0);
     }
@@ -350,10 +350,10 @@ s32 act_holding_bowser(struct PlayerState *m) {
             return set_player_action(m, ACT_RELEASING_BOWSER, 1);
         }
 
-        set_player_animation(m, MARIO_ANIM_HOLDING_BOWSER);
+        set_player_animation(m, CHAR_ANIM_HOLDING_BOWSER);
     } else {
         m->actionTimer = 0;
-        set_player_animation(m, MARIO_ANIM_SWINGING_BOWSER);
+        set_player_animation(m, CHAR_ANIM_SWINGING_BOWSER);
     }
 
     if (m->intendedMag > 20.0f) {
@@ -430,7 +430,7 @@ s32 act_releasing_bowser(struct PlayerState *m) {
     }
 
     m->angleVel[1] = 0;
-    animated_stationary_ground_step(m, MARIO_ANIM_RELEASE_BOWSER, ACT_IDLE);
+    animated_stationary_ground_step(m, CHAR_ANIM_RELEASE_BOWSER, ACT_IDLE);
     return FALSE;
 }
 

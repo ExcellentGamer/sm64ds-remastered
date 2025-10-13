@@ -202,7 +202,7 @@ s32 act_holding_pole(struct PlayerState *m) {
     }
 
     if (set_pole_position(m, 0.0f) == POLE_NONE) {
-        set_player_animation(m, MARIO_ANIM_IDLE_ON_POLE);
+        set_player_animation(m, CHAR_ANIM_IDLE_ON_POLE);
     }
 
     return FALSE;
@@ -235,7 +235,7 @@ s32 act_climbing_pole(struct PlayerState *m) {
 
     if (set_pole_position(m, 0.0f) == POLE_NONE) {
         sp24 = m->controller->stickY / 4.0f * 0x10000;
-        set_player_anim_with_accel(m, MARIO_ANIM_CLIMB_UP_POLE, sp24);
+        set_player_anim_with_accel(m, CHAR_ANIM_CLIMB_UP_POLE, sp24);
         add_tree_leaf_particles(m);
         play_climbing_sounds(m, 1);
     }
@@ -247,7 +247,7 @@ s32 act_grab_pole_slow(struct PlayerState *m) {
     play_sound_if_no_flag(m, SOUND_MARIO_WHOA, PLAYER_MARIO_SOUND_PLAYED);
 
     if (set_pole_position(m, 0.0f) == POLE_NONE) {
-        set_player_animation(m, MARIO_ANIM_GRAB_POLE_SHORT);
+        set_player_animation(m, CHAR_ANIM_GRAB_POLE_SHORT);
         if (is_anim_at_end(m)) {
             set_player_action(m, ACT_HOLDING_POLE, 0);
         }
@@ -266,9 +266,9 @@ s32 act_grab_pole_fast(struct PlayerState *m) {
 
     if (set_pole_position(m, 0.0f) == POLE_NONE) {
         if (playerObj->oPlayerPoleYawVel > 0x800) {
-            set_player_animation(m, MARIO_ANIM_GRAB_POLE_SWING_PART1);
+            set_player_animation(m, CHAR_ANIM_GRAB_POLE_SWING_PART1);
         } else {
-            set_player_animation(m, MARIO_ANIM_GRAB_POLE_SWING_PART2);
+            set_player_animation(m, CHAR_ANIM_GRAB_POLE_SWING_PART2);
             if (is_anim_at_end(m)) {
                 playerObj->oPlayerPoleYawVel = 0;
                 set_player_action(m, ACT_HOLDING_POLE, 0);
@@ -285,12 +285,12 @@ s32 act_top_of_pole_transition(struct PlayerState *m) {
 
     playerObj->oPlayerPoleYawVel = 0;
     if (m->actionArg == 0) {
-        set_player_animation(m, MARIO_ANIM_START_HANDSTAND);
+        set_player_animation(m, CHAR_ANIM_START_HANDSTAND);
         if (is_anim_at_end(m)) {
             return set_player_action(m, ACT_TOP_OF_POLE, 0);
         }
     } else {
-        set_player_animation(m, MARIO_ANIM_RETURN_FROM_HANDSTAND);
+        set_player_animation(m, CHAR_ANIM_RETURN_FROM_HANDSTAND);
         if (m->playerObj->header.gfx.animInfo.animFrame == 0) {
             return set_player_action(m, ACT_HOLDING_POLE, 0);
         }
@@ -312,7 +312,7 @@ s32 act_top_of_pole(struct PlayerState *m) {
 
     m->faceAngle[1] -= m->controller->stickX * 16.0f;
 
-    set_player_animation(m, MARIO_ANIM_HANDSTAND_IDLE);
+    set_player_animation(m, CHAR_ANIM_HANDSTAND_IDLE);
     set_pole_position(m, return_player_anim_y_translation(m));
     return FALSE;
 }
@@ -462,7 +462,7 @@ s32 act_start_hanging(struct PlayerState *m) {
         return set_player_action(m, ACT_FREEFALL, 0);
     }
 
-    set_player_animation(m, MARIO_ANIM_HANG_ON_CEILING);
+    set_player_animation(m, CHAR_ANIM_HANG_ON_CEILING);
     play_sound_if_no_flag(m, SOUND_ACTION_HANGING_STEP, PLAYER_ACTION_SOUND_PLAYED);
     update_hang_stationary(m);
 
@@ -499,9 +499,9 @@ s32 act_hanging(struct PlayerState *m) {
     }
 
     if (m->actionArg & 1) {
-        set_player_animation(m, MARIO_ANIM_HANDSTAND_LEFT);
+        set_player_animation(m, CHAR_ANIM_HANDSTAND_LEFT);
     } else {
-        set_player_animation(m, MARIO_ANIM_HANDSTAND_RIGHT);
+        set_player_animation(m, CHAR_ANIM_HANDSTAND_RIGHT);
     }
 
     update_hang_stationary(m);
@@ -532,14 +532,14 @@ s32 act_hang_moving(struct PlayerState *m) {
     // determine animation speed from forward velocity
     set_player_anim_with_accel(
         m,
-        (m->actionArg & 0x1) ? MARIO_ANIM_MOVE_ON_WIRE_NET_RIGHT : MARIO_ANIM_MOVE_ON_WIRE_NET_LEFT,
+        (m->actionArg & 0x1) ? CHAR_ANIM_MOVE_ON_WIRE_NET_RIGHT : CHAR_ANIM_MOVE_ON_WIRE_NET_LEFT,
         (m->forwardVel + 1.0f) * 0x2000
     );
 #else
     if (m->actionArg & 1) {
-        set_player_animation(m, MARIO_ANIM_MOVE_ON_WIRE_NET_RIGHT);
+        set_player_animation(m, CHAR_ANIM_MOVE_ON_WIRE_NET_RIGHT);
     } else {
-        set_player_animation(m, MARIO_ANIM_MOVE_ON_WIRE_NET_LEFT);
+        set_player_animation(m, CHAR_ANIM_MOVE_ON_WIRE_NET_LEFT);
     }
 #endif
 
@@ -596,7 +596,7 @@ s32 let_go_of_ledge(struct PlayerState *m) {
 }
 
 void climb_up_ledge(struct PlayerState *m) {
-    set_player_animation(m, MARIO_ANIM_IDLE_HEAD_LEFT);
+    set_player_animation(m, CHAR_ANIM_IDLE_HEAD_LEFT);
     m->pos[0] += 14.0f * sins(m->faceAngle[1]);
     m->pos[2] += 14.0f * coss(m->faceAngle[1]);
     vec3f_copy(m->playerObj->header.gfx.pos, m->pos);
@@ -683,7 +683,7 @@ s32 act_ledge_grab(struct PlayerState *m) {
     }
 
     stop_and_set_height_to_floor(m);
-    set_player_animation(m, MARIO_ANIM_IDLE_ON_LEDGE);
+    set_player_animation(m, CHAR_ANIM_IDLE_ON_LEDGE);
 
     return FALSE;
 }
@@ -704,7 +704,7 @@ s32 act_ledge_climb_slow(struct PlayerState *m) {
         play_sound_if_no_flag(m, SOUND_MARIO_EEUH, PLAYER_MARIO_SOUND_PLAYED);
     }
 
-    update_ledge_climb(m, MARIO_ANIM_SLOW_LEDGE_GRAB, ACT_IDLE);
+    update_ledge_climb(m, CHAR_ANIM_SLOW_LEDGE_GRAB, ACT_IDLE);
 
     update_ledge_climb_camera(m);
     if (m->playerObj->header.gfx.animInfo.animFrame == 17) {
@@ -721,7 +721,7 @@ s32 act_ledge_climb_down(struct PlayerState *m) {
 
     play_sound_if_no_flag(m, SOUND_MARIO_WHOA, PLAYER_MARIO_SOUND_PLAYED);
 
-    update_ledge_climb(m, MARIO_ANIM_CLIMB_DOWN_LEDGE, ACT_LEDGE_GRAB);
+    update_ledge_climb(m, CHAR_ANIM_CLIMB_DOWN_LEDGE, ACT_LEDGE_GRAB);
     m->actionArg = 1;
 
     return FALSE;
@@ -734,7 +734,7 @@ s32 act_ledge_climb_fast(struct PlayerState *m) {
 
     play_sound_if_no_flag(m, SOUND_MARIO_UH_LEDGE_CLIMB_FAST, PLAYER_MARIO_SOUND_PLAYED);
 
-    update_ledge_climb(m, MARIO_ANIM_FAST_LEDGE_GRAB, ACT_IDLE);
+    update_ledge_climb(m, CHAR_ANIM_FAST_LEDGE_GRAB, ACT_IDLE);
 
     if (m->playerObj->header.gfx.animInfo.animFrame == 8) {
         play_player_landing_sound(m, SOUND_ACTION_TERRAIN_LANDING);
@@ -758,7 +758,7 @@ s32 act_grabbed(struct PlayerState *m) {
                                 thrown);
     }
 
-    set_player_animation(m, MARIO_ANIM_BEING_GRABBED);
+    set_player_animation(m, CHAR_ANIM_BEING_GRABBED);
     return FALSE;
 }
 
@@ -857,7 +857,7 @@ s32 act_in_cannon(struct PlayerState *m) {
 
     vec3f_copy(m->playerObj->header.gfx.pos, m->pos);
     vec3s_set(m->playerObj->header.gfx.angle, 0, m->faceAngle[1], 0);
-    set_player_animation(m, MARIO_ANIM_DIVE);
+    set_player_animation(m, CHAR_ANIM_DIVE);
 
     return FALSE;
 }
@@ -923,7 +923,7 @@ s32 act_tornado_twirling(struct PlayerState *m) {
 
     m->actionTimer++;
 
-    set_player_animation(m, (m->actionArg == 0) ? MARIO_ANIM_START_TWIRL : MARIO_ANIM_TWIRL);
+    set_player_animation(m, (m->actionArg == 0) ? CHAR_ANIM_START_TWIRL : CHAR_ANIM_TWIRL);
 
     if (is_anim_past_end(m)) {
         m->actionArg = 1;

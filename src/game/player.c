@@ -14,6 +14,7 @@
 #include "level_table.h"
 #include "level_update.h"
 #include "main.h"
+#include "characters.h"
 #include "player.h"
 #include "player_actions_airborne.h"
 #include "player_actions_automatic.h"
@@ -73,11 +74,13 @@ s32 is_anim_past_end(struct PlayerState *m) {
 }
 
 /**
- * Sets Player's animation without any acceleration, running at its default rate.
+ * Sets the player's animation without any acceleration, running at its default rate.
  */
-s16 set_player_animation(struct PlayerState *m, s32 targetAnimID) {
+s16 set_player_animation(struct PlayerState *m, enum PlayerAnimID targetAnimID) {
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
+
+    targetAnimID = get_character_anim(m, targetAnimID);
 
     if (load_patchable_table(m->animList, targetAnimID)) {
         targetAnim->values = (void *) VIRTUAL_TO_PHYSICAL((u8 *) targetAnim + (uintptr_t) targetAnim->values);
@@ -108,9 +111,11 @@ s16 set_player_animation(struct PlayerState *m, s32 targetAnimID) {
  * Sets Player's animation where the animation is sped up or
  * slowed down via acceleration.
  */
-s16 set_player_anim_with_accel(struct PlayerState *m, s32 targetAnimID, s32 accel) {
+s16 set_player_anim_with_accel(struct PlayerState *m, enum PlayerAnimID targetAnimID, s32 accel) {
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
+
+    targetAnimID = get_character_anim(m, targetAnimID);
 
     if (load_patchable_table(m->animList, targetAnimID)) {
         targetAnim->values = (void *) VIRTUAL_TO_PHYSICAL((u8 *) targetAnim + (uintptr_t) targetAnim->values);
@@ -1389,27 +1394,8 @@ void update_player_button_inputs(struct PlayerState *m) {
         curChar = curChar + 1;
     }
 
-    switch (curChar) {
-        case MARIO:
-            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO];
-            break;
-        case LUIGI:
-            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_LUIGI];
-            break;
-        case WARIO:
-            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_WARIO
-            break;
-        case WALUIGI:
-            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_MARIO]; // Todo: Make "MODEL_MARIO" MODEL_WALUIGI
-            break;
-        case YOSHI:
-            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_YOSHI];
-            break;
-        default:
-            m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_YOSHI];
-            break;
-    }
-
+    m->playerObj->header.gfx.sharedChild = gLoadedGraphNodes[gCharacters[curChar].modelId];
+ 
     if (m->input & INPUT_A_PRESSED) {
         m->framesSinceA = 0;
     } else if (m->framesSinceA < 0xFF) {
@@ -2040,7 +2026,6 @@ void init_player_from_save_file(void) {
     gPlayerState->numCoins = 0;
     gPlayerState->numStars =
         save_file_get_total_star_count(gCurrSaveFileNum - 1, COURSE_MIN - 1, COURSE_MAX - 1);
-    gPlayerState->numKeys = 0;
 
     gPlayerState->numLives = MARIO_START_LIVES;
     gPlayerState->health = 0x880;

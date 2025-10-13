@@ -93,13 +93,13 @@ s32 set_player_shadow_scale_solidity(Vec3f scaleVec, f32 distToShadow, s16 shado
     vec3f_set(scaleVec, shadowScale, shadowScale, shadowScale);
 
     switch (animInfo->animID) {
-        case MARIO_ANIM_IDLE_ON_LEDGE:
+        case CHAR_ANIM_IDLE_ON_LEDGE:
             return 0;
-        case MARIO_ANIM_FAST_LEDGE_GRAB:
+        case CHAR_ANIM_FAST_LEDGE_GRAB:
             return linearly_interpolate_positive(solidity, animFrame,  5, 14); // fade in
-        case MARIO_ANIM_SLOW_LEDGE_GRAB:
+        case CHAR_ANIM_SLOW_LEDGE_GRAB:
             return linearly_interpolate_positive(solidity, animFrame, 21, 33); // fade in
-        case MARIO_ANIM_CLIMB_DOWN_LEDGE:
+        case CHAR_ANIM_CLIMB_DOWN_LEDGE:
             return linearly_interpolate_negative(solidity, animFrame,  0,  5); // fade out
         default:
             // Set solidity and scale based on distance.
