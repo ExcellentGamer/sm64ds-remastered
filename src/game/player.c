@@ -80,7 +80,11 @@ s16 set_player_animation(struct PlayerState *m, enum PlayerAnimID targetAnimID) 
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
 
-    targetAnimID = get_character_anim(m, targetAnimID);
+    if (curChar == 0) {
+        targetAnimID = YOSHI_ANIM_TPOSE;
+    } else {
+        targetAnimID = get_character_anim(m, targetAnimID);
+    }
 
     if (load_patchable_table(m->animList, targetAnimID)) {
         targetAnim->values = (void *) VIRTUAL_TO_PHYSICAL((u8 *) targetAnim + (uintptr_t) targetAnim->values);
@@ -115,7 +119,11 @@ s16 set_player_anim_with_accel(struct PlayerState *m, enum PlayerAnimID targetAn
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
 
-    targetAnimID = get_character_anim(m, targetAnimID);
+    if (curChar == 0) {
+        targetAnimID = YOSHI_ANIM_TPOSE;
+    } else {
+        targetAnimID = get_character_anim(m, targetAnimID);
+    }
 
     if (load_patchable_table(m->animList, targetAnimID)) {
         targetAnim->values = (void *) VIRTUAL_TO_PHYSICAL((u8 *) targetAnim + (uintptr_t) targetAnim->values);

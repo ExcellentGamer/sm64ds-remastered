@@ -119,7 +119,7 @@ enum PlayerAnimID {
     /* 0x70 */ CHAR_ANIM_BACKWARD_SPINNING,
     /* 0x71 */ CHAR_ANIM_BREAKDANCE,
     /* 0x72 */ CHAR_ANIM_RUNNING,
-    /* 0x73 */ CHAR_ANIM_RUNNING_UNUSED, // unused duplicate, originally part 2?
+    /* 0x73 */ YOSHI_ANIM_TPOSE,
     /* 0x74 */ CHAR_ANIM_SOFT_BACK_KB,
     /* 0x75 */ CHAR_ANIM_SOFT_FRONT_KB,
     /* 0x76 */ CHAR_ANIM_DYING_IN_QUICKSAND,
@@ -213,6 +213,10 @@ enum PlayerAnimID {
     /* 0xCE */ CHAR_ANIM_RETURN_FROM_STAR_DANCE,
     /* 0xCF */ CHAR_ANIM_FORWARD_SPINNING_FLIP,
     /* 0xD0 */ CHAR_ANIM_TRIPLE_JUMP_FLY,
+
+    // Yoshi Specific Animations (Basically all new animations):
+
+    /* 0xD1 */ YOSHI_ANIM_IDLE,
     CHAR_ANIM_MAX // MUST BE LAST
 };
 

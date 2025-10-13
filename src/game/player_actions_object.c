@@ -145,18 +145,24 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
 }
 
 s32 act_punching(struct PlayerState *m) {
+    struct PlayerBodyState *bodyState = m->playerBodyState;
+
     if (m->input & INPUT_STOMPED) {
+        bodyState->eatState = 0;
         return drop_and_set_player_action(m, ACT_SHOCKWAVE_BOUNCE, 0);
     }
 
     if (m->input & (INPUT_NONZERO_ANALOG | INPUT_A_PRESSED | INPUT_OFF_FLOOR | INPUT_ABOVE_SLIDE)) {
+        bodyState->eatState = 0;
         return check_common_action_exits(m);
     }
 
     if (m->actionState == 0 && (m->input & INPUT_A_DOWN)) {
+        bodyState->eatState = 0;
         return set_player_action(m, ACT_JUMP_KICK, 0);
     }
 
+    bodyState->eatState = 1;
     m->actionState = 1;
     if (m->actionArg == 0) {
         m->actionTimer = 7;

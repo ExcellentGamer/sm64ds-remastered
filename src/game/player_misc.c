@@ -525,10 +525,10 @@ Gfx *geo_switch_yoshi_face(s32 callContext, struct GraphNode *node, UNUSED Mat4 
     struct PlayerBodyState *bodyState = &gBodyStates[switchCase->numCases];
 
     if (callContext == GEO_CONTEXT_RENDER) {
-        switchCase->selectedCase = bodyState->capState & 1;
+        switchCase->selectedCase = bodyState->eatState & 1;
         while (next != node) {
             if (next->type == GRAPH_NODE_TYPE_TRANSLATION_ROTATION) {
-                if (bodyState->capState & 2) {
+                if (bodyState->eatState & 2) {
                     next->flags |= GRAPH_RENDER_ACTIVE;
                 } else {
                     next->flags &= ~GRAPH_RENDER_ACTIVE;

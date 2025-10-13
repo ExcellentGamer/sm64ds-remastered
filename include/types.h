@@ -305,17 +305,18 @@ struct Surface {
 };
 
 struct PlayerBodyState {
-    /*0x00*/ u32 action;
-    /*0x04*/ s8 capState; /// see PlayerCapGSCId
-    /*0x05*/ s8 eyeState;
-    /*0x06*/ s8 handState;
-    /*0x07*/ s8 wingFlutter; /// whether the player's wing cap wings are fluttering
-    /*0x08*/ s16 modelState;
-    /*0x0A*/ s8 grabPos;
-    /*0x0B*/ u8 punchState; /// 2 bits for type of punch, 6 bits for punch animation timer
-    /*0x0C*/ Vec3s torsoAngle;
-    /*0x12*/ Vec3s headAngle;
-    /*0x18*/ Vec3f heldObjLastPosition; /// also known as HOLP
+    u32 action;
+    s8 capState; /// see PlayerCapGSCId
+    s8 eatState; // used for Yoshi's head
+    s8 eyeState;
+    s8 handState;
+    s8 wingFlutter; /// whether the player's wing cap wings are fluttering
+    s16 modelState;
+    s8 grabPos;
+    u8 punchState; /// 2 bits for type of punch, 6 bits for punch animation timer
+    Vec3s torsoAngle;
+    Vec3s headAngle;
+    Vec3f heldObjLastPosition; /// also known as HOLP
     u8 filler[4];
 };
 
