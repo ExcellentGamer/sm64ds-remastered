@@ -1184,16 +1184,22 @@ static s32 act_metal_water_standing(struct PlayerState *m) {
         return set_player_action(m, ACT_METAL_WATER_WALKING, 0);
     }
 
-    switch (m->actionState) {
-        case 0:
-            set_player_animation(m, CHAR_ANIM_IDLE_HEAD_LEFT);
-            break;
-        case 1:
-            set_player_animation(m, CHAR_ANIM_IDLE_HEAD_RIGHT);
-            break;
-        case 2:
-            set_player_animation(m, CHAR_ANIM_IDLE_HEAD_CENTER);
-            break;
+    if (curChar == 0) {
+        set_player_animation(m, YOSHI_ANIM_IDLE);
+    } else {
+        switch (m->actionState) {
+            case 0:
+                set_player_animation(m, CHAR_ANIM_IDLE_HEAD_LEFT);
+                break;
+
+            case 1:
+                set_player_animation(m, CHAR_ANIM_IDLE_HEAD_RIGHT);
+                break;
+
+            case 2:
+                set_player_animation(m, CHAR_ANIM_IDLE_HEAD_CENTER);
+                break;
+        }
     }
 
     if (is_anim_at_end(m) && ++m->actionState == 3) {

@@ -217,6 +217,7 @@ enum PlayerAnimID {
     // Yoshi Specific Animations (Basically all new animations):
 
     /* 0xD1 */ YOSHI_ANIM_IDLE,
+    /* 0xD2 */ YOSHI_ANIM_RUN,
     CHAR_ANIM_MAX // MUST BE LAST
 };
 

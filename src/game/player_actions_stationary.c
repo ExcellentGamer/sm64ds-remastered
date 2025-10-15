@@ -130,18 +130,22 @@ s32 act_idle(struct PlayerState *m) {
     if (m->actionArg & 1) {
         set_player_animation(m, CHAR_ANIM_STAND_AGAINST_WALL);
     } else {
-        switch (m->actionState) {
-            case 0:
-                set_player_animation(m, CHAR_ANIM_IDLE_HEAD_LEFT);
-                break;
+        if (curChar == 0) {
+            set_player_animation(m, YOSHI_ANIM_IDLE);
+        } else {
+            switch (m->actionState) {
+                case 0:
+                    set_player_animation(m, CHAR_ANIM_IDLE_HEAD_LEFT);
+                    break;
 
-            case 1:
-                set_player_animation(m, CHAR_ANIM_IDLE_HEAD_RIGHT);
-                break;
+                case 1:
+                    set_player_animation(m, CHAR_ANIM_IDLE_HEAD_RIGHT);
+                    break;
 
-            case 2:
-                set_player_animation(m, CHAR_ANIM_IDLE_HEAD_CENTER);
-                break;
+                case 2:
+                    set_player_animation(m, CHAR_ANIM_IDLE_HEAD_CENTER);
+                    break;
+            }
         }
 
         if (is_anim_at_end(m)) {

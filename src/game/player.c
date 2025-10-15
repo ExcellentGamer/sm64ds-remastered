@@ -43,7 +43,7 @@
 u32 unused80339F10;
 u8 unused80339F1C[20];
 
-int curChar = 1;
+int curChar = 0;
 
 #define YOSHI   0
 #define MARIO   1
@@ -76,14 +76,14 @@ s32 is_anim_past_end(struct PlayerState *m) {
 /**
  * Sets the player's animation without any acceleration, running at its default rate.
  */
-s16 set_player_animation(struct PlayerState *m, enum PlayerAnimID targetAnimID) {
+s16 set_player_animation(struct PlayerState *m, s32 targetAnimID) {
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
 
-    if (curChar == 0) {
+    if (curChar == 0 && (targetAnimID != YOSHI_ANIM_RUN) && (targetAnimID != YOSHI_ANIM_IDLE)) {
         targetAnimID = YOSHI_ANIM_TPOSE;
     } else {
-        targetAnimID = get_character_anim(m, targetAnimID);
+        targetAnimID = targetAnimID;
     }
 
     if (load_patchable_table(m->animList, targetAnimID)) {
@@ -115,14 +115,14 @@ s16 set_player_animation(struct PlayerState *m, enum PlayerAnimID targetAnimID) 
  * Sets Player's animation where the animation is sped up or
  * slowed down via acceleration.
  */
-s16 set_player_anim_with_accel(struct PlayerState *m, enum PlayerAnimID targetAnimID, s32 accel) {
+s16 set_player_anim_with_accel(struct PlayerState *m, s32 targetAnimID, s32 accel) {
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
 
-    if (curChar == 0) {
+    if (curChar == 0 && (targetAnimID != YOSHI_ANIM_RUN) && (targetAnimID != YOSHI_ANIM_IDLE)) {
         targetAnimID = YOSHI_ANIM_TPOSE;
     } else {
-        targetAnimID = get_character_anim(m, targetAnimID);
+        targetAnimID = targetAnimID;
     }
 
     if (load_patchable_table(m->animList, targetAnimID)) {

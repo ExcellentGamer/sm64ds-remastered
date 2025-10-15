@@ -246,7 +246,4 @@ struct Character {
 struct PlayerState;
 extern struct Character gCharacters[];
 
-// Gets the animation from the Character:
-s32 get_character_anim(struct PlayerState* m, enum PlayerAnimID characterAnim);
-
 #endif // CHARACTERS_H

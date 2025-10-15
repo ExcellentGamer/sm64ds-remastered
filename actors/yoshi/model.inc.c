@@ -112,338 +112,6 @@ Gfx yoshi_skl_root_mesh_layer_1_tri_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_leg_l1_mesh_layer_1_vtx_0[8] = {
-	{{{-11, -3, 7}, 0, {905, 961}, {0x8B, 0x0F, 0x30, 0xFF}}},
-	{{{-9, 6, 2}, 0, {905, 961}, {0xA5, 0x43, 0xC6, 0xFF}}},
-	{{{-12, -5, -6}, 0, {905, 961}, {0x9C, 0x1A, 0xB7, 0xFF}}},
-	{{{0, 10, 0}, 0, {905, 961}, {0x02, 0x54, 0xA1, 0xFF}}},
-	{{{0, 0, -9}, 0, {905, 961}, {0x15, 0x33, 0x8E, 0xFF}}},
-	{{{9, 4, 2}, 0, {905, 961}, {0x6F, 0x2C, 0xD5, 0xFF}}},
-	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0xFA, 0xFF}}},
-	{{{0, -9, -10}, 0, {905, 961}, {0x1E, 0xFA, 0x85, 0xFF}}},
-};
-
-Gfx yoshi_leg_l1_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_leg_l1_mesh_layer_1_vtx_0 + 0, 8, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSP2Triangles(2, 3, 4, 0, 5, 4, 3, 0),
-	gsSP2Triangles(4, 5, 6, 0, 6, 7, 4, 0),
-	gsSP1Triangle(2, 4, 7, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_l2_skinned_mesh_layer_1_vtx_0[5] = {
-	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0xFA, 0xFF}}},
-	{{{9, 4, 2}, 0, {905, 961}, {0x6F, 0x2C, 0xD5, 0xFF}}},
-	{{{-11, -3, 7}, 0, {361, 673}, {0x8B, 0x0F, 0x30, 0xFF}}},
-	{{{-12, -5, -6}, 0, {361, 673}, {0x9C, 0x1A, 0xB7, 0xFF}}},
-	{{{0, -9, -10}, 0, {19, 695}, {0x1E, 0xFA, 0x85, 0xFF}}},
-};
-
-Gfx yoshi_leg_l2_skinned_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_leg_l2_skinned_mesh_layer_1_vtx_0 + 0, 5, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_l2_skinned_mesh_layer_1_vtx_1[2] = {
-	{{{11, -11, 0}, 0, {1779, 654}, {0x7F, 0xF6, 0xFA, 0xFF}}},
-	{{{0, -9, -10}, 0, {2049, 698}, {0x1E, 0xFA, 0x85, 0xFF}}},
-};
-
-Gfx yoshi_leg_l2_skinned_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_leg_l2_skinned_mesh_layer_1_vtx_1 + 0, 2, 5),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_l2_mesh_layer_1_vtx_0[5] = {
-	{{{0, 6, -11}, 0, {905, 961}, {0xD7, 0xEF, 0x89, 0xFF}}},
-	{{{12, 0, -7}, 0, {361, 673}, {0x60, 0xE5, 0xB2, 0xFF}}},
-	{{{0, 6, -11}, 0, {19, 693}, {0xD7, 0xEF, 0x89, 0xFF}}},
-	{{{11, 0, 6}, 0, {361, 673}, {0x60, 0xE3, 0x4F, 0xFF}}},
-	{{{1, -8, 6}, 0, {19, 1009}, {0xED, 0xCF, 0x74, 0xFF}}},
-};
-
-Gfx yoshi_leg_l2_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_0 + 0, 5, 7),
-	gsSP2Triangles(7, 0, 1, 0, 8, 9, 2, 0),
-	gsSP2Triangles(2, 3, 8, 0, 10, 8, 3, 0),
-	gsSP2Triangles(3, 4, 10, 0, 11, 10, 4, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_l2_mesh_layer_1_vtx_1[3] = {
-	{{{0, 6, -11}, 0, {2049, 696}, {0xD7, 0xEF, 0x89, 0xFF}}},
-	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0x04, 0xFF}}},
-	{{{1, -8, 6}, 0, {2049, 1012}, {0xED, 0xCF, 0x74, 0xFF}}},
-};
-
-Gfx yoshi_leg_l2_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_1 + 0, 3, 7),
-	gsSP2Triangles(7, 8, 5, 0, 6, 5, 8, 0),
-	gsSP1Triangle(6, 8, 9, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_l2_mesh_layer_1_vtx_2[5] = {
-	{{{1, -8, -7}, 0, {2049, 1012}, {0xE8, 0xD0, 0x8D, 0xFF}}},
-	{{{-6, -8, -1}, 0, {1911, 1012}, {0x89, 0xD4, 0xFD, 0xFF}}},
-	{{{0, 6, -11}, 0, {2049, 696}, {0xD7, 0xEF, 0x89, 0xFF}}},
-	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0x04, 0xFF}}},
-	{{{1, -8, 6}, 0, {2049, 1012}, {0xED, 0xCF, 0x74, 0xFF}}},
-};
-
-Gfx yoshi_leg_l2_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_2 + 0, 5, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSP1Triangle(1, 4, 3, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_l2_mesh_layer_1_vtx_3[6] = {
-	{{{0, 6, -11}, 0, {19, 693}, {0xD7, 0xEF, 0x89, 0xFF}}},
-	{{{12, 0, -7}, 0, {361, 673}, {0x60, 0xE5, 0xB2, 0xFF}}},
-	{{{1, -8, -7}, 0, {19, 1009}, {0xE8, 0xD0, 0x8D, 0xFF}}},
-	{{{10, -8, 0}, 0, {307, 1009}, {0x69, 0xB9, 0x02, 0xFF}}},
-	{{{11, 0, 6}, 0, {361, 673}, {0x60, 0xE3, 0x4F, 0xFF}}},
-	{{{1, -8, 6}, 0, {19, 1009}, {0xED, 0xCF, 0x74, 0xFF}}},
-};
-
-Gfx yoshi_leg_l2_mesh_layer_1_tri_3[] = {
-	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_3 + 0, 6, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSP2Triangles(1, 4, 3, 0, 5, 3, 4, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_ankle_l1_mesh_layer_1_vtx_0[27] = {
-	{{{20, -10, 12}, 0, {1449, 737}, {0x29, 0xB5, 0x5D, 0xFF}}},
-	{{{20, -10, -12}, 0, {1449, 993}, {0x2A, 0xB5, 0xA2, 0xFF}}},
-	{{{28, -10, 0}, 0, {1355, 859}, {0x6A, 0xBA, 0x00, 0xFF}}},
-	{{{-14, -10, -10}, 0, {1865, 993}, {0xAF, 0xC8, 0xB0, 0xFF}}},
-	{{{-14, -10, 10}, 0, {1865, 737}, {0xAE, 0xC8, 0x4F, 0xFF}}},
-	{{{-13, 5, 0}, 0, {1885, 477}, {0x92, 0xC1, 0x00, 0xFF}}},
-	{{{-16, 10, 0}, 0, {1905, 381}, {0x8D, 0x35, 0x00, 0xFF}}},
-	{{{-5, 10, -13}, 0, {1609, 381}, {0xF6, 0x31, 0x8B, 0xFF}}},
-	{{{-5, 5, 11}, 0, {1617, 477}, {0xF1, 0xC3, 0x6E, 0xFF}}},
-	{{{-5, 10, 13}, 0, {1609, 381}, {0xF6, 0x31, 0x75, 0xFF}}},
-	{{{9, 5, 0}, 0, {1419, 477}, {0x6F, 0xC2, 0x00, 0xFF}}},
-	{{{12, 10, 0}, 0, {1369, 381}, {0x76, 0x2E, 0x00, 0xFF}}},
-	{{{-5, 5, -10}, 0, {1617, 477}, {0xF1, 0xC3, 0x92, 0xFF}}},
-	{{{-13, 5, 0}, 0, {1831, 511}, {0x87, 0x26, 0x00, 0xFF}}},
-	{{{-5, 5, -10}, 0, {1671, 507}, {0xED, 0xF4, 0x83, 0xFF}}},
-	{{{-5, -3, -10}, 0, {1645, 559}, {0xEA, 0x22, 0x88, 0xFF}}},
-	{{{9, 5, 0}, 0, {1539, 505}, {0x0C, 0x7E, 0x00, 0xFF}}},
-	{{{26, 5, 0}, 0, {1389, 531}, {0x50, 0x63, 0x00, 0xFF}}},
-	{{{-5, -3, 10}, 0, {1645, 559}, {0xEA, 0x21, 0x79, 0xFF}}},
-	{{{-5, 5, 11}, 0, {1671, 507}, {0xED, 0xF4, 0x7D, 0xFF}}},
-	{{{-14, -10, 10}, 0, {1871, 665}, {0xAE, 0xC8, 0x4F, 0xFF}}},
-	{{{-14, -10, -10}, 0, {1871, 665}, {0xAF, 0xC8, 0xB0, 0xFF}}},
-	{{{20, -10, -12}, 0, {1437, 665}, {0x2A, 0xB5, 0xA2, 0xFF}}},
-	{{{20, 0, -11}, 0, {1431, 569}, {0x2A, 0x40, 0x9B, 0xFF}}},
-	{{{28, -10, 0}, 0, {1377, 665}, {0x6A, 0xBA, 0x00, 0xFF}}},
-	{{{20, 0, 12}, 0, {1431, 569}, {0x2A, 0x40, 0x65, 0xFF}}},
-	{{{20, -10, 12}, 0, {1437, 665}, {0x29, 0xB5, 0x5D, 0xFF}}},
-};
-
-Gfx yoshi_ankle_l1_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_ankle_l1_mesh_layer_1_vtx_0 + 0, 27, 0),
-	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
-	gsSP2Triangles(0, 4, 3, 0, 5, 6, 7, 0),
-	gsSP2Triangles(8, 6, 5, 0, 8, 9, 6, 0),
-	gsSP2Triangles(10, 9, 8, 0, 10, 11, 9, 0),
-	gsSP2Triangles(12, 11, 10, 0, 12, 7, 11, 0),
-	gsSP2Triangles(5, 7, 12, 0, 13, 14, 15, 0),
-	gsSP2Triangles(16, 15, 14, 0, 15, 16, 17, 0),
-	gsSP2Triangles(16, 18, 17, 0, 18, 16, 19, 0),
-	gsSP2Triangles(19, 13, 18, 0, 20, 18, 13, 0),
-	gsSP2Triangles(20, 13, 21, 0, 15, 21, 13, 0),
-	gsSP2Triangles(15, 22, 21, 0, 15, 23, 22, 0),
-	gsSP2Triangles(15, 17, 23, 0, 24, 23, 17, 0),
-	gsSP2Triangles(17, 25, 24, 0, 25, 17, 18, 0),
-	gsSP2Triangles(26, 25, 18, 0, 26, 18, 20, 0),
-	gsSP2Triangles(26, 24, 25, 0, 23, 24, 22, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_ankle_l1_mesh_layer_1_vtx_1[4] = {
-	{{{-16, 10, 0}, 0, {959, 414}, {0x8D, 0x35, 0x00, 0xFF}}},
-	{{{-5, 10, 13}, 0, {737, 530}, {0xF6, 0x31, 0x75, 0xFF}}},
-	{{{-5, 10, -13}, 0, {1169, 530}, {0xF6, 0x31, 0x8B, 0xFF}}},
-	{{{12, 10, 0}, 0, {953, 594}, {0x76, 0x2E, 0x00, 0xFF}}},
-};
-
-Gfx yoshi_ankle_l1_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_ankle_l1_mesh_layer_1_vtx_1 + 0, 4, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r1_mesh_layer_1_vtx_0[8] = {
-	{{{-11, -3, -7}, 0, {905, 961}, {0x8B, 0x0F, 0xD0, 0xFF}}},
-	{{{-12, -5, 6}, 0, {905, 961}, {0x9C, 0x1A, 0x49, 0xFF}}},
-	{{{-9, 6, -2}, 0, {905, 961}, {0xA5, 0x43, 0x3A, 0xFF}}},
-	{{{0, 10, 0}, 0, {905, 961}, {0x02, 0x54, 0x5F, 0xFF}}},
-	{{{0, 0, 9}, 0, {905, 961}, {0x15, 0x33, 0x72, 0xFF}}},
-	{{{0, -9, 10}, 0, {905, 961}, {0x1E, 0xFA, 0x7B, 0xFF}}},
-	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0x06, 0xFF}}},
-	{{{9, 4, -2}, 0, {905, 961}, {0x6F, 0x2C, 0x2B, 0xFF}}},
-};
-
-Gfx yoshi_leg_r1_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_leg_r1_mesh_layer_1_vtx_0 + 0, 8, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSP2Triangles(1, 4, 3, 0, 1, 5, 4, 0),
-	gsSP2Triangles(6, 4, 5, 0, 4, 6, 7, 0),
-	gsSP1Triangle(7, 3, 4, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r2_skinned_mesh_layer_1_vtx_0[5] = {
-	{{{-11, -3, -7}, 0, {361, 673}, {0x8B, 0x0F, 0xD0, 0xFF}}},
-	{{{-12, -5, 6}, 0, {361, 673}, {0x9C, 0x1A, 0x49, 0xFF}}},
-	{{{0, -9, 10}, 0, {19, 695}, {0x1E, 0xFA, 0x7B, 0xFF}}},
-	{{{9, 4, -2}, 0, {905, 961}, {0x6F, 0x2C, 0x2B, 0xFF}}},
-	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0x06, 0xFF}}},
-};
-
-Gfx yoshi_leg_r2_skinned_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_leg_r2_skinned_mesh_layer_1_vtx_0 + 0, 5, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r2_skinned_mesh_layer_1_vtx_1[2] = {
-	{{{0, -9, 10}, 0, {2049, 698}, {0x1E, 0xFA, 0x7B, 0xFF}}},
-	{{{11, -11, 0}, 0, {1779, 654}, {0x7F, 0xF6, 0x06, 0xFF}}},
-};
-
-Gfx yoshi_leg_r2_skinned_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_leg_r2_skinned_mesh_layer_1_vtx_1 + 0, 2, 5),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r2_mesh_layer_1_vtx_0[5] = {
-	{{{0, 6, 11}, 0, {905, 961}, {0xD7, 0xEF, 0x77, 0xFF}}},
-	{{{12, 0, 7}, 0, {361, 673}, {0x60, 0xE5, 0x4E, 0xFF}}},
-	{{{0, 6, 11}, 0, {19, 693}, {0xD7, 0xEF, 0x77, 0xFF}}},
-	{{{11, 0, -6}, 0, {361, 673}, {0x60, 0xE3, 0xB1, 0xFF}}},
-	{{{1, -8, -6}, 0, {19, 1009}, {0xED, 0xCF, 0x8C, 0xFF}}},
-};
-
-Gfx yoshi_leg_r2_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_0 + 0, 5, 7),
-	gsSP2Triangles(7, 3, 4, 0, 0, 8, 1, 0),
-	gsSP2Triangles(9, 8, 0, 0, 10, 1, 8, 0),
-	gsSP2Triangles(1, 10, 2, 0, 11, 2, 10, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r2_mesh_layer_1_vtx_1[3] = {
-	{{{1, -8, -6}, 0, {2049, 1012}, {0xED, 0xCF, 0x8C, 0xFF}}},
-	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0xFC, 0xFF}}},
-	{{{0, 6, 11}, 0, {2049, 696}, {0xD7, 0xEF, 0x77, 0xFF}}},
-};
-
-Gfx yoshi_leg_r2_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_1 + 0, 3, 7),
-	gsSP2Triangles(5, 7, 8, 0, 5, 8, 6, 0),
-	gsSP1Triangle(9, 6, 8, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r2_mesh_layer_1_vtx_2[6] = {
-	{{{0, 6, 11}, 0, {19, 693}, {0xD7, 0xEF, 0x77, 0xFF}}},
-	{{{1, -8, 7}, 0, {19, 1009}, {0xE8, 0xD0, 0x73, 0xFF}}},
-	{{{12, 0, 7}, 0, {361, 673}, {0x60, 0xE5, 0x4E, 0xFF}}},
-	{{{10, -8, 0}, 0, {307, 1009}, {0x69, 0xB9, 0xFE, 0xFF}}},
-	{{{11, 0, -6}, 0, {361, 673}, {0x60, 0xE3, 0xB1, 0xFF}}},
-	{{{1, -8, -6}, 0, {19, 1009}, {0xED, 0xCF, 0x8C, 0xFF}}},
-};
-
-Gfx yoshi_leg_r2_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_2 + 0, 6, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSP2Triangles(2, 3, 4, 0, 5, 4, 3, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_leg_r2_mesh_layer_1_vtx_3[5] = {
-	{{{-6, -8, 1}, 0, {1911, 1012}, {0x89, 0xD4, 0x03, 0xFF}}},
-	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0xFC, 0xFF}}},
-	{{{1, -8, -6}, 0, {2049, 1012}, {0xED, 0xCF, 0x8C, 0xFF}}},
-	{{{0, 6, 11}, 0, {2049, 696}, {0xD7, 0xEF, 0x77, 0xFF}}},
-	{{{1, -8, 7}, 0, {2049, 1012}, {0xE8, 0xD0, 0x73, 0xFF}}},
-};
-
-Gfx yoshi_leg_r2_mesh_layer_1_tri_3[] = {
-	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_3 + 0, 5, 0),
-	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
-	gsSP1Triangle(4, 3, 0, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_ankle_r1_mesh_layer_1_vtx_0[27] = {
-	{{{20, -10, -12}, 0, {1449, 993}, {0x29, 0xB5, 0xA3, 0xFF}}},
-	{{{-14, -10, 10}, 0, {1865, 737}, {0xAF, 0xC8, 0x50, 0xFF}}},
-	{{{-14, -10, -10}, 0, {1865, 993}, {0xAE, 0xC8, 0xB1, 0xFF}}},
-	{{{20, -10, 12}, 0, {1449, 737}, {0x2A, 0xB5, 0x5E, 0xFF}}},
-	{{{28, -10, 0}, 0, {1355, 857}, {0x6A, 0xBA, 0x00, 0xFF}}},
-	{{{-5, 5, -11}, 0, {1617, 477}, {0xF1, 0xC3, 0x92, 0xFF}}},
-	{{{-5, 10, -13}, 0, {1609, 381}, {0xF6, 0x31, 0x8B, 0xFF}}},
-	{{{12, 10, 0}, 0, {1369, 381}, {0x76, 0x2E, 0x00, 0xFF}}},
-	{{{-13, 5, 0}, 0, {1885, 477}, {0x92, 0xC1, 0x00, 0xFF}}},
-	{{{-16, 10, 0}, 0, {1905, 381}, {0x8D, 0x35, 0x00, 0xFF}}},
-	{{{-5, 5, 10}, 0, {1617, 477}, {0xF1, 0xC3, 0x6E, 0xFF}}},
-	{{{-5, 10, 13}, 0, {1609, 381}, {0xF6, 0x31, 0x75, 0xFF}}},
-	{{{9, 5, 0}, 0, {1419, 477}, {0x6F, 0xC2, 0x00, 0xFF}}},
-	{{{9, 5, 0}, 0, {1539, 505}, {0x0C, 0x7E, 0x00, 0xFF}}},
-	{{{-5, -3, -10}, 0, {1645, 559}, {0xEA, 0x21, 0x87, 0xFF}}},
-	{{{-5, 5, -11}, 0, {1671, 507}, {0xED, 0xF4, 0x83, 0xFF}}},
-	{{{26, 5, 0}, 0, {1389, 531}, {0x50, 0x63, 0x00, 0xFF}}},
-	{{{-5, -3, 10}, 0, {1645, 559}, {0xEA, 0x22, 0x78, 0xFF}}},
-	{{{-5, 5, 10}, 0, {1671, 507}, {0xED, 0xF4, 0x7D, 0xFF}}},
-	{{{-13, 5, 0}, 0, {1831, 511}, {0x87, 0x26, 0x00, 0xFF}}},
-	{{{-14, -10, 10}, 0, {1871, 669}, {0xAF, 0xC8, 0x50, 0xFF}}},
-	{{{-14, -10, -10}, 0, {1871, 669}, {0xAE, 0xC8, 0xB1, 0xFF}}},
-	{{{20, -10, -12}, 0, {1437, 669}, {0x29, 0xB5, 0xA3, 0xFF}}},
-	{{{20, 0, -12}, 0, {1431, 569}, {0x2A, 0x40, 0x9B, 0xFF}}},
-	{{{28, -10, 0}, 0, {1377, 669}, {0x6A, 0xBA, 0x00, 0xFF}}},
-	{{{20, 0, 11}, 0, {1431, 569}, {0x2A, 0x40, 0x65, 0xFF}}},
-	{{{20, -10, 12}, 0, {1437, 669}, {0x2A, 0xB5, 0x5E, 0xFF}}},
-};
-
-Gfx yoshi_ankle_r1_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_ankle_r1_mesh_layer_1_vtx_0 + 0, 27, 0),
-	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
-	gsSP2Triangles(0, 4, 3, 0, 5, 6, 7, 0),
-	gsSP2Triangles(8, 6, 5, 0, 8, 9, 6, 0),
-	gsSP2Triangles(10, 9, 8, 0, 10, 11, 9, 0),
-	gsSP2Triangles(12, 11, 10, 0, 12, 7, 11, 0),
-	gsSP2Triangles(5, 7, 12, 0, 13, 14, 15, 0),
-	gsSP2Triangles(13, 16, 14, 0, 16, 13, 17, 0),
-	gsSP2Triangles(18, 17, 13, 0, 17, 18, 19, 0),
-	gsSP2Triangles(17, 19, 20, 0, 21, 20, 19, 0),
-	gsSP2Triangles(19, 14, 21, 0, 19, 15, 14, 0),
-	gsSP2Triangles(22, 21, 14, 0, 22, 14, 23, 0),
-	gsSP2Triangles(23, 14, 16, 0, 16, 24, 23, 0),
-	gsSP2Triangles(24, 16, 25, 0, 17, 25, 16, 0),
-	gsSP2Triangles(17, 26, 25, 0, 17, 20, 26, 0),
-	gsSP2Triangles(25, 26, 24, 0, 22, 23, 24, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_ankle_r1_mesh_layer_1_vtx_1[4] = {
-	{{{-16, 10, 0}, 0, {959, 414}, {0x8D, 0x35, 0x00, 0xFF}}},
-	{{{-5, 10, 13}, 0, {1169, 530}, {0xF6, 0x31, 0x75, 0xFF}}},
-	{{{-5, 10, -13}, 0, {737, 530}, {0xF6, 0x31, 0x8B, 0xFF}}},
-	{{{12, 10, 0}, 0, {953, 594}, {0x76, 0x2E, 0x00, 0xFF}}},
-};
-
-Gfx yoshi_ankle_r1_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_ankle_r1_mesh_layer_1_vtx_1 + 0, 4, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
-	gsSPEndDisplayList(),
-};
-
 Vtx yoshi_spin_skinned_mesh_layer_1_vtx_0[8] = {
 	{{{-3, 5, -25}, 0, {1491, 500}, {0x09, 0x08, 0x82, 0xFF}}},
 	{{{-29, 5, 0}, 0, {505, 276}, {0x81, 0xF6, 0x00, 0xFF}}},
@@ -700,22 +368,8 @@ Gfx yoshi_arm_l2_mesh_layer_1_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_arm_l2_mesh_layer_1_vtx_2[4] = {
-	{{{28, -6, -10}, 0, {2042, 563}, {0xD2, 0xC6, 0x99, 0xFF}}},
-	{{{15, -5, 0}, 0, {2042, 620}, {0xCA, 0x8F, 0xED, 0xFF}}},
-	{{{15, 1, -8}, 0, {1763, 564}, {0xDB, 0x0D, 0x87, 0xFF}}},
-	{{{25, 1, -11}, 0, {1891, 507}, {0xE1, 0x35, 0x91, 0xFF}}},
-};
-
-Gfx yoshi_arm_l2_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_arm_l2_mesh_layer_1_vtx_2 + 0, 4, 0),
-	gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_wrist_l1_skinned_mesh_layer_1_vtx_0[6] = {
+Vtx yoshi_wrist_l1_skinned_mesh_layer_1_vtx_0[5] = {
 	{{{15, -5, 0}, 0, {12, 617}, {0xCA, 0x8F, 0xED, 0xFF}}},
-	{{{28, -6, -10}, 0, {12, 559}, {0xD2, 0xC6, 0x99, 0xFF}}},
 	{{{15, -5, 0}, 0, {395, 177}, {0xCA, 0x8F, 0xED, 0xFF}}},
 	{{{15, 1, 9}, 0, {617, 513}, {0xCB, 0x1D, 0x70, 0xFF}}},
 	{{{14, 6, 0}, 0, {617, 513}, {0xFF, 0x7F, 0xFD, 0xFF}}},
@@ -723,86 +377,79 @@ Vtx yoshi_wrist_l1_skinned_mesh_layer_1_vtx_0[6] = {
 };
 
 Gfx yoshi_wrist_l1_skinned_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_wrist_l1_skinned_mesh_layer_1_vtx_0 + 0, 6, 0),
+	gsSPVertex(yoshi_wrist_l1_skinned_mesh_layer_1_vtx_0 + 0, 5, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_l1_skinned_mesh_layer_1_vtx_1[7] = {
-	{{{25, 2, 11}, 0, {1683, 5}, {0xDE, 0x40, 0x68, 0xFF}}},
-	{{{25, 2, 11}, 0, {1954, 503}, {0xDE, 0x40, 0x68, 0xFF}}},
-	{{{25, 1, -11}, 0, {1886, 4}, {0xE1, 0x35, 0x91, 0xFF}}},
-	{{{28, -6, -10}, 0, {2042, 563}, {0xD2, 0xC6, 0x99, 0xFF}}},
-	{{{25, 1, -11}, 0, {1891, 507}, {0xE1, 0x35, 0x91, 0xFF}}},
-	{{{15, -5, 0}, 0, {1971, 602}, {0xCA, 0x8F, 0xED, 0xFF}}},
-	{{{15, 1, 9}, 0, {1879, 536}, {0xCB, 0x1D, 0x70, 0xFF}}},
+Vtx yoshi_wrist_l1_skinned_mesh_layer_1_vtx_1[2] = {
+	{{{15, 1, 9}, 0, {1721, 990}, {0xCB, 0x1D, 0x70, 0xFF}}},
+	{{{15, 1, -8}, 0, {1889, 970}, {0xDB, 0x0D, 0x87, 0xFF}}},
 };
 
 Gfx yoshi_wrist_l1_skinned_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_wrist_l1_skinned_mesh_layer_1_vtx_1 + 0, 7, 6),
+	gsSPVertex(yoshi_wrist_l1_skinned_mesh_layer_1_vtx_1 + 0, 2, 5),
 	gsSPEndDisplayList(),
 };
 
 Vtx yoshi_wrist_l1_skinned_mesh_layer_1_vtx_2[4] = {
-	{{{15, 1, 9}, 0, {1721, 990}, {0xCB, 0x1D, 0x70, 0xFF}}},
-	{{{25, 1, -11}, 0, {1910, 1018}, {0xE1, 0x35, 0x91, 0xFF}}},
-	{{{15, 1, -8}, 0, {1889, 970}, {0xDB, 0x0D, 0x87, 0xFF}}},
-	{{{25, 2, 11}, 0, {1707, 1018}, {0xDE, 0x40, 0x68, 0xFF}}},
+	{{{15, 1, -8}, 0, {1763, 564}, {0xDB, 0x0D, 0x87, 0xFF}}},
+	{{{15, 1, 9}, 0, {1879, 536}, {0xCB, 0x1D, 0x70, 0xFF}}},
+	{{{15, -5, 0}, 0, {1971, 602}, {0xCA, 0x8F, 0xED, 0xFF}}},
+	{{{15, -5, 0}, 0, {2042, 620}, {0xCA, 0x8F, 0xED, 0xFF}}},
 };
 
 Gfx yoshi_wrist_l1_skinned_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_wrist_l1_skinned_mesh_layer_1_vtx_2 + 0, 4, 13),
+	gsSPVertex(yoshi_wrist_l1_skinned_mesh_layer_1_vtx_2 + 0, 4, 7),
 	gsSPEndDisplayList(),
 };
 
 Vtx yoshi_wrist_l1_mesh_layer_1_vtx_0[5] = {
+	{{{13, -6, -10}, 0, {12, 559}, {0xD2, 0xC6, 0x99, 0xFF}}},
 	{{{19, -9, -11}, 0, {151, 559}, {0x09, 0xA5, 0xA8, 0xFF}}},
-	{{{22, 2, -13}, 0, {12, 437}, {0x2F, 0x45, 0xA1, 0xFF}}},
 	{{{19, -9, -11}, 0, {87, 51}, {0x09, 0xA5, 0xA8, 0xFF}}},
 	{{{9, -14, 11}, 0, {299, 301}, {0xD0, 0x9E, 0x41, 0xFF}}},
 	{{{3, 6, 0}, 0, {617, 513}, {0xF9, 0x7F, 0xFD, 0xFF}}},
 };
 
 Gfx yoshi_wrist_l1_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_0 + 0, 5, 17),
-	gsSP2Triangles(0, 1, 17, 0, 18, 17, 1, 0),
-	gsSP2Triangles(2, 19, 20, 0, 3, 21, 4, 0),
-	gsSP1Triangle(5, 4, 21, 0),
+	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_0 + 0, 5, 11),
+	gsSP2Triangles(0, 11, 12, 0, 1, 13, 14, 0),
+	gsSP2Triangles(2, 15, 3, 0, 4, 3, 15, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_l1_mesh_layer_1_vtx_1[7] = {
-	{{{22, 2, -13}, 0, {2042, 440}, {0x2F, 0x45, 0xA1, 0xFF}}},
-	{{{23, 4, 14}, 0, {1665, 40}, {0x38, 0x48, 0x58, 0xFF}}},
-	{{{14, 4, 8}, 0, {1717, 4}, {0xFA, 0x7C, 0x1C, 0xFF}}},
-	{{{23, 4, 14}, 0, {2049, 460}, {0x38, 0x48, 0x58, 0xFF}}},
-	{{{9, -14, 11}, 0, {2049, 654}, {0xD0, 0x9E, 0x41, 0xFF}}},
-	{{{12, 4, -6}, 0, {1845, 5}, {0xFC, 0x79, 0xDB, 0xFF}}},
-	{{{22, 2, -13}, 0, {1911, 60}, {0x2F, 0x45, 0xA1, 0xFF}}},
-};
-
-Gfx yoshi_wrist_l1_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_1 + 0, 7, 17),
-	gsSP2Triangles(9, 10, 17, 0, 6, 18, 19, 0),
-	gsSP2Triangles(20, 7, 21, 0, 7, 12, 21, 0),
-	gsSP2Triangles(11, 21, 12, 0, 22, 23, 8, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_wrist_l1_mesh_layer_1_vtx_2[3] = {
+Vtx yoshi_wrist_l1_mesh_layer_1_vtx_1[4] = {
 	{{{3, 6, 0}, 0, {1811, 970}, {0xF9, 0x7F, 0xFD, 0xFF}}},
-	{{{12, 4, -6}, 0, {1869, 1018}, {0xFC, 0x79, 0xDB, 0xFF}}},
+	{{{11, 1, -11}, 0, {1910, 1018}, {0xE1, 0x35, 0x91, 0xFF}}},
+	{{{11, 2, 11}, 0, {1707, 1018}, {0xDE, 0x40, 0x68, 0xFF}}},
 	{{{14, 4, 8}, 0, {1742, 1018}, {0xFA, 0x7C, 0x1C, 0xFF}}},
 };
 
-Gfx yoshi_wrist_l1_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_2 + 0, 3, 17),
-	gsSP2Triangles(17, 14, 15, 0, 17, 18, 14, 0),
-	gsSP2Triangles(13, 16, 19, 0, 13, 19, 17, 0),
+Gfx yoshi_wrist_l1_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_1 + 0, 4, 11),
+	gsSP2Triangles(11, 12, 6, 0, 5, 13, 14, 0),
+	gsSP1Triangle(5, 14, 11, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_l1_mesh_layer_1_vtx_3[12] = {
+Vtx yoshi_wrist_l1_mesh_layer_1_vtx_2[4] = {
+	{{{9, -14, 11}, 0, {2049, 654}, {0xD0, 0x9E, 0x41, 0xFF}}},
+	{{{11, 2, 11}, 0, {1954, 503}, {0xDE, 0x40, 0x68, 0xFF}}},
+	{{{13, -6, -10}, 0, {2042, 563}, {0xD2, 0xC6, 0x99, 0xFF}}},
+	{{{11, 1, -11}, 0, {1891, 507}, {0xE1, 0x35, 0x91, 0xFF}}},
+};
+
+Gfx yoshi_wrist_l1_mesh_layer_1_tri_2[] = {
+	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_2 + 0, 4, 11),
+	gsSP2Triangles(9, 11, 8, 0, 12, 8, 11, 0),
+	gsSP2Triangles(13, 10, 7, 0, 14, 13, 7, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_wrist_l1_mesh_layer_1_vtx_3[14] = {
+	{{{22, 2, -13}, 0, {12, 437}, {0x2F, 0x45, 0xA1, 0xFF}}},
 	{{{19, -9, -11}, 0, {151, 559}, {0x09, 0xA5, 0xA8, 0xFF}}},
+	{{{13, -6, -10}, 0, {12, 559}, {0xD2, 0xC6, 0x99, 0xFF}}},
 	{{{22, 2, -13}, 0, {19, 437}, {0x2F, 0x45, 0xA1, 0xFF}}},
 	{{{26, -5, -10}, 0, {211, 449}, {0x6A, 0xE0, 0xC2, 0xFF}}},
 	{{{19, -13, 11}, 0, {121, 267}, {0x29, 0x9E, 0x46, 0xFF}}},
@@ -817,40 +464,52 @@ Vtx yoshi_wrist_l1_mesh_layer_1_vtx_3[12] = {
 };
 
 Gfx yoshi_wrist_l1_mesh_layer_1_tri_3[] = {
-	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_3 + 0, 12, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
-	gsSP2Triangles(5, 6, 3, 0, 7, 3, 6, 0),
-	gsSP2Triangles(8, 9, 10, 0, 11, 10, 9, 0),
+	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_3 + 0, 14, 0),
+	gsSP2Triangles(0, 1, 2, 0, 1, 3, 4, 0),
+	gsSP2Triangles(5, 6, 7, 0, 7, 8, 5, 0),
+	gsSP2Triangles(9, 5, 8, 0, 10, 11, 12, 0),
+	gsSP1Triangle(13, 12, 11, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_l1_mesh_layer_1_vtx_4[8] = {
+Vtx yoshi_wrist_l1_mesh_layer_1_vtx_4[16] = {
+	{{{23, 4, 14}, 0, {2049, 460}, {0x38, 0x48, 0x58, 0xFF}}},
+	{{{11, 2, 11}, 0, {1954, 503}, {0xDE, 0x40, 0x68, 0xFF}}},
+	{{{9, -14, 11}, 0, {2049, 654}, {0xD0, 0x9E, 0x41, 0xFF}}},
+	{{{13, -6, -10}, 0, {2042, 563}, {0xD2, 0xC6, 0x99, 0xFF}}},
+	{{{11, 1, -11}, 0, {1891, 507}, {0xE1, 0x35, 0x91, 0xFF}}},
+	{{{22, 2, -13}, 0, {2042, 440}, {0x2F, 0x45, 0xA1, 0xFF}}},
+	{{{11, 2, 11}, 0, {1683, 5}, {0xDE, 0x40, 0x68, 0xFF}}},
+	{{{23, 4, 14}, 0, {1665, 40}, {0x38, 0x48, 0x58, 0xFF}}},
+	{{{14, 4, 8}, 0, {1717, 4}, {0xFA, 0x7C, 0x1C, 0xFF}}},
+	{{{22, 2, -13}, 0, {1911, 60}, {0x2F, 0x45, 0xA1, 0xFF}}},
+	{{{12, 4, -6}, 0, {1845, 5}, {0xFC, 0x79, 0xDB, 0xFF}}},
+	{{{11, 1, -11}, 0, {1886, 4}, {0xE1, 0x35, 0x91, 0xFF}}},
 	{{{22, 2, -13}, 0, {1749, 36}, {0x2F, 0x45, 0xA1, 0xFF}}},
 	{{{23, 4, 14}, 0, {1809, 348}, {0x38, 0x48, 0x58, 0xFF}}},
 	{{{27, -5, 8}, 0, {2033, 286}, {0x78, 0xE9, 0x22, 0xFF}}},
 	{{{26, -5, -10}, 0, {2013, 64}, {0x6A, 0xE0, 0xC2, 0xFF}}},
-	{{{22, 2, -13}, 0, {1911, 60}, {0x2F, 0x45, 0xA1, 0xFF}}},
-	{{{14, 4, 8}, 0, {1717, 4}, {0xFA, 0x7C, 0x1C, 0xFF}}},
-	{{{23, 4, 14}, 0, {1665, 40}, {0x38, 0x48, 0x58, 0xFF}}},
-	{{{12, 4, -6}, 0, {1845, 5}, {0xFC, 0x79, 0xDB, 0xFF}}},
 };
 
 Gfx yoshi_wrist_l1_mesh_layer_1_tri_4[] = {
-	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_4 + 0, 8, 0),
-	gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
-	gsSP2Triangles(4, 5, 6, 0, 4, 7, 5, 0),
+	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_4 + 0, 16, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
+	gsSP2Triangles(6, 7, 8, 0, 9, 8, 7, 0),
+	gsSP2Triangles(9, 10, 8, 0, 10, 9, 11, 0),
+	gsSP2Triangles(12, 13, 14, 0, 12, 14, 15, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_l1_mesh_layer_1_vtx_5[3] = {
+Vtx yoshi_wrist_l1_mesh_layer_1_vtx_5[4] = {
 	{{{12, 4, -6}, 0, {1869, 1018}, {0xFC, 0x79, 0xDB, 0xFF}}},
 	{{{3, 6, 0}, 0, {1811, 970}, {0xF9, 0x7F, 0xFD, 0xFF}}},
 	{{{14, 4, 8}, 0, {1742, 1018}, {0xFA, 0x7C, 0x1C, 0xFF}}},
+	{{{11, 1, -11}, 0, {1910, 1018}, {0xE1, 0x35, 0x91, 0xFF}}},
 };
 
 Gfx yoshi_wrist_l1_mesh_layer_1_tri_5[] = {
-	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_5 + 0, 3, 0),
-	gsSP1Triangle(0, 1, 2, 0),
+	gsSPVertex(yoshi_wrist_l1_mesh_layer_1_vtx_5 + 0, 4, 0),
+	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSPEndDisplayList(),
 };
 
@@ -923,21 +582,8 @@ Gfx yoshi_arm_r2_mesh_layer_1_tri_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_arm_r2_mesh_layer_1_vtx_2[3] = {
-	{{{15, -5, 0}, 0, {2042, 620}, {0xCA, 0x8F, 0x13, 0xFF}}},
-	{{{28, -6, 10}, 0, {2042, 563}, {0xD2, 0xC6, 0x67, 0xFF}}},
-	{{{15, 1, 8}, 0, {1763, 564}, {0xDB, 0x0D, 0x79, 0xFF}}},
-};
-
-Gfx yoshi_arm_r2_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_arm_r2_mesh_layer_1_vtx_2 + 0, 3, 0),
-	gsSP1Triangle(0, 1, 2, 0),
-	gsSPEndDisplayList(),
-};
-
-Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_0[6] = {
+Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_0[5] = {
 	{{{15, -5, 0}, 0, {395, 177}, {0xCA, 0x8F, 0x13, 0xFF}}},
-	{{{28, -6, 10}, 0, {12, 559}, {0xD2, 0xC6, 0x67, 0xFF}}},
 	{{{15, -5, 0}, 0, {12, 617}, {0xCA, 0x8F, 0x13, 0xFF}}},
 	{{{14, 6, 0}, 0, {617, 513}, {0xFF, 0x7F, 0x03, 0xFF}}},
 	{{{15, 1, 8}, 0, {617, 513}, {0xDB, 0x0D, 0x79, 0xFF}}},
@@ -945,33 +591,29 @@ Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_0[6] = {
 };
 
 Gfx yoshi_wrist_r1_skinned_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_wrist_r1_skinned_mesh_layer_1_vtx_0 + 0, 6, 0),
+	gsSPVertex(yoshi_wrist_r1_skinned_mesh_layer_1_vtx_0 + 0, 5, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_1[6] = {
+Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_1[4] = {
 	{{{15, 1, -9}, 0, {1879, 536}, {0xCB, 0x1D, 0x90, 0xFF}}},
 	{{{15, -5, 0}, 0, {1971, 602}, {0xCA, 0x8F, 0x13, 0xFF}}},
 	{{{15, 1, 8}, 0, {1763, 564}, {0xDB, 0x0D, 0x79, 0xFF}}},
-	{{{28, -6, 10}, 0, {2042, 563}, {0xD2, 0xC6, 0x67, 0xFF}}},
-	{{{25, 1, 11}, 0, {1886, 4}, {0xE7, 0x6B, 0x40, 0xFF}}},
-	{{{25, 2, -11}, 0, {1683, 5}, {0xE3, 0x6D, 0xC5, 0xFF}}},
+	{{{15, -5, 0}, 0, {2042, 620}, {0xCA, 0x8F, 0x13, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_skinned_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_wrist_r1_skinned_mesh_layer_1_vtx_1 + 0, 6, 6),
+	gsSPVertex(yoshi_wrist_r1_skinned_mesh_layer_1_vtx_1 + 0, 4, 5),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_2[4] = {
+Vtx yoshi_wrist_r1_skinned_mesh_layer_1_vtx_2[2] = {
 	{{{15, 1, -9}, 0, {1721, 990}, {0xCB, 0x1D, 0x90, 0xFF}}},
 	{{{15, 1, 8}, 0, {1889, 970}, {0xDB, 0x0D, 0x79, 0xFF}}},
-	{{{25, 1, 11}, 0, {1910, 1018}, {0xE7, 0x6B, 0x40, 0xFF}}},
-	{{{25, 2, -11}, 0, {1707, 1018}, {0xE3, 0x6D, 0xC5, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_skinned_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_wrist_r1_skinned_mesh_layer_1_vtx_2 + 0, 4, 12),
+	gsSPVertex(yoshi_wrist_r1_skinned_mesh_layer_1_vtx_2 + 0, 2, 9),
 	gsSPEndDisplayList(),
 };
 
@@ -979,53 +621,51 @@ Vtx yoshi_wrist_r1_mesh_layer_1_vtx_0[5] = {
 	{{{10, -14, -11}, 0, {299, 301}, {0xD1, 0x9E, 0xBF, 0xFF}}},
 	{{{19, -9, 11}, 0, {87, 51}, {0x07, 0xA5, 0x58, 0xFF}}},
 	{{{19, -9, 11}, 0, {151, 559}, {0x07, 0xA5, 0x58, 0xFF}}},
-	{{{22, 2, 13}, 0, {12, 437}, {0x2E, 0x46, 0x60, 0xFF}}},
+	{{{13, -6, 10}, 0, {12, 559}, {0xD0, 0xC6, 0x67, 0xFF}}},
 	{{{3, 6, 0}, 0, {617, 513}, {0xF8, 0x7F, 0x03, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_mesh_layer_1_tri_0[] = {
-	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_0 + 0, 5, 16),
-	gsSP2Triangles(0, 16, 17, 0, 18, 1, 2, 0),
-	gsSP2Triangles(19, 1, 18, 0, 20, 3, 4, 0),
-	gsSP1Triangle(20, 5, 3, 0),
+	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_0 + 0, 5, 11),
+	gsSP2Triangles(0, 11, 12, 0, 13, 14, 1, 0),
+	gsSP2Triangles(15, 2, 3, 0, 15, 4, 2, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_mesh_layer_1_vtx_1[7] = {
-	{{{22, 2, 13}, 0, {2042, 440}, {0x2E, 0x46, 0x60, 0xFF}}},
+Vtx yoshi_wrist_r1_mesh_layer_1_vtx_1[4] = {
 	{{{24, 4, -14}, 0, {2049, 460}, {0x3A, 0x48, 0xA9, 0xFF}}},
 	{{{10, -14, -11}, 0, {2049, 654}, {0xD1, 0x9E, 0xBF, 0xFF}}},
-	{{{12, 4, 6}, 0, {1845, 5}, {0xFB, 0x79, 0x25, 0xFF}}},
-	{{{22, 2, 13}, 0, {1911, 60}, {0x2E, 0x46, 0x60, 0xFF}}},
-	{{{15, 4, -8}, 0, {1717, 4}, {0xFA, 0x7C, 0xE4, 0xFF}}},
-	{{{24, 4, -14}, 0, {1665, 40}, {0x3A, 0x48, 0xA9, 0xFF}}},
+	{{{13, -6, 10}, 0, {2042, 563}, {0xD0, 0xC6, 0x67, 0xFF}}},
+	{{{11, 1, 11}, 0, {1891, 507}, {0xDF, 0x35, 0x6E, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_mesh_layer_1_tri_1[] = {
-	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_1 + 0, 7, 16),
-	gsSP2Triangles(8, 9, 16, 0, 17, 18, 6, 0),
-	gsSP2Triangles(7, 6, 18, 0, 19, 10, 20, 0),
-	gsSP1Triangle(11, 21, 22, 0),
+	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_1 + 0, 4, 11),
+	gsSP2Triangles(11, 12, 5, 0, 6, 5, 12, 0),
+	gsSP2Triangles(8, 13, 7, 0, 7, 13, 14, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_mesh_layer_1_vtx_2[3] = {
+Vtx yoshi_wrist_r1_mesh_layer_1_vtx_2[4] = {
 	{{{3, 6, 0}, 0, {1811, 970}, {0xF8, 0x7F, 0x03, 0xFF}}},
-	{{{12, 4, 6}, 0, {1869, 1018}, {0xFB, 0x79, 0x25, 0xFF}}},
+	{{{11, 1, 11}, 0, {1910, 1018}, {0xDF, 0x35, 0x6E, 0xFF}}},
 	{{{15, 4, -8}, 0, {1742, 1018}, {0xFA, 0x7C, 0xE4, 0xFF}}},
+	{{{11, 2, -11}, 0, {1707, 1018}, {0xE4, 0x6D, 0xC5, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_mesh_layer_1_tri_2[] = {
-	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_2 + 0, 3, 16),
-	gsSP2Triangles(16, 13, 14, 0, 16, 14, 17, 0),
-	gsSP2Triangles(12, 18, 15, 0, 12, 16, 18, 0),
+	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_2 + 0, 4, 11),
+	gsSP2Triangles(11, 10, 12, 0, 9, 13, 14, 0),
+	gsSP1Triangle(9, 11, 13, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_mesh_layer_1_vtx_3[12] = {
+Vtx yoshi_wrist_r1_mesh_layer_1_vtx_3[14] = {
 	{{{26, -5, 11}, 0, {211, 449}, {0x69, 0xE0, 0x3F, 0xFF}}},
 	{{{22, 2, 13}, 0, {19, 437}, {0x2E, 0x46, 0x60, 0xFF}}},
 	{{{19, -9, 11}, 0, {151, 559}, {0x07, 0xA5, 0x58, 0xFF}}},
+	{{{22, 2, 13}, 0, {12, 437}, {0x2E, 0x46, 0x60, 0xFF}}},
+	{{{13, -6, 10}, 0, {12, 559}, {0xD0, 0xC6, 0x67, 0xFF}}},
 	{{{27, -5, -8}, 0, {19, 275}, {0x79, 0xE9, 0xDF, 0xFF}}},
 	{{{26, -5, 11}, 0, {19, 57}, {0x69, 0xE0, 0x3F, 0xFF}}},
 	{{{19, -13, -11}, 0, {121, 267}, {0x2A, 0x9E, 0xBB, 0xFF}}},
@@ -1038,40 +678,49 @@ Vtx yoshi_wrist_r1_mesh_layer_1_vtx_3[12] = {
 };
 
 Gfx yoshi_wrist_r1_mesh_layer_1_tri_3[] = {
-	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_3 + 0, 12, 0),
-	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
-	gsSP2Triangles(6, 5, 4, 0, 5, 6, 7, 0),
-	gsSP2Triangles(8, 9, 10, 0, 11, 10, 9, 0),
+	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_3 + 0, 14, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 4, 2, 0),
+	gsSP2Triangles(5, 6, 7, 0, 8, 7, 6, 0),
+	gsSP2Triangles(7, 8, 9, 0, 10, 11, 12, 0),
+	gsSP1Triangle(13, 12, 11, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_mesh_layer_1_vtx_4[8] = {
+Vtx yoshi_wrist_r1_mesh_layer_1_vtx_4[13] = {
+	{{{11, 1, 11}, 0, {1891, 507}, {0xDF, 0x35, 0x6E, 0xFF}}},
+	{{{13, -6, 10}, 0, {2042, 563}, {0xD0, 0xC6, 0x67, 0xFF}}},
+	{{{22, 2, 13}, 0, {2042, 440}, {0x2E, 0x46, 0x60, 0xFF}}},
 	{{{22, 2, 13}, 0, {1749, 36}, {0x2E, 0x46, 0x60, 0xFF}}},
 	{{{26, -5, 11}, 0, {2013, 64}, {0x69, 0xE0, 0x3F, 0xFF}}},
 	{{{27, -5, -8}, 0, {2033, 286}, {0x79, 0xE9, 0xDF, 0xFF}}},
 	{{{24, 4, -14}, 0, {1809, 348}, {0x3A, 0x48, 0xA9, 0xFF}}},
-	{{{22, 2, 13}, 0, {1911, 60}, {0x2E, 0x46, 0x60, 0xFF}}},
-	{{{24, 4, -14}, 0, {1665, 40}, {0x3A, 0x48, 0xA9, 0xFF}}},
-	{{{15, 4, -8}, 0, {1717, 4}, {0xFA, 0x7C, 0xE4, 0xFF}}},
 	{{{12, 4, 6}, 0, {1845, 5}, {0xFB, 0x79, 0x25, 0xFF}}},
+	{{{11, 1, 11}, 0, {1886, 4}, {0xDF, 0x35, 0x6E, 0xFF}}},
+	{{{22, 2, 13}, 0, {1911, 60}, {0x2E, 0x46, 0x60, 0xFF}}},
+	{{{15, 4, -8}, 0, {1717, 4}, {0xFA, 0x7C, 0xE4, 0xFF}}},
+	{{{24, 4, -14}, 0, {1665, 40}, {0x3A, 0x48, 0xA9, 0xFF}}},
+	{{{11, 2, -11}, 0, {1683, 5}, {0xE4, 0x6D, 0xC5, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_mesh_layer_1_tri_4[] = {
-	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_4 + 0, 8, 0),
-	gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
-	gsSP2Triangles(4, 5, 6, 0, 4, 6, 7, 0),
+	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_4 + 0, 13, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
+	gsSP2Triangles(3, 5, 6, 0, 7, 8, 9, 0),
+	gsSP2Triangles(9, 10, 7, 0, 9, 11, 10, 0),
+	gsSP1Triangle(12, 10, 11, 0),
 	gsSPEndDisplayList(),
 };
 
-Vtx yoshi_wrist_r1_mesh_layer_1_vtx_5[3] = {
+Vtx yoshi_wrist_r1_mesh_layer_1_vtx_5[4] = {
 	{{{12, 4, 6}, 0, {1869, 1018}, {0xFB, 0x79, 0x25, 0xFF}}},
 	{{{15, 4, -8}, 0, {1742, 1018}, {0xFA, 0x7C, 0xE4, 0xFF}}},
 	{{{3, 6, 0}, 0, {1811, 970}, {0xF8, 0x7F, 0x03, 0xFF}}},
+	{{{11, 1, 11}, 0, {1910, 1018}, {0xDF, 0x35, 0x6E, 0xFF}}},
 };
 
 Gfx yoshi_wrist_r1_mesh_layer_1_tri_5[] = {
-	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_5 + 0, 3, 0),
-	gsSP1Triangle(0, 1, 2, 0),
+	gsSPVertex(yoshi_wrist_r1_mesh_layer_1_vtx_5 + 0, 4, 0),
+	gsSP2Triangles(0, 1, 2, 0, 2, 3, 0, 0),
 	gsSPEndDisplayList(),
 };
 
@@ -1954,6 +1603,338 @@ Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_3[] = {
 	gsSPEndDisplayList(),
 };
 
+Vtx yoshi_leg_l1_mesh_layer_1_vtx_0[8] = {
+	{{{-11, -3, 7}, 0, {905, 961}, {0x8B, 0x0F, 0x30, 0xFF}}},
+	{{{-9, 6, 2}, 0, {905, 961}, {0xA5, 0x43, 0xC6, 0xFF}}},
+	{{{-12, -5, -6}, 0, {905, 961}, {0x9C, 0x1A, 0xB7, 0xFF}}},
+	{{{0, 10, 0}, 0, {905, 961}, {0x02, 0x54, 0xA1, 0xFF}}},
+	{{{0, 0, -9}, 0, {905, 961}, {0x15, 0x33, 0x8E, 0xFF}}},
+	{{{9, 4, 2}, 0, {905, 961}, {0x6F, 0x2C, 0xD5, 0xFF}}},
+	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0xFA, 0xFF}}},
+	{{{0, -9, -10}, 0, {905, 961}, {0x1E, 0xFA, 0x85, 0xFF}}},
+};
+
+Gfx yoshi_leg_l1_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_leg_l1_mesh_layer_1_vtx_0 + 0, 8, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSP2Triangles(2, 3, 4, 0, 5, 4, 3, 0),
+	gsSP2Triangles(4, 5, 6, 0, 6, 7, 4, 0),
+	gsSP1Triangle(2, 4, 7, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_l2_skinned_mesh_layer_1_vtx_0[5] = {
+	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0xFA, 0xFF}}},
+	{{{9, 4, 2}, 0, {905, 961}, {0x6F, 0x2C, 0xD5, 0xFF}}},
+	{{{-11, -3, 7}, 0, {361, 673}, {0x8B, 0x0F, 0x30, 0xFF}}},
+	{{{-12, -5, -6}, 0, {361, 673}, {0x9C, 0x1A, 0xB7, 0xFF}}},
+	{{{0, -9, -10}, 0, {19, 695}, {0x1E, 0xFA, 0x85, 0xFF}}},
+};
+
+Gfx yoshi_leg_l2_skinned_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_leg_l2_skinned_mesh_layer_1_vtx_0 + 0, 5, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_l2_skinned_mesh_layer_1_vtx_1[2] = {
+	{{{11, -11, 0}, 0, {1779, 654}, {0x7F, 0xF6, 0xFA, 0xFF}}},
+	{{{0, -9, -10}, 0, {2049, 698}, {0x1E, 0xFA, 0x85, 0xFF}}},
+};
+
+Gfx yoshi_leg_l2_skinned_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_leg_l2_skinned_mesh_layer_1_vtx_1 + 0, 2, 5),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_l2_mesh_layer_1_vtx_0[5] = {
+	{{{0, 6, -11}, 0, {905, 961}, {0xD7, 0xEF, 0x89, 0xFF}}},
+	{{{12, 0, -7}, 0, {361, 673}, {0x60, 0xE5, 0xB2, 0xFF}}},
+	{{{0, 6, -11}, 0, {19, 693}, {0xD7, 0xEF, 0x89, 0xFF}}},
+	{{{11, 0, 6}, 0, {361, 673}, {0x60, 0xE3, 0x4F, 0xFF}}},
+	{{{1, -8, 6}, 0, {19, 1009}, {0xED, 0xCF, 0x74, 0xFF}}},
+};
+
+Gfx yoshi_leg_l2_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_0 + 0, 5, 7),
+	gsSP2Triangles(7, 0, 1, 0, 8, 9, 2, 0),
+	gsSP2Triangles(2, 3, 8, 0, 10, 8, 3, 0),
+	gsSP2Triangles(3, 4, 10, 0, 11, 10, 4, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_l2_mesh_layer_1_vtx_1[3] = {
+	{{{0, 6, -11}, 0, {2049, 696}, {0xD7, 0xEF, 0x89, 0xFF}}},
+	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0x04, 0xFF}}},
+	{{{1, -8, 6}, 0, {2049, 1012}, {0xED, 0xCF, 0x74, 0xFF}}},
+};
+
+Gfx yoshi_leg_l2_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_1 + 0, 3, 7),
+	gsSP2Triangles(7, 8, 5, 0, 6, 5, 8, 0),
+	gsSP1Triangle(6, 8, 9, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_l2_mesh_layer_1_vtx_2[5] = {
+	{{{1, -8, -7}, 0, {2049, 1012}, {0xE8, 0xD0, 0x8D, 0xFF}}},
+	{{{-6, -8, -1}, 0, {1911, 1012}, {0x89, 0xD4, 0xFD, 0xFF}}},
+	{{{0, 6, -11}, 0, {2049, 696}, {0xD7, 0xEF, 0x89, 0xFF}}},
+	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0x04, 0xFF}}},
+	{{{1, -8, 6}, 0, {2049, 1012}, {0xED, 0xCF, 0x74, 0xFF}}},
+};
+
+Gfx yoshi_leg_l2_mesh_layer_1_tri_2[] = {
+	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_2 + 0, 5, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSP1Triangle(1, 4, 3, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_l2_mesh_layer_1_vtx_3[6] = {
+	{{{0, 6, -11}, 0, {19, 693}, {0xD7, 0xEF, 0x89, 0xFF}}},
+	{{{12, 0, -7}, 0, {361, 673}, {0x60, 0xE5, 0xB2, 0xFF}}},
+	{{{1, -8, -7}, 0, {19, 1009}, {0xE8, 0xD0, 0x8D, 0xFF}}},
+	{{{10, -8, 0}, 0, {307, 1009}, {0x69, 0xB9, 0x02, 0xFF}}},
+	{{{11, 0, 6}, 0, {361, 673}, {0x60, 0xE3, 0x4F, 0xFF}}},
+	{{{1, -8, 6}, 0, {19, 1009}, {0xED, 0xCF, 0x74, 0xFF}}},
+};
+
+Gfx yoshi_leg_l2_mesh_layer_1_tri_3[] = {
+	gsSPVertex(yoshi_leg_l2_mesh_layer_1_vtx_3 + 0, 6, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSP2Triangles(1, 4, 3, 0, 5, 3, 4, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_ankle_l1_mesh_layer_1_vtx_0[27] = {
+	{{{20, -10, 12}, 0, {1449, 737}, {0x29, 0xB5, 0x5D, 0xFF}}},
+	{{{20, -10, -12}, 0, {1449, 993}, {0x2A, 0xB5, 0xA2, 0xFF}}},
+	{{{28, -10, 0}, 0, {1355, 859}, {0x6A, 0xBA, 0x00, 0xFF}}},
+	{{{-14, -10, -10}, 0, {1865, 993}, {0xAF, 0xC8, 0xB0, 0xFF}}},
+	{{{-14, -10, 10}, 0, {1865, 737}, {0xAE, 0xC8, 0x4F, 0xFF}}},
+	{{{-13, 5, 0}, 0, {1885, 477}, {0x92, 0xC1, 0x00, 0xFF}}},
+	{{{-16, 10, 0}, 0, {1905, 381}, {0x8D, 0x35, 0x00, 0xFF}}},
+	{{{-5, 10, -13}, 0, {1609, 381}, {0xF6, 0x31, 0x8B, 0xFF}}},
+	{{{-5, 5, 11}, 0, {1617, 477}, {0xF1, 0xC3, 0x6E, 0xFF}}},
+	{{{-5, 10, 13}, 0, {1609, 381}, {0xF6, 0x31, 0x75, 0xFF}}},
+	{{{9, 5, 0}, 0, {1419, 477}, {0x6F, 0xC2, 0x00, 0xFF}}},
+	{{{12, 10, 0}, 0, {1369, 381}, {0x76, 0x2E, 0x00, 0xFF}}},
+	{{{-5, 5, -10}, 0, {1617, 477}, {0xF1, 0xC3, 0x92, 0xFF}}},
+	{{{-13, 5, 0}, 0, {1831, 511}, {0x87, 0x26, 0x00, 0xFF}}},
+	{{{-5, 5, -10}, 0, {1671, 507}, {0xED, 0xF4, 0x83, 0xFF}}},
+	{{{-5, -3, -10}, 0, {1645, 559}, {0xEA, 0x22, 0x88, 0xFF}}},
+	{{{9, 5, 0}, 0, {1539, 505}, {0x0C, 0x7E, 0x00, 0xFF}}},
+	{{{26, 5, 0}, 0, {1389, 531}, {0x50, 0x63, 0x00, 0xFF}}},
+	{{{-5, -3, 10}, 0, {1645, 559}, {0xEA, 0x21, 0x79, 0xFF}}},
+	{{{-5, 5, 11}, 0, {1671, 507}, {0xED, 0xF4, 0x7D, 0xFF}}},
+	{{{-14, -10, 10}, 0, {1871, 665}, {0xAE, 0xC8, 0x4F, 0xFF}}},
+	{{{-14, -10, -10}, 0, {1871, 665}, {0xAF, 0xC8, 0xB0, 0xFF}}},
+	{{{20, -10, -12}, 0, {1437, 665}, {0x2A, 0xB5, 0xA2, 0xFF}}},
+	{{{20, 0, -11}, 0, {1431, 569}, {0x2A, 0x40, 0x9B, 0xFF}}},
+	{{{28, -10, 0}, 0, {1377, 665}, {0x6A, 0xBA, 0x00, 0xFF}}},
+	{{{20, 0, 12}, 0, {1431, 569}, {0x2A, 0x40, 0x65, 0xFF}}},
+	{{{20, -10, 12}, 0, {1437, 665}, {0x29, 0xB5, 0x5D, 0xFF}}},
+};
+
+Gfx yoshi_ankle_l1_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_ankle_l1_mesh_layer_1_vtx_0 + 0, 27, 0),
+	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
+	gsSP2Triangles(0, 4, 3, 0, 5, 6, 7, 0),
+	gsSP2Triangles(8, 6, 5, 0, 8, 9, 6, 0),
+	gsSP2Triangles(10, 9, 8, 0, 10, 11, 9, 0),
+	gsSP2Triangles(12, 11, 10, 0, 12, 7, 11, 0),
+	gsSP2Triangles(5, 7, 12, 0, 13, 14, 15, 0),
+	gsSP2Triangles(16, 15, 14, 0, 15, 16, 17, 0),
+	gsSP2Triangles(16, 18, 17, 0, 18, 16, 19, 0),
+	gsSP2Triangles(19, 13, 18, 0, 20, 18, 13, 0),
+	gsSP2Triangles(20, 13, 21, 0, 15, 21, 13, 0),
+	gsSP2Triangles(15, 22, 21, 0, 15, 23, 22, 0),
+	gsSP2Triangles(15, 17, 23, 0, 24, 23, 17, 0),
+	gsSP2Triangles(17, 25, 24, 0, 25, 17, 18, 0),
+	gsSP2Triangles(26, 25, 18, 0, 26, 18, 20, 0),
+	gsSP2Triangles(26, 24, 25, 0, 23, 24, 22, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_ankle_l1_mesh_layer_1_vtx_1[4] = {
+	{{{-16, 10, 0}, 0, {959, 414}, {0x8D, 0x35, 0x00, 0xFF}}},
+	{{{-5, 10, 13}, 0, {737, 530}, {0xF6, 0x31, 0x75, 0xFF}}},
+	{{{-5, 10, -13}, 0, {1169, 530}, {0xF6, 0x31, 0x8B, 0xFF}}},
+	{{{12, 10, 0}, 0, {953, 594}, {0x76, 0x2E, 0x00, 0xFF}}},
+};
+
+Gfx yoshi_ankle_l1_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_ankle_l1_mesh_layer_1_vtx_1 + 0, 4, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r1_mesh_layer_1_vtx_0[8] = {
+	{{{-11, -3, -7}, 0, {905, 961}, {0x8B, 0x0F, 0xD0, 0xFF}}},
+	{{{-12, -5, 6}, 0, {905, 961}, {0x9C, 0x1A, 0x49, 0xFF}}},
+	{{{-9, 6, -2}, 0, {905, 961}, {0xA5, 0x43, 0x3A, 0xFF}}},
+	{{{0, 10, 0}, 0, {905, 961}, {0x02, 0x54, 0x5F, 0xFF}}},
+	{{{0, 0, 9}, 0, {905, 961}, {0x15, 0x33, 0x72, 0xFF}}},
+	{{{0, -9, 10}, 0, {905, 961}, {0x1E, 0xFA, 0x7B, 0xFF}}},
+	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0x06, 0xFF}}},
+	{{{9, 4, -2}, 0, {905, 961}, {0x6F, 0x2C, 0x2B, 0xFF}}},
+};
+
+Gfx yoshi_leg_r1_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_leg_r1_mesh_layer_1_vtx_0 + 0, 8, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSP2Triangles(1, 4, 3, 0, 1, 5, 4, 0),
+	gsSP2Triangles(6, 4, 5, 0, 4, 6, 7, 0),
+	gsSP1Triangle(7, 3, 4, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r2_skinned_mesh_layer_1_vtx_0[5] = {
+	{{{-11, -3, -7}, 0, {361, 673}, {0x8B, 0x0F, 0xD0, 0xFF}}},
+	{{{-12, -5, 6}, 0, {361, 673}, {0x9C, 0x1A, 0x49, 0xFF}}},
+	{{{0, -9, 10}, 0, {19, 695}, {0x1E, 0xFA, 0x7B, 0xFF}}},
+	{{{9, 4, -2}, 0, {905, 961}, {0x6F, 0x2C, 0x2B, 0xFF}}},
+	{{{11, -11, 0}, 0, {905, 961}, {0x7F, 0xF6, 0x06, 0xFF}}},
+};
+
+Gfx yoshi_leg_r2_skinned_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_leg_r2_skinned_mesh_layer_1_vtx_0 + 0, 5, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r2_skinned_mesh_layer_1_vtx_1[2] = {
+	{{{0, -9, 10}, 0, {2049, 698}, {0x1E, 0xFA, 0x7B, 0xFF}}},
+	{{{11, -11, 0}, 0, {1779, 654}, {0x7F, 0xF6, 0x06, 0xFF}}},
+};
+
+Gfx yoshi_leg_r2_skinned_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_leg_r2_skinned_mesh_layer_1_vtx_1 + 0, 2, 5),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r2_mesh_layer_1_vtx_0[5] = {
+	{{{0, 6, 11}, 0, {905, 961}, {0xD7, 0xEF, 0x77, 0xFF}}},
+	{{{12, 0, 7}, 0, {361, 673}, {0x60, 0xE5, 0x4E, 0xFF}}},
+	{{{0, 6, 11}, 0, {19, 693}, {0xD7, 0xEF, 0x77, 0xFF}}},
+	{{{11, 0, -6}, 0, {361, 673}, {0x60, 0xE3, 0xB1, 0xFF}}},
+	{{{1, -8, -6}, 0, {19, 1009}, {0xED, 0xCF, 0x8C, 0xFF}}},
+};
+
+Gfx yoshi_leg_r2_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_0 + 0, 5, 7),
+	gsSP2Triangles(7, 3, 4, 0, 0, 8, 1, 0),
+	gsSP2Triangles(9, 8, 0, 0, 10, 1, 8, 0),
+	gsSP2Triangles(1, 10, 2, 0, 11, 2, 10, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r2_mesh_layer_1_vtx_1[3] = {
+	{{{1, -8, -6}, 0, {2049, 1012}, {0xED, 0xCF, 0x8C, 0xFF}}},
+	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0xFC, 0xFF}}},
+	{{{0, 6, 11}, 0, {2049, 696}, {0xD7, 0xEF, 0x77, 0xFF}}},
+};
+
+Gfx yoshi_leg_r2_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_1 + 0, 3, 7),
+	gsSP2Triangles(5, 7, 8, 0, 5, 8, 6, 0),
+	gsSP1Triangle(9, 6, 8, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r2_mesh_layer_1_vtx_2[6] = {
+	{{{0, 6, 11}, 0, {19, 693}, {0xD7, 0xEF, 0x77, 0xFF}}},
+	{{{1, -8, 7}, 0, {19, 1009}, {0xE8, 0xD0, 0x73, 0xFF}}},
+	{{{12, 0, 7}, 0, {361, 673}, {0x60, 0xE5, 0x4E, 0xFF}}},
+	{{{10, -8, 0}, 0, {307, 1009}, {0x69, 0xB9, 0xFE, 0xFF}}},
+	{{{11, 0, -6}, 0, {361, 673}, {0x60, 0xE3, 0xB1, 0xFF}}},
+	{{{1, -8, -6}, 0, {19, 1009}, {0xED, 0xCF, 0x8C, 0xFF}}},
+};
+
+Gfx yoshi_leg_r2_mesh_layer_1_tri_2[] = {
+	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_2 + 0, 6, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSP2Triangles(2, 3, 4, 0, 5, 4, 3, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_leg_r2_mesh_layer_1_vtx_3[5] = {
+	{{{-6, -8, 1}, 0, {1911, 1012}, {0x89, 0xD4, 0x03, 0xFF}}},
+	{{{-10, 3, 0}, 0, {1801, 762}, {0x87, 0xDB, 0xFC, 0xFF}}},
+	{{{1, -8, -6}, 0, {2049, 1012}, {0xED, 0xCF, 0x8C, 0xFF}}},
+	{{{0, 6, 11}, 0, {2049, 696}, {0xD7, 0xEF, 0x77, 0xFF}}},
+	{{{1, -8, 7}, 0, {2049, 1012}, {0xE8, 0xD0, 0x73, 0xFF}}},
+};
+
+Gfx yoshi_leg_r2_mesh_layer_1_tri_3[] = {
+	gsSPVertex(yoshi_leg_r2_mesh_layer_1_vtx_3 + 0, 5, 0),
+	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
+	gsSP1Triangle(4, 3, 0, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_ankle_r1_mesh_layer_1_vtx_0[27] = {
+	{{{20, -10, -12}, 0, {1449, 993}, {0x29, 0xB5, 0xA3, 0xFF}}},
+	{{{-14, -10, 10}, 0, {1865, 737}, {0xAF, 0xC8, 0x50, 0xFF}}},
+	{{{-14, -10, -10}, 0, {1865, 993}, {0xAE, 0xC8, 0xB1, 0xFF}}},
+	{{{20, -10, 12}, 0, {1449, 737}, {0x2A, 0xB5, 0x5E, 0xFF}}},
+	{{{28, -10, 0}, 0, {1355, 857}, {0x6A, 0xBA, 0x00, 0xFF}}},
+	{{{-5, 5, -11}, 0, {1617, 477}, {0xF1, 0xC3, 0x92, 0xFF}}},
+	{{{-5, 10, -13}, 0, {1609, 381}, {0xF6, 0x31, 0x8B, 0xFF}}},
+	{{{12, 10, 0}, 0, {1369, 381}, {0x76, 0x2E, 0x00, 0xFF}}},
+	{{{-13, 5, 0}, 0, {1885, 477}, {0x92, 0xC1, 0x00, 0xFF}}},
+	{{{-16, 10, 0}, 0, {1905, 381}, {0x8D, 0x35, 0x00, 0xFF}}},
+	{{{-5, 5, 10}, 0, {1617, 477}, {0xF1, 0xC3, 0x6E, 0xFF}}},
+	{{{-5, 10, 13}, 0, {1609, 381}, {0xF6, 0x31, 0x75, 0xFF}}},
+	{{{9, 5, 0}, 0, {1419, 477}, {0x6F, 0xC2, 0x00, 0xFF}}},
+	{{{9, 5, 0}, 0, {1539, 505}, {0x0C, 0x7E, 0x00, 0xFF}}},
+	{{{-5, -3, -10}, 0, {1645, 559}, {0xEA, 0x21, 0x87, 0xFF}}},
+	{{{-5, 5, -11}, 0, {1671, 507}, {0xED, 0xF4, 0x83, 0xFF}}},
+	{{{26, 5, 0}, 0, {1389, 531}, {0x50, 0x63, 0x00, 0xFF}}},
+	{{{-5, -3, 10}, 0, {1645, 559}, {0xEA, 0x22, 0x78, 0xFF}}},
+	{{{-5, 5, 10}, 0, {1671, 507}, {0xED, 0xF4, 0x7D, 0xFF}}},
+	{{{-13, 5, 0}, 0, {1831, 511}, {0x87, 0x26, 0x00, 0xFF}}},
+	{{{-14, -10, 10}, 0, {1871, 669}, {0xAF, 0xC8, 0x50, 0xFF}}},
+	{{{-14, -10, -10}, 0, {1871, 669}, {0xAE, 0xC8, 0xB1, 0xFF}}},
+	{{{20, -10, -12}, 0, {1437, 669}, {0x29, 0xB5, 0xA3, 0xFF}}},
+	{{{20, 0, -12}, 0, {1431, 569}, {0x2A, 0x40, 0x9B, 0xFF}}},
+	{{{28, -10, 0}, 0, {1377, 669}, {0x6A, 0xBA, 0x00, 0xFF}}},
+	{{{20, 0, 11}, 0, {1431, 569}, {0x2A, 0x40, 0x65, 0xFF}}},
+	{{{20, -10, 12}, 0, {1437, 669}, {0x2A, 0xB5, 0x5E, 0xFF}}},
+};
+
+Gfx yoshi_ankle_r1_mesh_layer_1_tri_0[] = {
+	gsSPVertex(yoshi_ankle_r1_mesh_layer_1_vtx_0 + 0, 27, 0),
+	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
+	gsSP2Triangles(0, 4, 3, 0, 5, 6, 7, 0),
+	gsSP2Triangles(8, 6, 5, 0, 8, 9, 6, 0),
+	gsSP2Triangles(10, 9, 8, 0, 10, 11, 9, 0),
+	gsSP2Triangles(12, 11, 10, 0, 12, 7, 11, 0),
+	gsSP2Triangles(5, 7, 12, 0, 13, 14, 15, 0),
+	gsSP2Triangles(13, 16, 14, 0, 16, 13, 17, 0),
+	gsSP2Triangles(18, 17, 13, 0, 17, 18, 19, 0),
+	gsSP2Triangles(17, 19, 20, 0, 21, 20, 19, 0),
+	gsSP2Triangles(19, 14, 21, 0, 19, 15, 14, 0),
+	gsSP2Triangles(22, 21, 14, 0, 22, 14, 23, 0),
+	gsSP2Triangles(23, 14, 16, 0, 16, 24, 23, 0),
+	gsSP2Triangles(24, 16, 25, 0, 17, 25, 16, 0),
+	gsSP2Triangles(17, 26, 25, 0, 17, 20, 26, 0),
+	gsSP2Triangles(25, 26, 24, 0, 22, 23, 24, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx yoshi_ankle_r1_mesh_layer_1_vtx_1[4] = {
+	{{{-16, 10, 0}, 0, {959, 414}, {0x8D, 0x35, 0x00, 0xFF}}},
+	{{{-5, 10, 13}, 0, {1169, 530}, {0xF6, 0x31, 0x75, 0xFF}}},
+	{{{-5, 10, -13}, 0, {737, 530}, {0xF6, 0x31, 0x8B, 0xFF}}},
+	{{{12, 10, 0}, 0, {953, 594}, {0x76, 0x2E, 0x00, 0xFF}}},
+};
+
+Gfx yoshi_ankle_r1_mesh_layer_1_tri_1[] = {
+	gsSPVertex(yoshi_ankle_r1_mesh_layer_1_vtx_1 + 0, 4, 0),
+	gsSP2Triangles(0, 1, 2, 0, 3, 2, 1, 0),
+	gsSPEndDisplayList(),
+};
+
 
 Gfx mat_yoshi_yoshi_3[] = {
 	gsSPSetLights1(yoshi_yoshi_3_lights),
@@ -2108,156 +2089,6 @@ Gfx yoshi_skl_root_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx yoshi_leg_l1_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_l1_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_l1_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_leg_l1_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_l2_skinned_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_l2_skinned_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_l2_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_1),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_2),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_3),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_l2_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_1),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_2),
-	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_3),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_ankle_l1_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_2),
-	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_ankle_l1_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_r1_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_r1_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_r1_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_leg_r1_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_r2_skinned_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_r2_skinned_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_r2_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_2),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_3),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_leg_r2_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_1),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_2),
-	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_3),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_ankle_r1_mesh_layer_1[] = {
-	gsSPDisplayList(mat_yoshi_yoshi_4),
-	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_0),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_2),
-	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
-	gsSPEndDisplayList(),
-};
-
-Gfx yoshi_ankle_r1_mesh_layer_1_mat_override_metal_0[] = {
-	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsSPEndDisplayList(),
-};
-
 Gfx yoshi_spin_skinned_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_3),
 	gsSPDisplayList(yoshi_spin_skinned_mesh_layer_1_tri_0),
@@ -2359,9 +2190,6 @@ Gfx yoshi_arm_l2_mesh_layer_1[] = {
 	gsSPDisplayList(yoshi_arm_l2_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_arm_l2_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_arm_l2_mesh_layer_1_tri_2),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
 	gsSPEndDisplayList(),
 };
 
@@ -2369,7 +2197,6 @@ Gfx yoshi_arm_l2_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPDisplayList(mat_yoshi_metal),
 	gsSPDisplayList(yoshi_arm_l2_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_arm_l2_mesh_layer_1_tri_1),
-	gsSPDisplayList(yoshi_arm_l2_mesh_layer_1_tri_2),
 	gsSPDisplayList(mat_revert_yoshi_metal),
 	gsSPEndDisplayList(),
 };
@@ -2378,12 +2205,12 @@ Gfx yoshi_wrist_l1_skinned_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_4),
 	gsSPDisplayList(yoshi_wrist_l1_skinned_mesh_layer_1_tri_0),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_wrist_l1_skinned_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
 	gsSPDisplayList(mat_yoshi_yoshi_1),
-	gsSPDisplayList(yoshi_wrist_l1_skinned_mesh_layer_1_tri_2),
+	gsSPDisplayList(yoshi_wrist_l1_skinned_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_wrist_l1_skinned_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
 	gsSPEndDisplayList(),
 };
 
@@ -2400,12 +2227,12 @@ Gfx yoshi_wrist_l1_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_4),
 	gsSPDisplayList(yoshi_wrist_l1_mesh_layer_1_tri_0),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_wrist_l1_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
 	gsSPDisplayList(mat_yoshi_yoshi_1),
-	gsSPDisplayList(yoshi_wrist_l1_mesh_layer_1_tri_2),
+	gsSPDisplayList(yoshi_wrist_l1_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_wrist_l1_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
 	gsSPDisplayList(mat_yoshi_yoshi_4),
 	gsSPDisplayList(yoshi_wrist_l1_mesh_layer_1_tri_3),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
@@ -2477,9 +2304,6 @@ Gfx yoshi_arm_r2_mesh_layer_1[] = {
 	gsSPDisplayList(yoshi_arm_r2_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_arm_r2_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_3),
-	gsSPDisplayList(yoshi_arm_r2_mesh_layer_1_tri_2),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
 	gsSPEndDisplayList(),
 };
 
@@ -2487,7 +2311,6 @@ Gfx yoshi_arm_r2_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPDisplayList(mat_yoshi_metal),
 	gsSPDisplayList(yoshi_arm_r2_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_arm_r2_mesh_layer_1_tri_1),
-	gsSPDisplayList(yoshi_arm_r2_mesh_layer_1_tri_2),
 	gsSPDisplayList(mat_revert_yoshi_metal),
 	gsSPEndDisplayList(),
 };
@@ -2631,13 +2454,6 @@ Gfx yoshi_tongue_tip_mesh_layer_1[] = {
 	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsDPPipeSync(),
-	gsSPSetGeometryMode(G_LIGHTING),
-	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
-	gsSPTexture(65535, 65535, 0, 0, 0),
-	gsDPSetEnvColor(255, 255, 255, 255),
-	gsDPSetAlphaCompare(G_AC_NONE),
 	gsSPEndDisplayList(),
 };
 
@@ -2646,13 +2462,6 @@ Gfx yoshi_tongue_tip_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_metal),
-	gsDPPipeSync(),
-	gsSPSetGeometryMode(G_LIGHTING),
-	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
-	gsSPTexture(65535, 65535, 0, 0, 0),
-	gsDPSetEnvColor(255, 255, 255, 255),
-	gsDPSetAlphaCompare(G_AC_NONE),
 	gsSPEndDisplayList(),
 };
 
@@ -2669,6 +2478,158 @@ Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_eyes),
 	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_3),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_eyes),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_2),
+	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_l1_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_l1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_l1_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_leg_l1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_l2_skinned_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_l2_skinned_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_leg_l2_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_l2_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_l2_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_2),
+	gsSPDisplayList(yoshi_leg_l2_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_ankle_l1_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_2),
+	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_ankle_l1_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_ankle_l1_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_r1_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_r1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_r1_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_leg_r1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_r2_skinned_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_r2_skinned_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_leg_r2_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_r2_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_3),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_3),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_leg_r2_mesh_layer_1_mat_override_metal_0[] = {
+	gsSPDisplayList(mat_yoshi_metal),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_2),
+	gsSPDisplayList(yoshi_leg_r2_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_ankle_r1_mesh_layer_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_2),
+	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPClearGeometryMode(G_TEXTURE_GEN),
@@ -2679,12 +2640,10 @@ Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1_mat_override_metal_0[] = {
+Gfx yoshi_ankle_r1_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPDisplayList(mat_yoshi_metal),
-	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_0),
-	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_1),
-	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_2),
-	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_3),
+	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_ankle_r1_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_metal),
 	gsDPPipeSync(),
 	gsSPSetGeometryMode(G_LIGHTING),

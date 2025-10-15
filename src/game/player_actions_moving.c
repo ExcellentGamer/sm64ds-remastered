@@ -77,14 +77,14 @@ s16 tilt_body_running(struct PlayerState *m) {
 void play_step_sound(struct PlayerState *m, s16 frame1, s16 frame2) {
     if (is_anim_past_frame(m, frame1) || is_anim_past_frame(m, frame2)) {
         if (m->flags & PLAYER_METAL_CAP) {
-            if (m->playerObj->header.gfx.animInfo.animID == get_character_anim(m, CHAR_ANIM_TIPTOE)) {
+            if (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_TIPTOE) {
                 play_sound_and_spawn_particles(m, SOUND_ACTION_METAL_STEP_TIPTOE, 0);
             } else {
                 play_sound_and_spawn_particles(m, SOUND_ACTION_METAL_STEP, 0);
             }
         } else if (m->quicksandDepth > 50.0f) {
             play_sound(SOUND_ACTION_QUICKSAND_STEP, m->playerObj->header.gfx.cameraToObject);
-        } else if (m->playerObj->header.gfx.animInfo.animID == get_character_anim(m, CHAR_ANIM_TIPTOE)) {
+        } else if (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_TIPTOE) {
             play_sound_and_spawn_particles(m, SOUND_ACTION_TERRAIN_STEP_TIPTOE, 0);
         } else {
             play_sound_and_spawn_particles(m, SOUND_ACTION_TERRAIN_STEP, 0);
@@ -679,7 +679,11 @@ void anim_and_audio_for_walk(struct PlayerState *m) {
                     } else {
                         //! (Speed Crash) If the players speed is more than 2^17.
                         val14 = (s32)(val04 / 4.0f * 0x10000);
-                        set_player_anim_with_accel(m, CHAR_ANIM_RUNNING, val14);
+                        if (curChar == 0) {
+                            set_player_anim_with_accel(m, YOSHI_ANIM_RUN, val14/3);
+                        } else {
+                            set_player_anim_with_accel(m, CHAR_ANIM_RUNNING, val14);
+                        }
                         play_step_sound(m, 9, 45);
                         targetPitch = tilt_body_running(m);
 
@@ -804,7 +808,7 @@ void tilt_body_walking(struct PlayerState *m, s16 startYaw) {
     UNUSED struct Object *playerObj = m->playerObj;
     s16 animID = m->playerObj->header.gfx.animInfo.animID;
 
-    if ((animID == get_character_anim(m, CHAR_ANIM_WALKING) & (configDash == 0)) || animID == get_character_anim(m, CHAR_ANIM_RUNNING)) {
+    if ((animID == CHAR_ANIM_WALKING & (configDash == 0)) || animID == CHAR_ANIM_RUNNING) {
         s16 dYaw = m->faceAngle[1] - startYaw;
         //! (Speed Crash) These casts can cause a crash if (dYaw * forwardVel / 12) or
         //! (forwardVel * 170) exceed or equal 2^31.

@@ -15,6 +15,7 @@
 
 struct Character gCharacters[CT_MAX] = {
     [CT_YOSHI] = {
+        // model info
         .modelId = MODEL_YOSHI,
         .capModelId = MODEL_NONE,
         .capMetalModelId = MODEL_NONE,
@@ -54,10 +55,3 @@ struct Character gCharacters[CT_MAX] = {
         .capMetalWingModelId = MODEL_MARIOS_WINGED_METAL_CAP, // TODO: Create Waluigi Winged Metal Cap
     },
 };
-
-s32 get_character_anim(struct PlayerState* m, enum PlayerAnimID characterAnim) {
-    if (m == NULL) { return 0; }
-
-    struct Character* character = ((m->character == NULL) ? &gCharacters[CT_YOSHI] : m->character);
-    return ((characterAnim >= 0 && characterAnim < CHAR_ANIM_MAX && character->anims[characterAnim] >= CHAR_ANIM_MAX) ? character->anims[characterAnim] : (s32)characterAnim);
-}

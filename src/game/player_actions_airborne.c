@@ -503,7 +503,11 @@ u32 common_air_action_step(struct PlayerState *m, u32 landAction, s32 animation,
     switch (stepResult) {
         case AIR_STEP_NONE:
             if (((animation == CHAR_ANIM_SINGLE_JUMP || animation == CHAR_ANIM_DOUBLE_JUMP_FALL) && (m->vel[1] < 0) && (m->input & INPUT_A_DOWN) && (curChar == 2) && !(m->flags & PLAYER_WING_CAP)) && (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_RUNNING || is_anim_at_end(m))) {
-                set_player_anim_with_accel(m, CHAR_ANIM_RUNNING, 0x00095000);
+                if (curChar == 0) {
+                    set_player_anim_with_accel(m, YOSHI_ANIM_RUN, 0x00030000);
+                } else {
+                    set_player_anim_with_accel(m, CHAR_ANIM_RUNNING, 0x00095000);
+                }
                 if (is_anim_at_end(m)) {
                     set_anim_to_frame(m, 0);
                 }
