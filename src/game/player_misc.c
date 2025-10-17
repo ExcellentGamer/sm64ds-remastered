@@ -407,9 +407,7 @@ Gfx *geo_player_head_rotation(s32 callContext, struct GraphNode *node, UNUSED Ma
         struct GraphNodeRotation *rotNode = (struct GraphNodeRotation *) node->next;
         struct Camera *camera = gCurGraphNodeCamera->config.camera;
 
-        if (camera->mode == CAMERA_MODE_C_UP
-        ) {
-            
+        if (camera->mode == CAMERA_MODE_C_UP) {
             rotNode->rotation[0] = gPlayerCameraState->headRotation[1];
             rotNode->rotation[2] = gPlayerCameraState->headRotation[0];
         } else if (action & ACT_FLAG_WATER_OR_TEXT) {

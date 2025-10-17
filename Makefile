@@ -114,7 +114,7 @@ PC_PORT_DEFINES := 1
 ifeq ($(TARGET_WII_U),1)
   RENDER_API := GX2
   WINDOW_API := GX2
-  AUDIO_API := SDL2
+  AUDIO_API  := SDL2
   CONTROLLER_API := WII_U
 
   TARGET_PORT_CONSOLE := 1
@@ -237,12 +237,22 @@ ifeq ($(TARGET_WII_U),1)
   endif
 
   include $(DEVKITPPC)/base_tools
+  include $(DEVKITPRO)/wut/share/wut_rules
+
+  ICON	      	:= platform/wiiu/icon.png
+  TV_SPLASH	    := platform/wiiu/bootTV.png
+  DRC_SPLASH	  := platform/wiiu/bootDRC.png
+  APP_NAME		  := Super Mario 64 DS Remastered
+  APP_SHORTNAME	:= SM64DS Remastered
+  APP_AUTHOR		:= Nintendo, ExcellentGamer
+  APP_VERSION     := 0.0.3
 
   PORTLIBS	:=	$(PORTLIBS_PATH)/wiiu $(PORTLIBS_PATH)/ppc
 
   export PATH := $(PORTLIBS_PATH)/wiiu/bin:$(PORTLIBS_PATH)/ppc/bin:$(PATH)
 
   WUT_ROOT	?=	$(DEVKITPRO)/wut
+  WUMS_ROOT   := $(DEVKITPRO)/wums
 
   RPXSPECS	:=	-specs=$(WUT_ROOT)/share/wut.specs
 
@@ -1437,6 +1447,32 @@ ifeq ($(WINDOWS_BUILD),1)
 $(BUILD_DIR)/%.o: %.rc
 	$(call print,Compiling Windows resource:,$<,$@)
 	$(V)$(WINDRES) -o $@ -i $<
+endif
+
+# ------------------------------------------------------------------------------ #
+# Wii U WUHB Packaging                                                          #
+# ------------------------------------------------------------------------------ #
+
+# Only package if we are building for Wii U
+ifeq ($(TARGET_WII_U),1)
+
+# Make sure .rpx exists before creating .wuhb
+$(BUILD_DIR)/$(TARGET).rpx: $(EXE)
+	@echo ">>> Packaging WUHB: $@"
+	wuhbtool \
+		--rpx $< \
+		--out $@ \
+		--name "$(APP_NAME)" \
+		--short-name "$(APP_SHORTNAME)" \
+		--author "$(APP_AUTHOR)" \
+		--version "$(APP_VERSION)" \
+		--icon "$(ICON)" \
+		--boot-tv "$(TV_SPLASH)" \
+		--boot-drc "$(DRC_SPLASH)"
+
+# Ensure 'all' builds the WUHB
+all: $(BUILD_DIR)/$(TARGET).wuhb
+
 endif
 
 #==============================================================================#

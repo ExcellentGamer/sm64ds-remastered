@@ -14,7 +14,15 @@ Lights1 yoshi_yoshi_2_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
-Lights1 yoshi_yoshi_eyes_lights = gdSPDefLights1(
+Lights1 yoshi_yoshi_eye_open_lights = gdSPDefLights1(
+	0x7F, 0x7F, 0x7F,
+	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
+
+Lights1 yoshi_yoshi_eye_half_lights = gdSPDefLights1(
+	0x7F, 0x7F, 0x7F,
+	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
+
+Lights1 yoshi_yoshi_eye_closed_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFF, 0xFF, 0xFF, 0x28, 0x28, 0x28);
 
@@ -38,8 +46,16 @@ Texture yoshi_yoshi_2_rgba16[] = {
 	#include "actors/yoshi/yoshi_2.rgba16.inc.c"
 };
 
-Texture yoshi_yoshi_eye_rgba16[] = {
-	#include "actors/yoshi/yoshi_eye.rgba16.inc.c"
+Texture yoshi_yoshi_eye_open_rgba16[] = {
+	#include "actors/yoshi/yoshi_eye_open.rgba16.inc.c"
+};
+
+Texture yoshi_yoshi_eye_half_rgba16[] = {
+	#include "actors/yoshi/yoshi_eye_half.rgba16.inc.c"
+};
+
+Texture yoshi_yoshi_eye_close_rgba16[] = {
+	#include "actors/yoshi/yoshi_eye_close.rgba16.inc.c"
 };
 
 Vtx yoshi_skl_root_mesh_layer_1_vtx_0[14] = {
@@ -2045,14 +2061,14 @@ Gfx mat_revert_yoshi_yoshi_2[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_yoshi_yoshi_eyes[] = {
-	gsSPSetLights1(yoshi_yoshi_eyes_lights),
+Gfx mat_yoshi_yoshi_eye_open[] = {
+	gsSPSetLights1(yoshi_yoshi_eye_open_lights),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsDPSetAlphaDither(G_AD_NOISE),
 	gsDPSetTextureFilter(G_TF_POINT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, yoshi_yoshi_eye_rgba16),
+	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, yoshi_yoshi_eye_open_rgba16),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
 	gsDPLoadBlock(7, 0, 0, 511, 512),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 4, 0, 0, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0, G_TX_WRAP | G_TX_MIRROR, 4, 0),
@@ -2060,7 +2076,51 @@ Gfx mat_yoshi_yoshi_eyes[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_yoshi_yoshi_eyes[] = {
+Gfx mat_revert_yoshi_yoshi_eye_open[] = {
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsDPSetTextureFilter(G_TF_BILERP),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_yoshi_yoshi_eye_half[] = {
+	gsSPSetLights1(yoshi_yoshi_eye_half_lights),
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+	gsDPSetAlphaDither(G_AD_NOISE),
+	gsDPSetTextureFilter(G_TF_POINT),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, yoshi_yoshi_eye_half_rgba16),
+	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadBlock(7, 0, 0, 511, 512),
+	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 4, 0, 0, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0, G_TX_WRAP | G_TX_MIRROR, 4, 0),
+	gsDPSetTileSize(0, 0, 0, 60, 124),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_revert_yoshi_yoshi_eye_half[] = {
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsDPSetTextureFilter(G_TF_BILERP),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_yoshi_yoshi_eye_closed[] = {
+	gsSPSetLights1(yoshi_yoshi_eye_closed_lights),
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
+	gsDPSetAlphaDither(G_AD_NOISE),
+	gsDPSetTextureFilter(G_TF_POINT),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 1, yoshi_yoshi_eye_close_rgba16),
+	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b_LOAD_BLOCK, 0, 0, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
+	gsDPLoadBlock(7, 0, 0, 511, 512),
+	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 4, 0, 0, 0, G_TX_WRAP | G_TX_MIRROR, 5, 0, G_TX_WRAP | G_TX_MIRROR, 4, 0),
+	gsDPSetTileSize(0, 0, 0, 60, 124),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_revert_yoshi_yoshi_eye_closed[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsDPSetTextureFilter(G_TF_BILERP),
@@ -2375,9 +2435,9 @@ Gfx yoshi_face_1_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_4),
 	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_0),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
-	gsSPDisplayList(mat_yoshi_yoshi_eyes),
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
 	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_eyes),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
 	gsSPDisplayList(mat_yoshi_yoshi_2),
 	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_2),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
@@ -2397,6 +2457,64 @@ Gfx yoshi_face_1_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPEndDisplayList(),
 };
 
+Gfx yoshi_face_1_mesh_layer_1_mat_override_yoshi_eye_half_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_eye_half),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_half),
+	gsSPDisplayList(mat_yoshi_yoshi_2),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_face_1_mesh_layer_1_mat_override_yoshi_eye_closed_2[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_eye_closed),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_closed),
+	gsSPDisplayList(mat_yoshi_yoshi_2),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_face_1_mesh_layer_1_mat_override_yoshi_eye_open_3[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
+	gsSPDisplayList(mat_yoshi_yoshi_2),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_face_1_mesh_layer_1_mat_override_yoshi_eye_open_4[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_2),
+	gsSPDisplayList(yoshi_face_1_mesh_layer_1_tri_3),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
+	gsSPEndDisplayList(),
+};
+
 Gfx yoshi_mouth_skinned_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_4),
 	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_0),
@@ -2412,6 +2530,44 @@ Gfx yoshi_mouth_skinned_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_0),
 	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_skinned_mesh_layer_1_mat_override_yoshi_eye_half_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_skinned_mesh_layer_1_mat_override_yoshi_eye_closed_2[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_skinned_mesh_layer_1_mat_override_yoshi_eye_open_3[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_skinned_mesh_layer_1_mat_override_yoshi_eye_open_4[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_mouth_skinned_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
 	gsSPEndDisplayList(),
 };
 
@@ -2435,6 +2591,48 @@ Gfx yoshi_mouth_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPEndDisplayList(),
 };
 
+Gfx yoshi_mouth_mesh_layer_1_mat_override_yoshi_eye_half_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_mesh_layer_1_mat_override_yoshi_eye_closed_2[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_mesh_layer_1_mat_override_yoshi_eye_open_3[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPDisplayList(mat_yoshi_yoshi_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_1),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_mouth_mesh_layer_1_mat_override_yoshi_eye_open_4[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_1),
+	gsSPDisplayList(yoshi_mouth_mesh_layer_1_tri_2),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
+	gsSPEndDisplayList(),
+};
+
 Gfx yoshi_tongue_tip_skinned_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_4),
 	gsSPDisplayList(yoshi_tongue_tip_skinned_mesh_layer_1_tri_0),
@@ -2446,6 +2644,34 @@ Gfx yoshi_tongue_tip_skinned_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPDisplayList(mat_yoshi_metal),
 	gsSPDisplayList(yoshi_tongue_tip_skinned_mesh_layer_1_tri_0),
 	gsSPDisplayList(mat_revert_yoshi_metal),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_skinned_mesh_layer_1_mat_override_yoshi_eye_half_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_tongue_tip_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_skinned_mesh_layer_1_mat_override_yoshi_eye_closed_2[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_tongue_tip_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_skinned_mesh_layer_1_mat_override_yoshi_eye_open_3[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_tongue_tip_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_skinned_mesh_layer_1_mat_override_yoshi_eye_open_4[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
+	gsSPDisplayList(yoshi_tongue_tip_skinned_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
 	gsSPEndDisplayList(),
 };
 
@@ -2465,6 +2691,38 @@ Gfx yoshi_tongue_tip_mesh_layer_1_mat_override_metal_0[] = {
 	gsSPEndDisplayList(),
 };
 
+Gfx yoshi_tongue_tip_mesh_layer_1_mat_override_yoshi_eye_half_1[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_mesh_layer_1_mat_override_yoshi_eye_closed_2[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_mesh_layer_1_mat_override_yoshi_eye_open_3[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_4),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_4),
+	gsSPEndDisplayList(),
+};
+
+Gfx yoshi_tongue_tip_mesh_layer_1_mat_override_yoshi_eye_open_4[] = {
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_0),
+	gsSPDisplayList(yoshi_tongue_tip_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
+	gsSPEndDisplayList(),
+};
+
 Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_1),
 	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_0),
@@ -2475,9 +2733,9 @@ Gfx yoshi_switch_option_yoshi_head_fill_mesh_layer_1[] = {
 	gsSPDisplayList(mat_yoshi_yoshi_2),
 	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_2),
 	gsSPDisplayList(mat_revert_yoshi_yoshi_2),
-	gsSPDisplayList(mat_yoshi_yoshi_eyes),
+	gsSPDisplayList(mat_yoshi_yoshi_eye_open),
 	gsSPDisplayList(yoshi_switch_option_yoshi_head_fill_mesh_layer_1_tri_3),
-	gsSPDisplayList(mat_revert_yoshi_yoshi_eyes),
+	gsSPDisplayList(mat_revert_yoshi_yoshi_eye_open),
 	gsSPEndDisplayList(),
 };
 
