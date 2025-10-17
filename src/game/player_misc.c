@@ -522,7 +522,8 @@ Gfx *geo_switch_yoshi_face(s32 callContext, struct GraphNode *node, UNUSED Mat4 
     struct GraphNodeSwitchCase *switchCase = (struct GraphNodeSwitchCase *) node;
     struct PlayerBodyState *bodyState = &gBodyStates[switchCase->numCases];
 
-    if (callContext == GEO_CONTEXT_RENDER) {
+    // TODOL Fix This
+    /*if (callContext == GEO_CONTEXT_RENDER) {
         switchCase->selectedCase = bodyState->eatState & 1;
         while (next != node) {
             if (next->type == GRAPH_NODE_TYPE_TRANSLATION_ROTATION) {
@@ -534,7 +535,7 @@ Gfx *geo_switch_yoshi_face(s32 callContext, struct GraphNode *node, UNUSED Mat4 
             }
             next = next->next;
         }
-    }
+    }*/
     return NULL;
 }
 

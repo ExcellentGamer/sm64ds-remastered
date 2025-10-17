@@ -34,111 +34,150 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
         endAction = ACT_IDLE, crouchEndAction = ACT_CROUCHING;
     }
 
-    switch (m->actionArg) {
-        case 0:
-            play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject);
-            // fallthrough
-        case 1:
-            set_player_animation(m, CHAR_ANIM_FIRST_PUNCH);
-            if (is_anim_past_end(m)) {
-                m->actionArg = 2;
-            } else {
-                m->actionArg = 1;
-            }
-
-            if (m->playerObj->header.gfx.animInfo.animFrame >= 2) {
-                if (player_check_object_grab(m)) {
-                    return TRUE;
+    if (curChar == 0) {
+        switch (m->actionArg) {
+            case 0:
+                play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject); // TODO: Replace with Yoshi sound
+            case 1:
+                set_player_animation(m, YOSHI_ANIM_EAT);
+                if (is_anim_past_end(m)) {
+                    m->actionArg = 2;
+                } else {
+                    m->actionArg = 1;
                 }
 
-                m->flags |= PLAYER_PUNCHING;
-            }
+                if (m->playerObj->header.gfx.animInfo.animFrame >= 2) {
+                    if (player_check_object_grab(m)) {
+                        return TRUE;
+                    }
 
-            if (m->actionArg == 2) {
-                m->playerBodyState->punchState = (0 << 6) | 4;
-            }
-            break;
+                    m->flags |= PLAYER_PUNCHING;
+                }
 
-        case 2:
-            set_player_animation(m, CHAR_ANIM_FIRST_PUNCH_FAST);
+                /*if (m->actionArg == 2) {
+                    m->playerBodyState->punchState = (0 << 6) | 4;
+                }*/
+                break;
 
-            if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
-                m->flags |= PLAYER_PUNCHING;
-            }
+            case 2:
+                set_player_animation(m, YOSHI_ANIM_EAT);
 
-            if (m->input & INPUT_B_PRESSED) {
-                m->actionArg = 3;
-            }
+                if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
+                    m->flags |= PLAYER_PUNCHING;
+                }
 
-            if (is_anim_at_end(m)) {
-                set_player_action(m, endAction, 0);
-            }
-            break;
+                if (is_anim_at_end(m)) {
+                    set_player_action(m, endAction, 0);
+                }
+                break;
+        }
+    } else {
+        switch (m->actionArg) {
+            case 0:
+                play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject);
+                // fallthrough
+            case 1:
+                set_player_animation(m, CHAR_ANIM_FIRST_PUNCH);
+                if (is_anim_past_end(m)) {
+                    m->actionArg = 2;
+                } else {
+                    m->actionArg = 1;
+                }
 
-        case 3:
-            play_sound(SOUND_MARIO_PUNCH_WAH, m->playerObj->header.gfx.cameraToObject);
-            // fallthrough
-        case 4:
-            set_player_animation(m, CHAR_ANIM_SECOND_PUNCH);
-            if (is_anim_past_end(m)) {
-                m->actionArg = 5;
-            } else {
-                m->actionArg = 4;
-            }
+                if (m->playerObj->header.gfx.animInfo.animFrame >= 2) {
+                    if (player_check_object_grab(m)) {
+                        return TRUE;
+                    }
 
-            if (m->playerObj->header.gfx.animInfo.animFrame > 0) {
-                m->flags |= PLAYER_PUNCHING;
-            }
+                    m->flags |= PLAYER_PUNCHING;
+                }
 
-            if (m->actionArg == 5) {
-                m->playerBodyState->punchState = (1 << 6) | 4;
-            }
-            break;
+                if (m->actionArg == 2) {
+                    m->playerBodyState->punchState = (0 << 6) | 4;
+                }
+                break;
 
-        case 5:
-            set_player_animation(m, CHAR_ANIM_SECOND_PUNCH_FAST);
-            if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
-                m->flags |= PLAYER_PUNCHING;
-            }
+            case 2:
+                set_player_animation(m, CHAR_ANIM_FIRST_PUNCH_FAST);
 
-            if (m->input & INPUT_B_PRESSED) {
-                m->actionArg = 6;
-            }
+                if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
+                    m->flags |= PLAYER_PUNCHING;
+                }
 
-            if (is_anim_at_end(m)) {
-                set_player_action(m, endAction, 0);
-            }
-            break;
+                if (m->input & INPUT_B_PRESSED) {
+                    m->actionArg = 3;
+                }
 
-        case 6:
-            play_player_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
-            animFrame = set_player_animation(m, CHAR_ANIM_GROUND_KICK);
-            if (animFrame == 0) {
-                m->playerBodyState->punchState = (2 << 6) | 6;
-            }
+                if (is_anim_at_end(m)) {
+                    set_player_action(m, endAction, 0);
+                }
+                break;
 
-            if (animFrame >= 0 && animFrame < 8) {
-                m->flags |= PLAYER_KICKING;
-            }
+            case 3:
+                play_sound(SOUND_MARIO_PUNCH_WAH, m->playerObj->header.gfx.cameraToObject);
+                // fallthrough
+            case 4:
+                set_player_animation(m, CHAR_ANIM_SECOND_PUNCH);
+                if (is_anim_past_end(m)) {
+                    m->actionArg = 5;
+                } else {
+                    m->actionArg = 4;
+                }
 
-            if (is_anim_at_end(m)) {
-                set_player_action(m, endAction, 0);
-            }
-            break;
+                if (m->playerObj->header.gfx.animInfo.animFrame > 0) {
+                    m->flags |= PLAYER_PUNCHING;
+                }
 
-        case 9:
-            play_player_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
-            set_player_animation(m, CHAR_ANIM_BREAKDANCE);
-            animFrame = m->playerObj->header.gfx.animInfo.animFrame;
+                if (m->actionArg == 5) {
+                    m->playerBodyState->punchState = (1 << 6) | 4;
+                }
+                break;
 
-            if (animFrame >= 2 && animFrame < 8) {
-                m->flags |= PLAYER_TRIPPING;
-            }
+            case 5:
+                set_player_animation(m, CHAR_ANIM_SECOND_PUNCH_FAST);
+                if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
+                    m->flags |= PLAYER_PUNCHING;
+                }
 
-            if (is_anim_at_end(m)) {
-                set_player_action(m, crouchEndAction, 0);
-            }
-            break;
+                if (m->input & INPUT_B_PRESSED) {
+                    m->actionArg = 6;
+                }
+
+                if (is_anim_at_end(m)) {
+                    set_player_action(m, endAction, 0);
+                }
+                break;
+
+            case 6:
+                play_player_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
+                animFrame = set_player_animation(m, CHAR_ANIM_GROUND_KICK);
+                if (animFrame == 0) {
+                    m->playerBodyState->punchState = (2 << 6) | 6;
+                }
+
+                if (animFrame >= 0 && animFrame < 8) {
+                    m->flags |= PLAYER_KICKING;
+                }
+
+                if (is_anim_at_end(m)) {
+                    set_player_action(m, endAction, 0);
+                }
+                break;
+
+            case 9:
+                play_player_action_sound(m, SOUND_MARIO_PUNCH_HOO, 1);
+                set_player_animation(m, CHAR_ANIM_BREAKDANCE);
+                animFrame = m->playerObj->header.gfx.animInfo.animFrame;
+
+                if (animFrame >= 2 && animFrame < 8) {
+                    m->flags |= PLAYER_TRIPPING;
+                }
+
+                if (is_anim_at_end(m)) {
+                    set_player_action(m, crouchEndAction, 0);
+                }
+                break;
+        }
     }
 
     return FALSE;

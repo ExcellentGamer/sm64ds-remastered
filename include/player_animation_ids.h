@@ -218,6 +218,7 @@ enum PlayerAnimID {
 
     /* 0xD1 */ YOSHI_ANIM_IDLE,
     /* 0xD2 */ YOSHI_ANIM_RUN,
+    /* 0xD3 */ YOSHI_ANIM_EAT,
     CHAR_ANIM_MAX // MUST BE LAST
 };
 
