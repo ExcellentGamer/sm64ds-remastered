@@ -31,13 +31,14 @@
 #endif
 
 #define DISCORDLIB DISCORDLIBFILE DISCORDLIBEXT
-#define DISCORD_APP_ID  "709083908708237342"
+#define DISCORD_APP_ID  "1427640295884984431"
 #define DISCORD_UPDATE_RATE 5
 
 extern s16 gCurrCourseNum;
 extern s16 gCurrActNum;
 extern u8 seg2_course_name_table[];
 extern u8 seg2_act_name_table[];
+extern int curChar;
 
 static time_t lastUpdatedTime;
 
@@ -62,8 +63,9 @@ extern s32 gInGameLanguage;
 static char stage[188];
 static char act[188];
 
-static char smallImageKey[5];
-static char largeImageKey[5];
+static char largeImageKey[8];
+static char smallImageKey[16];
+static char smallImageText[32];
 
 static const char charset[0xFF+1] = {
     ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', // 7
@@ -176,7 +178,7 @@ static void set_details(void) {
 
             convertstring(&courseName[3], stage);
         } else {
-            strcpy(stage, "Peach's Castle");
+            strcpy(stage, "Mushroom Castle");
         }
 
         lastCourseNum = gCurrCourseNum;
@@ -226,17 +228,34 @@ void set_logo(void) {
     else 
         strcpy(largeImageKey, "0");
 
-    /*
-    if (lastActNum)
-        snprintf(smallImageKey, sizeof(largeImageKey), "%d", lastActNum);
-    else
+    static const char *charKeys[] = {
+        "yoshi", /* #define YOSHI   0 */
+        "mario",
+        "luigi",
+        "wario",
+        "waluigi"
+    };
+    static const char *charDisplayNames[] = {
+        "Yoshi",  /* #define YOSHI   0 */
+        "Mario",
+        "Luigi",
+        "Wario",
+        "Waluigi"
+    };
+    const int charCount = (int)(sizeof(charKeys) / sizeof(charKeys[0]));
+
+    if (curChar >= 0 && curChar < charCount) {
+        snprintf(smallImageKey, sizeof(smallImageKey), "%s", charKeys[curChar]);
+        snprintf(smallImageText, sizeof(smallImageText), "%s", charDisplayNames[curChar]);
+    } else {
         smallImageKey[0] = '\0';
-    */
+        smallImageText[0] = '\0';
+    }
 
     discordRichPresence.largeImageKey = largeImageKey;
-    //discordRichPresence.largeImageText = "";
-    //discordRichPresence.smallImageKey = smallImageKey;
-    //discordRichPresence.smallImageText = "";
+    discordRichPresence.largeImageText = stage;
+    discordRichPresence.smallImageKey = smallImageKey;
+    discordRichPresence.smallImageText = smallImageText;
 }
 
 void discord_update_rich_presence(void) {
