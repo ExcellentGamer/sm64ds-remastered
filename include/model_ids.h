@@ -14,7 +14,7 @@
 
 /* Global models that are loaded for every level */
 
-#define MODEL_YOSHI                       0x57        // yoshi_geo
+#define MODEL_YOSHI                       0xD3        // yoshi_geo
 #define MODEL_MARIO                       0x01        // mario_geo
 #define MODEL_LUIGI                       0x02        // luigi_geo
 
