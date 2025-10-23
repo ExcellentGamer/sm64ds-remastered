@@ -178,7 +178,7 @@ static void set_details(void) {
 
             convertstring(&courseName[3], stage);
         } else {
-            strcpy(stage, "Mushroom Castle");
+            strcpy(stage, "Peach's Castle");
         }
 
         lastCourseNum = gCurrCourseNum;
