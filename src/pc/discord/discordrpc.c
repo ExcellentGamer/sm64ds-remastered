@@ -55,11 +55,6 @@ void (*Discord_UpdatePresence)(DiscordRichPresence *);
 static s16 lastCourseNum = -1;
 static s16 lastActNum = -1;
 
-#ifdef VERSION_EU
-#include "eu_translation.h"
-extern s32 gInGameLanguage;
-#endif
-
 static char stage[188];
 static char act[188];
 
@@ -159,21 +154,7 @@ static void set_details(void) {
         if (gCurrCourseNum) {
             void **courseNameTbl;
 
-#ifndef VERSION_EU
             courseNameTbl = segmented_to_virtual(seg2_course_name_table);
-#else
-            switch (gInGameLanguage) {
-                case LANGUAGE_ENGLISH:
-                    courseNameTbl = segmented_to_virtual(course_name_table_eu_en);
-                    break;
-                case LANGUAGE_FRENCH:
-                    courseNameTbl = segmented_to_virtual(course_name_table_eu_fr);
-                    break;
-                case LANGUAGE_GERMAN:
-                    courseNameTbl = segmented_to_virtual(course_name_table_eu_de);
-                    break;
-            }
-#endif
             u8 *courseName = segmented_to_virtual(courseNameTbl[gCurrCourseNum - 1]);
 
             convertstring(&courseName[3], stage);
@@ -192,21 +173,7 @@ static void set_state(void) {
             // any stage over 19 is a special stage without acts
             if (gCurrCourseNum < COURSE_STAGES_MAX) {
                 void **actNameTbl;
-#ifndef VERSION_EU
                 actNameTbl = segmented_to_virtual(seg2_act_name_table);
-#else
-                switch (gInGameLanguage) {
-                    case LANGUAGE_ENGLISH:
-                        actNameTbl = segmented_to_virtual(act_name_table_eu_en);
-                        break;
-                    case LANGUAGE_FRENCH:
-                        actNameTbl = segmented_to_virtual(act_name_table_eu_fr);
-                        break;
-                    case LANGUAGE_GERMAN:
-                        actNameTbl = segmented_to_virtual(act_name_table_eu_de);
-                        break;
-                }
-#endif
                 u8 *actName = actName = segmented_to_virtual(actNameTbl[(gCurrCourseNum - 1) * 6 + gCurrActNum - 1]);
 
                 convertstring(actName, act);
