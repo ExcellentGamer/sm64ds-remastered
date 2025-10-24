@@ -37,30 +37,29 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
     if (curChar == 0) {
         switch (m->actionArg) {
             case 0:
-                play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject); // TODO: Replace with Yoshi sound
+                play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject);
+                m->actionArg = 1;
+                break;
+
             case 1:
                 set_player_animation(m, YOSHI_ANIM_EAT);
+
                 if (is_anim_past_end(m)) {
+                    //m->playerObj->header.gfx.animInfo.animFrame = 0;
                     m->actionArg = 2;
-                } else {
-                    m->actionArg = 1;
+                    break;
                 }
 
                 if (m->playerObj->header.gfx.animInfo.animFrame >= 2) {
                     if (player_check_object_grab(m)) {
                         return TRUE;
                     }
-
                     m->flags |= PLAYER_PUNCHING;
                 }
-
-                /*if (m->actionArg == 2) {
-                    m->playerBodyState->punchState = (0 << 6) | 4;
-                }*/
                 break;
 
             case 2:
-                set_player_animation(m, YOSHI_ANIM_EAT);
+                set_player_animation(m, YOSHI_ANIM_EAT_FAIL);
 
                 if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
                     m->flags |= PLAYER_PUNCHING;

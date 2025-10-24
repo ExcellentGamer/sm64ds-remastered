@@ -139,21 +139,17 @@ s32 check_fall_damage(struct PlayerState *m, u32 hardFallAction) {
 s32 check_kick_or_dive_in_air(struct PlayerState *m) {
     float velocityThreshhold = 28.0f;
     if (m->input & INPUT_B_PRESSED) {
-        if (curChar == 0) {
-            return set_player_action(m, ACT_PUNCHING, 0);
-        } else {
-            // Credits to Keeberghrh for programming the DS Dive
-            if (configDive) {
-                if (m->forwardVel >= 28.0f) {
-                    m->vel[1] = 30.0f;
-                    m->forwardVel += 2.0f;
-                    return set_player_action(m, ACT_DIVE, 0);
-                } else if (m->forwardVel < 28.0f) {
-                    return set_player_action(m, ACT_JUMP_KICK, 0);
-                }
-            } else if (!configDive) {
-                return set_player_action(m, m->forwardVel > velocityThreshhold ? ACT_DIVE : ACT_JUMP_KICK, 0);
+        // Credits to Keeberghrh for programming the DS Dive
+        if (configDive) {
+            if (m->forwardVel >= 28.0f) {
+                m->vel[1] = 30.0f;
+                m->forwardVel += 2.0f;
+                return set_player_action(m, ACT_DIVE, 0);
+            } else if (m->forwardVel < 28.0f) {
+                return set_player_action(m, ACT_JUMP_KICK, 0);
             }
+        } else if (!configDive) {
+            return set_player_action(m, m->forwardVel > velocityThreshhold ? ACT_DIVE : ACT_JUMP_KICK, 0);
         }
     }
     return FALSE;
@@ -643,14 +639,8 @@ s32 act_triple_jump(struct PlayerState *m) {
         return set_player_action(m, ACT_SPECIAL_TRIPLE_JUMP, 0);
     }
 
-    if (curChar == 0) {
-        if (m->input & INPUT_B_PRESSED) {
-            return set_player_action(m, ACT_PUNCHING, 0);
-        }
-    } else {
-        if (m->input & INPUT_B_PRESSED) {
-            return set_player_action(m, ACT_DIVE, 0);
-        }
+    if (m->input & INPUT_B_PRESSED) {
+        return set_player_action(m, ACT_DIVE, 0);
     }
 
     if (m->input & INPUT_Z_PRESSED) {

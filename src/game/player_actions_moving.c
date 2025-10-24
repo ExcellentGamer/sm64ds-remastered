@@ -2066,7 +2066,7 @@ s32 quicksand_jump_land_action(struct PlayerState *m, s32 animation1, s32 animat
 }
 
 s32 act_quicksand_jump_land(struct PlayerState *m) {
-    s32 cancel = NULL;
+    s32 cancel;
     if (curChar == 0) {
         s32 cancel = quicksand_jump_land_action(m, YOSHI_ANIM_JUMP, YOSHI_ANIM_JUMP_LAND, ACT_JUMP_LAND_STOP, ACT_FREEFALL);
     } else {
