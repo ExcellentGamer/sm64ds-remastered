@@ -1328,7 +1328,12 @@ static s32 act_metal_water_jump(struct PlayerState *m) {
     }
 
     play_metal_water_jumping_sound(m, FALSE);
-    set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+
+    if (curChar == 0) {
+        set_player_animation(m, YOSHI_ANIM_JUMP);
+    } else {
+        set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+    }
 
     switch (perform_air_step(m, 0)) {
         case AIR_STEP_LANDED:
@@ -1426,7 +1431,12 @@ static s32 act_metal_water_jump_land(struct PlayerState *m) {
     }
 
     stop_and_set_height_to_floor(m);
-    set_player_animation(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP);
+
+    if (curChar == 0) {
+        set_player_animation(m, YOSHI_ANIM_JUMP_LAND);
+    } else {
+        set_player_animation(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP);
+    }
 
     if (is_anim_at_end(m)) {
         return set_player_action(m, ACT_METAL_WATER_STANDING, 0);

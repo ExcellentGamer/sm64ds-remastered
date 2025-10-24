@@ -844,7 +844,11 @@ s32 act_jump_land_stop(struct PlayerState *m) {
         return TRUE;
     }
 
-    landing_step(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP, ACT_IDLE);
+    if (curChar == 0) {
+        landing_step(m, YOSHI_ANIM_JUMP_LAND, ACT_IDLE);
+    } else {
+        landing_step(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP, ACT_IDLE);
+    }
     return FALSE;
 }
 

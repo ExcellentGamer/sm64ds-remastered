@@ -139,17 +139,21 @@ s32 check_fall_damage(struct PlayerState *m, u32 hardFallAction) {
 s32 check_kick_or_dive_in_air(struct PlayerState *m) {
     float velocityThreshhold = 28.0f;
     if (m->input & INPUT_B_PRESSED) {
-        // Credits to Keeberghrh for programming the DS Dive
-        if (configDive) {
-            if (m->forwardVel >= 28.0f) {
-                m->vel[1] = 30.0f;
-                m->forwardVel += 2.0f;
-                return set_player_action(m, ACT_DIVE, 0);
-            } else if (m->forwardVel < 28.0f) {
-                return set_player_action(m, ACT_JUMP_KICK, 0);
+        if (curChar == 0) {
+            return set_player_action(m, ACT_PUNCHING, 0);
+        } else {
+            // Credits to Keeberghrh for programming the DS Dive
+            if (configDive) {
+                if (m->forwardVel >= 28.0f) {
+                    m->vel[1] = 30.0f;
+                    m->forwardVel += 2.0f;
+                    return set_player_action(m, ACT_DIVE, 0);
+                } else if (m->forwardVel < 28.0f) {
+                    return set_player_action(m, ACT_JUMP_KICK, 0);
+                }
+            } else if (!configDive) {
+                return set_player_action(m, m->forwardVel > velocityThreshhold ? ACT_DIVE : ACT_JUMP_KICK, 0);
             }
-        } else if (!configDive) {
-            return set_player_action(m, m->forwardVel > velocityThreshhold ? ACT_DIVE : ACT_JUMP_KICK, 0);
         }
     }
     return FALSE;
@@ -502,7 +506,7 @@ u32 common_air_action_step(struct PlayerState *m, u32 landAction, s32 animation,
     stepResult = perform_air_step(m, stepArg);
     switch (stepResult) {
         case AIR_STEP_NONE:
-            if (((animation == CHAR_ANIM_SINGLE_JUMP || animation == CHAR_ANIM_DOUBLE_JUMP_FALL) && (m->vel[1] < 0) && (m->input & INPUT_A_DOWN) && (curChar == 2) && !(m->flags & PLAYER_WING_CAP)) && (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_RUNNING || is_anim_at_end(m))) {
+            if (((animation == CHAR_ANIM_SINGLE_JUMP || animation == YOSHI_ANIM_JUMP || animation == CHAR_ANIM_DOUBLE_JUMP_FALL) && (m->vel[1] < 0) && (m->input & INPUT_A_DOWN) && (curChar == 2) && !(m->flags & PLAYER_WING_CAP)) && (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_RUNNING || is_anim_at_end(m))) {
                 if (curChar == 0) {
                     set_player_anim_with_accel(m, YOSHI_ANIM_RUN, 0x00030000);
                 } else {
@@ -589,8 +593,12 @@ s32 act_jump(struct PlayerState *m) {
     act_scuttle(m);
 
     play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
-    common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_SINGLE_JUMP,
-                           AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
+    if (curChar == 0) {
+        common_air_action_step(m, ACT_JUMP_LAND, YOSHI_ANIM_JUMP, AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
+    } else {
+        common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_SINGLE_JUMP, AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
+    }
+    
     return FALSE;
 }
 
@@ -635,8 +643,14 @@ s32 act_triple_jump(struct PlayerState *m) {
         return set_player_action(m, ACT_SPECIAL_TRIPLE_JUMP, 0);
     }
 
-    if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_DIVE, 0);
+    if (curChar == 0) {
+        if (m->input & INPUT_B_PRESSED) {
+            return set_player_action(m, ACT_PUNCHING, 0);
+        }
+    } else {
+        if (m->input & INPUT_B_PRESSED) {
+            return set_player_action(m, ACT_DIVE, 0);
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
@@ -1015,7 +1029,12 @@ s32 act_water_jump(struct PlayerState *m) {
     }
 
     play_player_sound(m, SOUND_ACTION_WATER_JUMP, 0);
-    set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+
+    if (curChar == 0) {
+        set_player_animation(m, YOSHI_ANIM_JUMP);
+    } else {
+        set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+    }
 
     switch (perform_air_step(m, AIR_STEP_CHECK_LEDGE_GRAB)) {
         case AIR_STEP_LANDED:
@@ -1096,7 +1115,12 @@ s32 act_steep_jump(struct PlayerState *m) {
             break;
     }
 
-    set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+    if (curChar == 0) {
+        set_player_animation(m, YOSHI_ANIM_JUMP);
+    } else {
+        set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+    }
+
     m->playerObj->header.gfx.angle[1] = m->playerObj->oPlayerSteepJumpYaw;
     return FALSE;
 }
@@ -1177,7 +1201,12 @@ s32 act_burning_jump(struct PlayerState *m) {
         set_player_action(m, ACT_BURNING_GROUND, 0);
     }
 
-    set_player_animation(m, m->actionArg == 0 ? CHAR_ANIM_SINGLE_JUMP : CHAR_ANIM_FIRE_LAVA_BURN);
+    if (curChar == 0) {
+        set_player_animation(m, m->actionArg == 0 ? YOSHI_ANIM_JUMP : CHAR_ANIM_FIRE_LAVA_BURN);
+    } else {
+        set_player_animation(m, m->actionArg == 0 ? CHAR_ANIM_SINGLE_JUMP : CHAR_ANIM_FIRE_LAVA_BURN);
+    }
+
     m->particleFlags |= PARTICLE_FIRE;
     play_sound(SOUND_MOVING_LAVA_BURN, m->playerObj->header.gfx.cameraToObject);
 

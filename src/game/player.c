@@ -80,7 +80,7 @@ s16 set_player_animation(struct PlayerState *m, s32 targetAnimID) {
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
 
-    if (curChar == 0 && (targetAnimID != YOSHI_ANIM_RUN) && (targetAnimID != YOSHI_ANIM_IDLE) && (targetAnimID != YOSHI_ANIM_EAT)) {
+    if (curChar == 0 && (targetAnimID != YOSHI_ANIM_RUN) && (targetAnimID != YOSHI_ANIM_JUMP) && (targetAnimID != YOSHI_ANIM_JUMP_LAND) && (targetAnimID != YOSHI_ANIM_IDLE) && (targetAnimID != YOSHI_ANIM_EAT)) {
         targetAnimID = YOSHI_ANIM_TPOSE;
     } else {
         targetAnimID = targetAnimID;
@@ -119,7 +119,7 @@ s16 set_player_anim_with_accel(struct PlayerState *m, s32 targetAnimID, s32 acce
     struct Object *o = m->playerObj;
     struct Animation *targetAnim = m->animList->bufTarget;
 
-    if (curChar == 0 && (targetAnimID != YOSHI_ANIM_RUN) && (targetAnimID != YOSHI_ANIM_IDLE) && (targetAnimID != YOSHI_ANIM_EAT)) {
+    if (curChar == 0 && (targetAnimID != YOSHI_ANIM_RUN) && (targetAnimID != YOSHI_ANIM_JUMP) && (targetAnimID != YOSHI_ANIM_JUMP_LAND) && (targetAnimID != YOSHI_ANIM_IDLE) && (targetAnimID != YOSHI_ANIM_EAT)) {
         targetAnimID = YOSHI_ANIM_TPOSE;
     } else {
         targetAnimID = targetAnimID;

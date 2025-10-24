@@ -1071,7 +1071,7 @@ s32 act_emerge_from_pipe(struct PlayerState *m) {
         }
     } else
 #endif
-    // ex-alo change
+    // Alo Made A COOL change here :O
     // makes pipe sound play if we actually used a warp pipe
     {
         if (obj_has_behavior(m->interactObj, bhvWarpPipe)) {
@@ -1079,9 +1079,16 @@ s32 act_emerge_from_pipe(struct PlayerState *m) {
         }
     }
 
-    if (launch_player_until_land(m, ACT_JUMP_LAND_STOP, CHAR_ANIM_SINGLE_JUMP, 8.0f)) {
-        player_set_forward_vel(m, 0.0f);
-        play_player_landing_sound(m, SOUND_ACTION_TERRAIN_LANDING);
+    if (curChar == 0) {
+        if (launch_player_until_land(m, ACT_JUMP_LAND_STOP, YOSHI_ANIM_JUMP, 8.0f)) {
+            player_set_forward_vel(m, 0.0f);
+            play_player_landing_sound(m, SOUND_ACTION_TERRAIN_LANDING);
+        }
+    } else {
+        if (launch_player_until_land(m, ACT_JUMP_LAND_STOP, CHAR_ANIM_SINGLE_JUMP, 8.0f)) {
+            player_set_forward_vel(m, 0.0f);
+            play_player_landing_sound(m, SOUND_ACTION_TERRAIN_LANDING);
+        }
     }
     return FALSE;
 }
@@ -1213,8 +1220,11 @@ s32 act_exit_land_save_dialog(struct PlayerState *m) {
     switch (m->actionState) {
         // determine type of exit
         case 0:
-            set_player_animation(m, m->actionArg == 0 ? CHAR_ANIM_GENERAL_LAND
-                                                     : CHAR_ANIM_LAND_FROM_SINGLE_JUMP);
+            if (curChar == 0) {
+                set_player_animation(m, m->actionArg == 0 ? CHAR_ANIM_GENERAL_LAND : YOSHI_ANIM_JUMP_LAND);
+            } else {
+                set_player_animation(m, m->actionArg == 0 ? CHAR_ANIM_GENERAL_LAND : CHAR_ANIM_LAND_FROM_SINGLE_JUMP);
+            }
             if (is_anim_past_end(m)) {
                 if (gLastCompletedCourseNum != COURSE_BITDW
                     && gLastCompletedCourseNum != COURSE_BITFS) {
@@ -1345,10 +1355,18 @@ s32 act_special_exit_airborne(struct PlayerState *m) {
         return FALSE;
     }
 
-    if (launch_player_until_land(m, ACT_EXIT_LAND_SAVE_DIALOG, CHAR_ANIM_SINGLE_JUMP, -24.0f)) {
-        // heal Player
-        m->healCounter = 31;
-        m->actionArg = 1;
+    if (curChar == 0) {
+        if (launch_player_until_land(m, ACT_EXIT_LAND_SAVE_DIALOG, YOSHI_ANIM_JUMP, -24.0f)) {
+            // heal Player
+            m->healCounter = 31;
+            m->actionArg = 1;
+        }
+    } else {
+        if (launch_player_until_land(m, ACT_EXIT_LAND_SAVE_DIALOG, CHAR_ANIM_SINGLE_JUMP, -24.0f)) {
+            // heal Player
+            m->healCounter = 31;
+            m->actionArg = 1;
+        }
     }
 
     m->particleFlags |= PARTICLE_SPARKLES;
@@ -1846,7 +1864,12 @@ static void intro_cutscene_jump_out_of_pipe(struct PlayerState *m) {
         play_sound_if_no_flag(m, SOUND_MARIO_YAHOO, PLAYER_MARIO_SOUND_PLAYED);
         play_sound_if_no_flag(m, SOUND_ACTION_HIT_3, PLAYER_ACTION_SOUND_PLAYED);
 
-        set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+        if (curChar == 0) {
+            set_player_animation(m, YOSHI_ANIM_JUMP);
+        } else {   
+            set_player_animation(m, CHAR_ANIM_SINGLE_JUMP);
+        }
+
         player_set_forward_vel(m, 10.0f);
         if (perform_air_step(m, 0) == AIR_STEP_LANDED) {
             sound_banks_enable(SEQ_PLAYER_SFX, SOUND_BANKS_DISABLED_DURING_INTRO_CUTSCENE);
@@ -1858,7 +1881,11 @@ static void intro_cutscene_jump_out_of_pipe(struct PlayerState *m) {
 }
 
 static void intro_cutscene_land_outside_pipe(struct PlayerState *m) {
-    set_player_animation(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP);
+    if (curChar == 0) {
+        set_player_animation(m, YOSHI_ANIM_JUMP_LAND);
+    } else {
+        set_player_animation(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP);
+    }
     sIntroWarpPipeLObj->oPosY = camera_approach_f32_symmetric(sIntroWarpPipeMObj->oPosY, -755.0f, 10.0f);
     sIntroWarpPipeWObj->oPosY = camera_approach_f32_symmetric(sIntroWarpPipeMObj->oPosY, -755.0f, 10.0f);
 

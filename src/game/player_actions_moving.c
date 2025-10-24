@@ -1911,7 +1911,11 @@ s32 act_jump_land(struct PlayerState *m) {
         return TRUE;
     }
 
-    common_landing_action(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP, ACT_FREEFALL);
+    if (curChar == 0) {
+        common_landing_action(m, YOSHI_ANIM_JUMP_LAND, ACT_FREEFALL);
+    } else {
+        common_landing_action(m, CHAR_ANIM_LAND_FROM_SINGLE_JUMP, ACT_FREEFALL);
+    }
     return FALSE;
 }
 
@@ -2062,8 +2066,12 @@ s32 quicksand_jump_land_action(struct PlayerState *m, s32 animation1, s32 animat
 }
 
 s32 act_quicksand_jump_land(struct PlayerState *m) {
-    s32 cancel = quicksand_jump_land_action(m, CHAR_ANIM_SINGLE_JUMP, CHAR_ANIM_LAND_FROM_SINGLE_JUMP,
-                                            ACT_JUMP_LAND_STOP, ACT_FREEFALL);
+    s32 cancel = NULL;
+    if (curChar == 0) {
+        s32 cancel = quicksand_jump_land_action(m, YOSHI_ANIM_JUMP, YOSHI_ANIM_JUMP_LAND, ACT_JUMP_LAND_STOP, ACT_FREEFALL);
+    } else {
+        s32 cancel = quicksand_jump_land_action(m, CHAR_ANIM_SINGLE_JUMP, CHAR_ANIM_LAND_FROM_SINGLE_JUMP, ACT_JUMP_LAND_STOP, ACT_FREEFALL);
+    }
     return cancel;
 }
 
