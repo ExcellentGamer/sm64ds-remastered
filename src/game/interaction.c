@@ -13,6 +13,7 @@
 #include "game_init.h"
 #include "interaction.h"
 #include "level_update.h"
+#include "characters.h"
 #include "player.h"
 #include "player_step.h"
 #include "memory.h"
@@ -369,13 +370,14 @@ u32 does_player_have_normal_cap_on_head(struct PlayerState *m) {
 
 void player_blow_off_cap(struct PlayerState *m, f32 capSpeed) {
     struct Object *capObject;
+    u8 capModel = gCharacters[curChar].capModelId;
 
     if (does_player_have_normal_cap_on_head(m)) {
         save_file_set_cap_pos(m->pos[0], m->pos[1], m->pos[2]);
 
         m->flags &= ~(PLAYER_NORMAL_CAP | PLAYER_CAP_ON_HEAD);
 
-        capObject = spawn_object(m->playerObj, MODEL_MARIOS_CAP, bhvNormalCap);
+        capObject = spawn_object(m->playerObj, capModel, bhvNormalCap);
 
         capObject->oPosY += (m->action & ACT_FLAG_SHORT_HITBOX) ? 120.0f : 180.0f;
         capObject->oForwardVel = capSpeed;
@@ -750,7 +752,7 @@ u32 take_damage_and_knock_back(struct PlayerState *m, struct Object *o) {
         }
 
         if (o->oDamageOrCoinValue > 0) {
-            play_sound(SOUND_MARIO_ATTACKED, m->playerObj->header.gfx.cameraToObject);
+            play_character_sound(m, CHAR_SOUND_ATTACKED);
         }
 
         update_player_sound_and_camera(m);
@@ -1130,7 +1132,7 @@ u32 interact_tornado(struct PlayerState *m, UNUSED u32 interactType, struct Obje
         playerObj->oPlayerTornadoYawVel = 0x400;
         playerObj->oPlayerTornadoPosY = m->pos[1] - o->oPosY;
 
-        play_sound(SOUND_MARIO_WAAAOOOW, m->playerObj->header.gfx.cameraToObject);
+        play_character_sound(m, CHAR_SOUND_WAAAOOOW);
 #ifdef RUMBLE_FEEDBACK  
         queue_rumble_data(30, 60);
 #endif
@@ -1154,7 +1156,7 @@ u32 interact_whirlpool(struct PlayerState *m, UNUSED u32 interactType, struct Ob
 
         playerObj->oPlayerWhirlpoolPosY = m->pos[1] - o->oPosY;
 
-        play_sound(SOUND_MARIO_WAAAOOOW, m->playerObj->header.gfx.cameraToObject);
+        play_character_sound(m, CHAR_SOUND_WAAAOOOW);
 #ifdef RUMBLE_FEEDBACK  
         queue_rumble_data(30, 60);
 #endif
@@ -1179,7 +1181,7 @@ u32 interact_strong_wind(struct PlayerState *m, UNUSED u32 interactType, struct 
         m->forwardVel = -24.0f;
         m->vel[1] = 12.0f;
 
-        play_sound(SOUND_MARIO_WAAAOOOW, m->playerObj->header.gfx.cameraToObject);
+        play_character_sound(m, CHAR_SOUND_WAAAOOOW);
         update_player_sound_and_camera(m);
         return set_player_action(m, ACT_GETTING_BLOWN, 0);
     }

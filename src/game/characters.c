@@ -15,12 +15,14 @@
 
 struct Character gCharacters[CT_MAX] = {
     [CT_YOSHI] = {
-        // model info
         .modelId = MODEL_YOSHI,
         .capModelId = MODEL_NONE,
         .capMetalModelId = MODEL_NONE,
         .capWingModelId = MODEL_NONE,
         .capMetalWingModelId = MODEL_NONE,
+
+        // SFX
+        .soundPunchYah = SOUND_YOSHI_PUNCH_YAH,
     },
 
     [CT_MARIO] = {
@@ -55,3 +57,46 @@ struct Character gCharacters[CT_MAX] = {
         .capMetalWingModelId = MODEL_MARIOS_WINGED_METAL_CAP, // TODO: Create Waluigi Winged Metal Cap
     },
 };
+
+struct Character* get_character(struct PlayerState* m) {
+    return (m == NULL || m->character == NULL)
+        ? &gCharacters[CT_YOSHI]
+        : m->character;
+}
+
+static s32 get_character_sound(struct PlayerState* m, enum CharacterSound characterSound) {
+    struct Character* character = ((m == NULL || m->character == NULL) ? &gCharacters[CT_YOSHI] : m->character);
+
+    if (m == NULL || m->playerObj == NULL) {
+        return 0;
+    }
+
+    if (characterSound < 0 || characterSound >= CHAR_SOUND_MAX) {
+        return 0;
+    }
+    return character->sounds[characterSound];
+}
+
+static void play_character_sound_internal(struct PlayerState *m, enum CharacterSound characterSound, u32 offset, u32 flags) {
+    if (m != NULL && (m->flags & flags) == 0) {
+        s32 sound = get_character_sound(m, characterSound);
+        if (sound != 0) {
+            struct Character* character = get_character(m);
+            f32 *pos = (m->playerObj != NULL ? m->playerObj->header.gfx.cameraToObject : gGlobalSoundSource);
+            play_sound(sound + offset, pos); // Potential bug here because I changed it xD
+        }
+        m->flags |= flags;
+    }
+}
+
+void play_character_sound(struct PlayerState* m, enum CharacterSound characterSound) {
+    play_character_sound_internal(m, characterSound, 0, 0);
+}
+
+void play_character_sound_offset(struct PlayerState* m, enum CharacterSound characterSound, u32 offset) {
+    play_character_sound_internal(m, characterSound, offset, 0);
+}
+
+void play_character_sound_if_no_flag(struct PlayerState* m, enum CharacterSound characterSound, u32 flags) {
+    play_character_sound_internal(m, characterSound, 0, flags);
+}

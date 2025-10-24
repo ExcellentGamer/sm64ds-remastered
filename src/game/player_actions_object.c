@@ -3,6 +3,7 @@
 #include "sm64.h"
 #include "player_actions_object.h"
 #include "types.h"
+#include "characters.h"
 #include "player_step.h"
 #include "player.h"
 #include "audio/external.h"
@@ -35,9 +36,10 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
     }
 
     if (curChar == 0) {
+        // Lick Functionality
         switch (m->actionArg) {
             case 0:
-                play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject);
+                play_character_sound(m, CHAR_SOUND_PUNCH_YAH);
                 m->actionArg = 1;
                 break;
 
@@ -45,7 +47,6 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
                 set_player_animation(m, YOSHI_ANIM_EAT);
 
                 if (is_anim_past_end(m)) {
-                    //m->playerObj->header.gfx.animInfo.animFrame = 0;
                     m->actionArg = 2;
                     break;
                 }
@@ -71,10 +72,10 @@ s32 player_update_punch_sequence(struct PlayerState *m) {
                 break;
         }
     } else {
+        // Punch/Kick Functionality
         switch (m->actionArg) {
             case 0:
                 play_sound(SOUND_MARIO_PUNCH_YAH, m->playerObj->header.gfx.cameraToObject);
-                // fallthrough
             case 1:
                 set_player_animation(m, CHAR_ANIM_FIRST_PUNCH);
                 if (is_anim_past_end(m)) {

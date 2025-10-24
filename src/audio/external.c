@@ -1320,7 +1320,8 @@ static void update_game_sound(void) {
 #endif
                             break;
                         case SOUND_BANK_ACTION:
-                        case SOUND_BANK_VOICE:
+                        case SOUND_BANK_MARIO_VOICE:
+                        case SOUND_BANK_YOSHI_VOICE:
 #if defined(VERSION_EU) || defined(VERSION_SH)
                             func_802ad770(0x05020000 | ((channelIndex & 0xff) << 8),
                                           get_sound_reverb(bank, soundIndex, channelIndex));
@@ -1487,7 +1488,7 @@ static void update_game_sound(void) {
 #endif
                             break;
                         case SOUND_BANK_ACTION:
-                        case SOUND_BANK_VOICE:
+                        case SOUND_BANK_MARIO_VOICE:
 #if defined(VERSION_EU) || defined(VERSION_SH)
                             func_802ad770(0x05020000 | ((channelIndex & 0xff) << 8),
                                           get_sound_reverb(bank, soundIndex, channelIndex));
