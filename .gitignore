@@ -67,6 +67,8 @@ sm64dsr_config.txt
 /assets/**/*.bin
 /sound/**/*.m64
 /sound/**/*.aiff
+!/sound/samples/sfx_yoshi/*.aiff
+!/sound/samples/sfx_yoshi_peach/*.aiff
 
 # DS Remastered Assets Allowed
 !/levels/castle_inside/*painting*.png
