@@ -24,6 +24,12 @@
     .byte (\b - sequence_start) >> 8, (\b - sequence_start) & 0xff
 .endm
 
+.macro seq_startchannel_extended a, b
+    .byte 0xb0
+    .byte \a
+    .byte (\b - sequence_start) >> 8, (\b - sequence_start) & 0xff
+.endm
+
 .macro seq_subtract a
     .byte 0xc8
     .byte \a
@@ -73,9 +79,26 @@
     .byte \a >> 8, \a & 0xff
 .endm
 
+.macro seq_disablechannels_extended a, b
+    .byte 0xc0
+    .byte (\a >> 56) & 0xff, (\a >> 48) & 0xff, (\a >> 40) & 0xff, (\a >> 32) & 0xff, (\a >> 24) & 0xff, (\a >> 16) & 0xff, (\a >> 8) & 0xff, \a & 0xff
+    .byte (\b >> 56) & 0xff, (\b >> 48) & 0xff, (\b >> 40) & 0xff, (\b >> 32) & 0xff, (\b >> 24) & 0xff, (\b >> 16) & 0xff, (\b >> 8) & 0xff, \b & 0xff
+.endm
+
 .macro seq_initchannels a
     .byte 0xd7
     .byte \a >> 8, \a & 0xff
+.endm
+
+.macro seq_initchannels_extended a, b
+    .byte 0xc1
+    .ifdef BITS_32
+        .byte 0, 0, 0, 0, (\a >> 24) & 0xff, (\a >> 16) & 0xff, (\a >> 8) & 0xff, \a & 0xff
+        .byte 0, 0, 0, 0, (\b >> 24) & 0xff, (\b >> 16) & 0xff, (\b >> 8) & 0xff, \b & 0xff
+    .else
+        .byte (\a >> 56) & 0xff, (\a >> 48) & 0xff, (\a >> 40) & 0xff, (\a >> 32) & 0xff, (\a >> 24) & 0xff, (\a >> 16) & 0xff, (\a >> 8) & 0xff, \a & 0xff
+        .byte (\b >> 56) & 0xff, (\b >> 48) & 0xff, (\b >> 40) & 0xff, (\b >> 32) & 0xff, (\b >> 24) & 0xff, (\b >> 16) & 0xff, (\b >> 8) & 0xff, \b & 0xff
+    .endif
 .endm
 
 .macro seq_changevol a

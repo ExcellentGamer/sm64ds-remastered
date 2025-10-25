@@ -1,9 +1,6 @@
 #ifndef SOUNDS_H
 #define SOUNDS_H
 
-// include other sound headers
-#include "yoshi_sounds.h"
-
 // Sound Magic Definition:
 // First Byte (Upper Nibble): Sound Bank (not the same as audio bank!)
 // First Byte (Lower Nibble): Bitflags for audio playback?
@@ -40,7 +37,7 @@ enum SoundBank {
     SOUND_BANK_GENERAL2,
     SOUND_BANK_OBJ2,
     SOUND_BANK_YOSHI_VOICE,
-    SOUND_BANK_COUNT
+    SOUND_BANK_COUNT,
 };
 
 #define SOUND_BANKS_ALL_BITS 0xffff
@@ -48,8 +45,8 @@ enum SoundBank {
 #define SOUND_BANKS_FOREGROUND (\
     (1 << SOUND_BANK_ACTION) |\
     (1 << SOUND_BANK_MARIO_VOICE) |\
-    (1 << SOUND_BANK_MENU)) |\
-    (1 << SOUND_BANK_YOSHI_VOICE)
+    (1 << SOUND_BANK_MENU) |\
+    (1 << SOUND_BANK_YOSHI_VOICE))
 #define SOUND_BANKS_BACKGROUND (SOUND_BANKS_ALL & ~SOUND_BANKS_FOREGROUND)
 #define SOUND_BANKS_DISABLED_DURING_INTRO_CUTSCENE (\
     (1 << SOUND_BANK_ENV) |\
@@ -60,8 +57,8 @@ enum SoundBank {
     (1 << SOUND_BANK_ACTION) |\
     (1 << SOUND_BANK_MOVING) |\
     (1 << SOUND_BANK_MARIO_VOICE) |\
-    (1 << SOUND_BANK_GENERAL)) |\
-    (1 << SOUND_BANK_YOSHI_VOICE)
+    (1 << SOUND_BANK_GENERAL) |\
+    (1 << SOUND_BANK_YOSHI_VOICE))
 
 /* Audio playback bitflags. */
 #define SOUND_NO_VOLUME_LOSS        0x1000000 // No volume loss with distance
@@ -101,7 +98,10 @@ enum SoundBank {
 #define SOUND_TERRAIN_SAND      7
 
 // silence
-#define NO_SOUND 0x00000000
+#define NO_SOUND 0
+
+// include other sound headers
+#include "yoshi_sounds.h"
 
 /**
  * The table below defines all sounds that exist in the game, and which flags
@@ -567,7 +567,7 @@ enum SoundBank {
 // to play two channel 3 sounds at once (since just one sound from each channel
 // can play at a given time).
 #define SOUND_GENERAL2_BOBOMB_EXPLOSION          /* 0x802E2081 */ SOUND_ARG_LOAD(SOUND_BANK_GENERAL2, 0x2E, 0x20, SOUND_DISCRETE)
-#define SOUND_GENERAL2_SWITCH             /* 0x803EC081 */ SOUND_ARG_LOAD(SOUND_BANK_GENERAL2, 0x3E, 0xC0, SOUND_DISCRETE)
+#define SOUND_GENERAL2_SWITCH                    /* 0x803EC081 */ SOUND_ARG_LOAD(SOUND_BANK_GENERAL2, 0x3E, 0xC0, SOUND_DISCRETE)
 #define SOUND_GENERAL2_ROTATING_BLOCK_CLICK      /* 0x80400081 */ SOUND_ARG_LOAD(SOUND_BANK_GENERAL2, 0x40, 0x00, SOUND_DISCRETE)
 #define SOUND_GENERAL2_SPINDEL_ROLL              /* 0x80482081 */ SOUND_ARG_LOAD(SOUND_BANK_GENERAL2, 0x48, 0x20, SOUND_DISCRETE)
 #define SOUND_GENERAL2_PYRAMID_TOP_SPIN          /* 0x814BE081 */ SOUND_ARG_LOAD(SOUND_BANK_GENERAL2, 0x4B, 0xE0, SOUND_NO_VOLUME_LOSS | SOUND_DISCRETE)
