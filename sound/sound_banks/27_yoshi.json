@@ -155,6 +155,12 @@
             "release_rate": 208,
             "envelope": "envelope0",
             "sound": "1A_yoshi_lets_a_go"
+        },
+        "inst27": {
+            "ifdef": ["VERSION_US", "VERSION_EU"],
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "1B_yoshi_jump_yah"
         }
     },
     "instrument_list": [
@@ -184,6 +190,7 @@
         "inst23",
         "inst24",
         "inst25",
-        "inst26"
+        "inst26",
+        "inst27"
     ]
 }

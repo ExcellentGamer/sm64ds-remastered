@@ -20,8 +20,10 @@ enum CharacterType {
 };
 
 enum CharacterSound {
-    CHAR_SOUND_YAH_WAH_HOO,
-    CHAR_SOUND_HOOHOO,
+    CHAR_SOUND_YAH,
+    CHAR_SOUND_WAH,
+    CHAR_SOUND_HOO,
+    CHAR_SOUND_MUH,
     CHAR_SOUND_YAHOO,
     CHAR_SOUND_UH,
     CHAR_SOUND_HRMM,
@@ -78,8 +80,10 @@ struct Character {
     // SFX
     union {
         struct {
-            s32 soundYahWahHoo;
-            s32 soundHoohoo;
+            s32 soundYah;
+            s32 soundWah;
+            s32 soundHoo;
+            s32 soundMuh;
             s32 soundYahoo;
             s32 soundUh;
             s32 soundHrmm;

@@ -567,7 +567,7 @@ s32 check_ground_dive_or_punch(struct PlayerState *m) {
 
     if (m->input & INPUT_B_PRESSED) {
         //! Speed kick (shoutouts to SimpleFlips)
-        if (m->forwardVel >= 29.0f && m->controller->stickMag > 48.0f) {
+        if (m->forwardVel >= 29.0f && m->controller->stickMag > 48.0f && curChar != 0) {
             m->vel[1] = 20.0f;
             return set_player_action(m, ACT_DIVE, 1);
         }
@@ -944,7 +944,7 @@ s32 act_move_punching(struct PlayerState *m) {
         return set_player_action(m, ACT_BEGIN_SLIDING, 0);
     }
 
-    if (m->actionState == 0 && (m->input & INPUT_A_DOWN)) {
+    if (m->actionState == 0 && (m->input & INPUT_A_DOWN) && curChar != 0) {
         return set_player_action(m, ACT_JUMP_KICK, 0);
     }
 
@@ -1488,7 +1488,7 @@ void common_slide_action(struct PlayerState *m, u32 endAction, u32 airAction, s3
 #endif
             set_player_action(m, airAction, 0);
             if (m->forwardVel < -50.0f || 50.0f < m->forwardVel) {
-                play_sound(SOUND_MARIO_MUH, m->playerObj->header.gfx.cameraToObject);
+                play_character_sound(m, CHAR_SOUND_MUH);
             }
             break;
 
@@ -1581,9 +1581,9 @@ s32 act_crouch_slide(struct PlayerState *m) {
 
     if (m->input & INPUT_B_PRESSED) {
         if (m->forwardVel >= 10.0f) {
-            return set_player_action(m, ACT_SLIDE_KICK, 0);
+            return set_player_action(m, ACT_SLIDE_KICK, 0x0009);
         } else {
-            return set_player_action(m, ACT_MOVE_PUNCHING, 0x0009);
+            return set_player_action(m, ACT_MOVE_PUNCHING, 0);
         }
     }
 

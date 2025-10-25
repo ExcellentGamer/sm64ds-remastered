@@ -18,7 +18,7 @@
         "inst1": {
             "release_rate": 208,
             "envelope": "envelope0",
-            "sound": "01_yoshi_hoohoo"
+            "sound": "01_yoshi_muh"
         },
         "inst2": {
             "release_rate": 208,
@@ -53,7 +53,7 @@
         "inst8": {
             "release_rate": 208,
             "envelope": "envelope0",
-            "sound": "08_yoshi_punch_yah"
+            "sound": "08_yoshi_lick"
         },
         "inst9": {
             "release_rate": 208,

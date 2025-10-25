@@ -15,6 +15,7 @@
 #include "ingame_menu.h"
 #include "interaction.h"
 #include "level_update.h"
+#include "characters.h"
 #include "player.h"
 #include "player_actions_cutscene.h"
 #include "player_actions_moving.h"
@@ -2010,12 +2011,11 @@ static s32 jumbo_star_cutscene_taking_off(struct PlayerState *m) {
 
         switch (animFrame) {
             case 3:
-                play_sound(SOUND_MARIO_YAH + (gAudioRandom % 3 << 16),
-                           m->playerObj->header.gfx.cameraToObject);
+                play_character_sound(m, CHAR_SOUND_YAH);
                 break;
 
             case 28:
-                play_sound(SOUND_MARIO_MUH, m->playerObj->header.gfx.cameraToObject);
+                play_character_sound(m, CHAR_SOUND_MUH);
                 break;
 
             case 60:

@@ -42,7 +42,7 @@ chan_jump .main_loop_yoshi
 sound_ref .sound_yoshi_jump_yah
 sound_ref .sound_yoshi_jump_wah
 sound_ref .sound_yoshi_jump_hoo
-sound_ref .sound_yoshi_hoohoo
+sound_ref .sound_yoshi_muh
 sound_ref .sound_yoshi_yahoo
 sound_ref .sound_yoshi_uh
 sound_ref .sound_yoshi_hrmm
@@ -69,7 +69,7 @@ sound_ref .sound_yoshi_panting3
 sound_ref .sound_yoshi_coughing1
 sound_ref .sound_yoshi_coughing2
 sound_ref .sound_yoshi_coughing3
-sound_ref .sound_yoshi_punch_yah
+sound_ref .sound_yoshi_lick
 sound_ref .sound_yoshi_punch_hoo
 sound_ref .sound_yoshi_mama_mia
 sound_ref .sound_yoshi_okey_dokey
@@ -119,8 +119,8 @@ layer_note1 39, 0x18, 127
 layer_end
 
 .sound_yoshi_jump_yah:
-chan_setbank 13
-chan_setinstr 9
+chan_setbank 12
+chan_setinstr 28
 chan_setlayer 0, .layer_yoshi_C5A
 chan_end
 
@@ -129,7 +129,7 @@ chan_end
 layer_note1 39, 0x24, 127
 layer_end
 
-.sound_yoshi_hoohoo:
+.sound_yoshi_muh:
 chan_setbank 13
 chan_setinstr 1
 chan_setlayer 0, .layer_yoshi_C6C
@@ -398,7 +398,7 @@ layer_note1 41, 0xc, 115
 layer_note1 35, 0x12, 115
 layer_end
 
-.sound_yoshi_punch_yah:
+.sound_yoshi_lick:
 chan_setbank 13
 chan_setinstr 9
 chan_setlayer 0, .layer_yoshi_DFE

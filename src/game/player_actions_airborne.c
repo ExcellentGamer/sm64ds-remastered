@@ -9,6 +9,7 @@
 #include "game_init.h"
 #include "interaction.h"
 #include "level_update.h"
+#include "characters.h"
 #include "player.h"
 #include "player_step.h"
 #include "rumble_init.h"
@@ -151,6 +152,13 @@ s32 check_kick_or_dive_in_air(struct PlayerState *m) {
         } else if (!configDive) {
             return set_player_action(m, m->forwardVel > velocityThreshhold ? ACT_DIVE : ACT_JUMP_KICK, 0);
         }
+    }
+    return FALSE;
+}
+
+s32 check_lick_in_air(struct PlayerState *m) {
+    if (m->input & INPUT_B_PRESSED) {
+        return set_player_action(m, ACT_MOVE_PUNCHING, 0);
     }
     return FALSE;
 }
@@ -494,6 +502,10 @@ static s32 act_wall_slide(struct PlayerState *m) {
     return FALSE;
 }
 
+s32 minFlutterTimer = 10;
+s32 maxFlutterTimer = 17;
+s32 flutterTimer = 0;
+
 u32 common_air_action_step(struct PlayerState *m, u32 landAction, s32 animation, u32 stepArg) {
     u32 stepResult;
 
@@ -502,12 +514,13 @@ u32 common_air_action_step(struct PlayerState *m, u32 landAction, s32 animation,
     stepResult = perform_air_step(m, stepArg);
     switch (stepResult) {
         case AIR_STEP_NONE:
-            if (((animation == CHAR_ANIM_SINGLE_JUMP || animation == YOSHI_ANIM_JUMP || animation == CHAR_ANIM_DOUBLE_JUMP_FALL) && (m->vel[1] < 0) && (m->input & INPUT_A_DOWN) && (curChar == 2) && !(m->flags & PLAYER_WING_CAP)) && (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_RUNNING || is_anim_at_end(m))) {
-                if (curChar == 0) {
-                    set_player_anim_with_accel(m, YOSHI_ANIM_RUN, 0x00030000);
-                } else {
-                    set_player_anim_with_accel(m, CHAR_ANIM_RUNNING, 0x00095000);
+            if (((animation == CHAR_ANIM_SINGLE_JUMP || animation == CHAR_ANIM_DOUBLE_JUMP_FALL) && (m->vel[1] < 0) && (m->input & INPUT_A_DOWN) && (curChar == 2) && !(m->flags & PLAYER_WING_CAP)) && (m->playerObj->header.gfx.animInfo.animID == CHAR_ANIM_RUNNING || is_anim_at_end(m))) {
+                set_player_anim_with_accel(m, CHAR_ANIM_RUNNING, 0x00095000);
+                if (is_anim_at_end(m)) {
+                    set_anim_to_frame(m, 0);
                 }
+            } else if (((animation == YOSHI_ANIM_JUMP) && (m->input & INPUT_A_DOWN) && (flutterTimer > minFlutterTimer) && (flutterTimer < maxFlutterTimer) && (curChar == 0) && !(m->flags & PLAYER_WING_CAP)) && (m->playerObj->header.gfx.animInfo.animID == YOSHI_ANIM_RUN || is_anim_at_end(m))) {
+                set_player_anim_with_accel(m, YOSHI_ANIM_RUN, 0x00035000);
                 if (is_anim_at_end(m)) {
                     set_anim_to_frame(m, 0);
                 }
@@ -562,10 +575,20 @@ u32 common_air_action_step(struct PlayerState *m, u32 landAction, s32 animation,
     return stepResult;
 }
 
-void act_scuttle(struct PlayerState *m) {
-    if (m->vel[1] < 0 && m->input & INPUT_A_DOWN && (curChar == 2) && !(m->flags & PLAYER_WING_CAP)) {
-    
-        m->vel[1] += 2.3;
+// Credits to AndresL64 for the original flutter jump code
+void act_luigi_scuttle_or_flutter_jump(struct PlayerState *m) {
+    if (m->vel[1] < 0 && m->input & INPUT_A_DOWN && (curChar == 0 || curChar == 2) && !(m->flags & PLAYER_WING_CAP)) {
+        flutterTimer++;
+
+        if (curChar == 0) {
+            if ((flutterTimer > minFlutterTimer) && (flutterTimer < maxFlutterTimer)) {
+                m->vel[1] += 18.0;
+            } else if (flutterTimer < minFlutterTimer) {
+                m->vel[1] += 1.75;
+            }
+        } else {
+            m->vel[1] += 2.3;
+        }
 
         if(m->forwardVel > 0){
             m->forwardVel -= 1.2;
@@ -574,8 +597,14 @@ void act_scuttle(struct PlayerState *m) {
 }
 
 s32 act_jump(struct PlayerState *m) {
-    if (check_kick_or_dive_in_air(m)) {
-        return TRUE;
+    if (curChar == 0) {
+        if (check_lick_in_air(m)) {
+            return TRUE;
+        }
+    } else {
+        if (check_kick_or_dive_in_air(m)) {
+            return TRUE;
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
@@ -586,13 +615,17 @@ s32 act_jump(struct PlayerState *m) {
         m->vel[1] += 0.3f;
     }
 
-    act_scuttle(m);
+    act_luigi_scuttle_or_flutter_jump(m);
 
     play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
     if (curChar == 0) {
         common_air_action_step(m, ACT_JUMP_LAND, YOSHI_ANIM_JUMP, AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
     } else {
         common_air_action_step(m, ACT_JUMP_LAND, CHAR_ANIM_SINGLE_JUMP, AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
+    }
+
+    if (m->action == ACT_JUMP_LAND) {
+        flutterTimer = 0;
     }
     
     return FALSE;
@@ -605,8 +638,14 @@ s32 act_double_jump(struct PlayerState *m) {
         ? CHAR_ANIM_DOUBLE_JUMP_RISE
         : CHAR_ANIM_DOUBLE_JUMP_FALL;
 
-    if (check_kick_or_dive_in_air(m)) {
-        return TRUE;
+    if (curChar == 0) {
+        if (check_lick_in_air(m)) {
+            return TRUE;
+        }
+    } else {
+        if (check_kick_or_dive_in_air(m)) {
+            return TRUE;
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
@@ -617,11 +656,15 @@ s32 act_double_jump(struct PlayerState *m) {
         m->vel[1] += 0.4f;
     }
 
-    act_scuttle(m);
+    act_luigi_scuttle_or_flutter_jump(m);
 
-    play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, SOUND_MARIO_MUH);
-    common_air_action_step(m, ACT_DOUBLE_JUMP_LAND, animation,
-                           AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
+    play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, CHAR_SOUND_MUH);
+    common_air_action_step(m, ACT_DOUBLE_JUMP_LAND, animation, AIR_STEP_CHECK_LEDGE_GRAB | AIR_STEP_CHECK_HANG);
+    
+    if (m->action == ACT_DOUBLE_JUMP_LAND) {
+        flutterTimer = 0;
+    }
+
     return FALSE;
 }
 
@@ -640,7 +683,11 @@ s32 act_triple_jump(struct PlayerState *m) {
     }
 
     if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_DIVE, 0);
+        if (curChar != 0) {
+            return set_player_action(m, ACT_DIVE, 0);
+        } else {
+            return set_player_action(m, ACT_MOVE_PUNCHING, 0);
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
@@ -699,14 +746,16 @@ s32 act_freefall(struct PlayerState *m) {
     s32 animation = CHAR_ANIM_GENERAL_FALL;
 
     if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_DIVE, 0);
+        if (curChar != 0) {
+            return set_player_action(m, ACT_DIVE, 0);
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
         return set_player_action(m, ACT_GROUND_POUND, 0);
     }
 
-    act_scuttle(m);
+    act_luigi_scuttle_or_flutter_jump(m);
 
     switch (m->actionArg) {
         case 0:
@@ -737,7 +786,7 @@ s32 act_hold_jump(struct PlayerState *m) {
         return drop_and_set_player_action(m, ACT_GROUND_POUND, 0);
     }
 
-    act_scuttle(m);
+    act_luigi_scuttle_or_flutter_jump(m);
 
     play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
     common_air_action_step(m, ACT_HOLD_JUMP_LAND, CHAR_ANIM_JUMP_WITH_LIGHT_OBJ,
@@ -775,7 +824,11 @@ s32 act_hold_freefall(struct PlayerState *m) {
 s32 act_side_flip(struct PlayerState *m) {
     if (m->input & INPUT_B_PRESSED) {
         m->playerObj->header.gfx.angle[1] += 0x8000;
-        return set_player_action(m, ACT_DIVE, 0);
+        if (curChar != 0) {
+            return set_player_action(m, ACT_DIVE, 0);
+        } else {
+            return set_player_action(m, ACT_MOVE_PUNCHING, 0);
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
@@ -801,7 +854,11 @@ s32 act_wall_kick_air(struct PlayerState *m) {
     s32 animFrame;
 
     if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_DIVE, 0);
+        if (curChar != 0) {
+            return set_player_action(m, ACT_DIVE, 0);
+        } else {
+            return set_player_action(m, ACT_MOVE_PUNCHING, 0);
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {
@@ -1082,7 +1139,11 @@ s32 act_hold_water_jump(struct PlayerState *m) {
 
 s32 act_steep_jump(struct PlayerState *m) {
     if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_DIVE, 0);
+        if (curChar != 0) {
+            return set_player_action(m, ACT_DIVE, 0);
+        } else {
+            return set_player_action(m, ACT_MOVE_PUNCHING, 0);
+        }
     }
 
     play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, 0);
@@ -1774,7 +1835,7 @@ s32 act_lava_boost(struct PlayerState *m) {
 
 s32 act_slide_kick(struct PlayerState *m) {
     if (m->actionState == 0 && m->actionTimer == 0) {
-        play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, SOUND_MARIO_MUH);
+        play_player_sound(m, SOUND_ACTION_TERRAIN_JUMP, CHAR_SOUND_MUH);
         set_player_animation(m, CHAR_ANIM_SLIDE_KICK);
     }
 
@@ -2080,7 +2141,9 @@ s32 act_flying_triple_jump(struct PlayerState *m) {
             set_camera_mode(m->area->camera, m->area->camera->defMode, 1);
         }
         if (m->input & INPUT_B_PRESSED) {
-            return set_player_action(m, ACT_DIVE, 0);
+            if (curChar != 0) {
+                return set_player_action(m, ACT_DIVE, 0);
+            }
         } else {
             return set_player_action(m, ACT_GROUND_POUND, 0);
         }
@@ -2188,9 +2251,14 @@ s32 act_vertical_wind(struct PlayerState *m) {
     return FALSE;
 }
 
+// Not sure if this is in DS but I'll program anyways
 s32 act_special_triple_jump(struct PlayerState *m) {
     if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_DIVE, 0);
+        if (curChar != 0) {
+            return set_player_action(m, ACT_DIVE, 0);
+        } else {
+            return set_player_action(m, ACT_MOVE_PUNCHING, 0);
+        }
     }
 
     if (m->input & INPUT_Z_PRESSED) {

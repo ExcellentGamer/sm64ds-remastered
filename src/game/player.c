@@ -289,10 +289,10 @@ void play_player_jump_sound(struct PlayerState *m) {
             }
         } else if ((m->action == ACT_JUMP) || (m->action == ACT_DIVE)) {
             if (yahOrWah == 0) {
-                play_sound(SOUND_MARIO_YAH, m->playerObj->header.gfx.cameraToObject);
+                play_character_sound(m, CHAR_SOUND_YAH);
                 yahOrWah++;
             } else {
-                play_sound(SOUND_MARIO_WAH, m->playerObj->header.gfx.cameraToObject);
+                play_character_sound(m, CHAR_SOUND_WAH);
                 yahOrWah--;
             }
         } else {
@@ -399,7 +399,7 @@ void play_player_sound(struct PlayerState *m, s32 actionSound, s32 playerSound) 
     }
 
     if (playerSound != -1) {
-        play_sound_if_no_flag(m, playerSound, PLAYER_MARIO_SOUND_PLAYED);
+        play_character_sound_if_no_flag(m, playerSound, PLAYER_MARIO_SOUND_PLAYED);
     }
 }
 

@@ -22,7 +22,9 @@ struct Character gCharacters[CT_MAX] = {
         .capMetalWingModelId = MODEL_NONE,
 
         // SFX
-        .soundPunchYah = SOUND_YOSHI_PUNCH_YAH,
+        .soundYah = SOUND_YOSHI_YAH,
+        .soundWah = SOUND_YOSHI_WAH,
+        .soundPunchYah = SOUND_YOSHI_LICK,
     },
 
     [CT_MARIO] = {
@@ -31,6 +33,12 @@ struct Character gCharacters[CT_MAX] = {
         .capMetalModelId = MODEL_MARIOS_METAL_CAP,
         .capWingModelId = MODEL_MARIOS_WING_CAP,
         .capMetalWingModelId = MODEL_MARIOS_WINGED_METAL_CAP,
+
+        // SFX
+        .soundYah = SOUND_MARIO_YAH,
+        .soundWah = SOUND_MARIO_WAH,
+        .soundPunchYah = SOUND_MARIO_PUNCH_YAH,
+        .soundMuh = SOUND_MARIO_MUH,
     },
 
     [CT_LUIGI] = {
@@ -58,14 +66,8 @@ struct Character gCharacters[CT_MAX] = {
     },
 };
 
-struct Character* get_character(struct PlayerState* m) {
-    return (m == NULL || m->character == NULL)
-        ? &gCharacters[CT_YOSHI]
-        : m->character;
-}
-
 static s32 get_character_sound(struct PlayerState* m, enum CharacterSound characterSound) {
-    struct Character* character = ((m == NULL || m->character == NULL) ? &gCharacters[CT_YOSHI] : m->character);
+    struct Character* character = &gCharacters[curChar];
 
     if (m == NULL || m->playerObj == NULL) {
         return 0;
@@ -74,6 +76,7 @@ static s32 get_character_sound(struct PlayerState* m, enum CharacterSound charac
     if (characterSound < 0 || characterSound >= CHAR_SOUND_MAX) {
         return 0;
     }
+
     return character->sounds[characterSound];
 }
 
@@ -81,7 +84,6 @@ static void play_character_sound_internal(struct PlayerState *m, enum CharacterS
     if (m != NULL && (m->flags & flags) == 0) {
         s32 sound = get_character_sound(m, characterSound);
         if (sound != 0) {
-            struct Character* character = get_character(m);
             f32 *pos = (m->playerObj != NULL ? m->playerObj->header.gfx.cameraToObject : gGlobalSoundSource);
             play_sound(sound + offset, pos); // Potential bug here because I changed it xD
         }
