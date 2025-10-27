@@ -237,15 +237,16 @@ ifeq ($(TARGET_WII_U),1)
   endif
 
   include $(DEVKITPPC)/base_tools
-  include $(DEVKITPRO)/wut/share/wut_rules
+  include $(DEVKITPRO)/wut/share/wut_rules  
 
-  ICON	      	:= platform/wiiu/icon.png
-  TV_SPLASH	    := platform/wiiu/bootTV.png
-  DRC_SPLASH	  := platform/wiiu/bootDRC.png
-  APP_NAME		  := Super Mario 64 DS Remastered
-  APP_SHORTNAME	:= SM64DS Remastered
-  APP_AUTHOR		:= Nintendo, ExcellentGamer
-  APP_VERSION     := 0.0.3
+  # TODO: add APP_CONTENT
+  APP_NAME := Super Mario 64 DS Remastered
+  APP_SHORTNAME := SM64DS Remastered
+  APP_AUTHOR := Nintendo, ExcellentGamer
+  APP_ICON := platform/wiiu/icon.png
+  APP_TV_SPLASH := platform/wiiu/bootTV.png
+  APP_DRC_SPLASH := platform/wiiu/bootDRC.png
+  APP_VERSION := 0.0.3
 
   PORTLIBS	:=	$(PORTLIBS_PATH)/wiiu $(PORTLIBS_PATH)/ppc
 
@@ -1450,27 +1451,25 @@ $(BUILD_DIR)/%.o: %.rc
 endif
 
 # ------------------------------------------------------------------------------ #
-# Wii U WUHB Packaging                                                          #
+# Wii U WUHB Packaging (Fixed and Correct Output Chain)                          #
 # ------------------------------------------------------------------------------ #
 
-# Only package if we are building for Wii U
 ifeq ($(TARGET_WII_U),1)
 
-# Make sure .rpx exists before creating .wuhb
-$(BUILD_DIR)/$(TARGET).rpx: $(EXE)
+# Build .wuhb from .rpx
+$(BUILD_DIR)/$(TARGET).wuhb: $(EXE)
 	@echo ">>> Packaging WUHB: $@"
+	@which wuhbtool >/dev/null 2>&1 || (echo "wuhbtool not found in PATH. Install it with devkitPro WUT."; false)
 	wuhbtool \
-		--rpx $< \
-		--out $@ \
+		$< $@ \
 		--name "$(APP_NAME)" \
 		--short-name "$(APP_SHORTNAME)" \
 		--author "$(APP_AUTHOR)" \
-		--version "$(APP_VERSION)" \
-		--icon "$(ICON)" \
-		--boot-tv "$(TV_SPLASH)" \
-		--boot-drc "$(DRC_SPLASH)"
+		--icon "$(APP_ICON)" \
+		--tv-image "$(APP_TV_SPLASH)" \
+		--drc-image "$(APP_DRC_SPLASH)"
 
-# Ensure 'all' builds the WUHB
+# Ensure `make all` outputs the WUHB
 all: $(BUILD_DIR)/$(TARGET).wuhb
 
 endif
