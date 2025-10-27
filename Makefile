@@ -246,7 +246,7 @@ ifeq ($(TARGET_WII_U),1)
   APP_ICON := platform/wiiu/icon.png
   APP_TV_SPLASH := platform/wiiu/bootTV.png
   APP_DRC_SPLASH := platform/wiiu/bootDRC.png
-  APP_VERSION := 0.0.3
+  APP_VERSION := 1.4
 
   PORTLIBS	:=	$(PORTLIBS_PATH)/wiiu $(PORTLIBS_PATH)/ppc
 
@@ -284,7 +284,7 @@ BASEPACK ?= base.zip
 #   us - builds the 1996 North American version
 #   eu - builds the 1997 PAL version
 #   sh - builds the 1997 Japanese Shindou version, with rumble pak support
-NUMRIC_VERSION ?= 0.03
+NUMRIC_VERSION ?= 1.4
 VERSION ?= us
 $(eval $(call validate-option,VERSION,jp us eu sh))
 

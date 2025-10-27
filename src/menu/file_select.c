@@ -26,6 +26,13 @@
 #include "pc/cliopts.h"
 #endif
 
+#ifdef TARGET_WII_U
+#include <vpad/input.h>
+#include <math.h>
+#include <coreinit/debug.h>
+#endif
+
+
 /**
  * @file file_select.c
  * This file implements how the file select and it's menus render and function.
@@ -71,6 +78,11 @@ static s16 sMainMenuTimer = 0;
 // File A: 1 | File B: 2 | File C: 3
 static s8 sSelectedFileNum;
 
+#ifdef TARGET_WII_U
+static bool sUsingTouchInput = false;
+static bool sCursorVisible = false;
+static bool sCursorForcedVisible = false;
+#endif
 
 static unsigned char textNew[] = { TEXT_NEW };
 static unsigned char starIcon[] = { GLYPH_STAR, GLYPH_SPACE };
@@ -185,6 +197,73 @@ void bhv_menu_button_manager_loop(void) {
 /**
  * Cursor function that handles analog stick input and button presses with a function near the end.
  */
+
+// clamp helper
+static float clampf(float v, float lo, float hi) {
+    return (v < lo) ? lo : (v > hi) ? hi : v;
+}
+
+#ifdef TARGET_WII_U
+struct Box { float x1, y1, x2, y2; };
+
+int is_inside(struct Box box, float tx, float ty) {
+    float left   = fminf(box.x1, box.x2);
+    float right  = fmaxf(box.x1, box.x2);
+    float top    = fminf(box.y1, box.y2);
+    float bottom = fmaxf(box.y1, box.y2);
+    return (tx >= left && tx <= right && ty >= top && ty <= bottom);
+}
+
+static void handle_wiiu_touch_input(void) {
+    static bool wasTouched = false;
+
+    VPADStatus vpad;
+    VPADReadError err;
+    VPADRead(VPAD_CHAN_0, &vpad, 1, &err);
+    if (err != VPAD_READ_SUCCESS) return;
+
+    float tx = vpad.tpFiltered1.x;
+    float ty = vpad.tpFiltered1.y;
+
+    sUsingTouchInput = vpad.tpFiltered1.touched;
+
+    // Hide cursor immediately when touch starts
+    if (sUsingTouchInput && !wasTouched) {
+        sCursorVisible = false;
+    }
+
+    // Only consider touch release for button logic
+    if (wasTouched && !vpad.tpFiltered1.touched) {
+        OSReport("Touch released: X = %0.2f, Y = %0.2f\n", tx, ty);
+
+        // Define bounding boxes
+        struct Box fileA = { 860.0f,  2250.0f, 1520.0f, 2980.0f };
+        struct Box fileB = { 1696.0f, 2372.0f, 2366.0f, 1620.0f };
+        struct Box fileC = { 2544.0f, 2989.0f, 3215.0f, 2237.0f };
+        struct Box fileOptions = { 1115.0f, 1168.0f, 2290.0f, 600.0f };
+        struct Box returnToMenu = { 2620.0f, 1175.0f, 3265.0f, 580.0f };
+
+        if (is_inside(fileA, tx, ty)) {
+            load_main_menu_save_file(sMainMenuButtons[MENU_BUTTON_PLAY_FILE_A], 1);
+            play_sound(SOUND_MENU_STAR_SOUND_OKEY_DOKEY, gGlobalSoundSource);
+        } else if (is_inside(fileB, tx, ty)) {
+            load_main_menu_save_file(sMainMenuButtons[MENU_BUTTON_PLAY_FILE_B], 2);
+            play_sound(SOUND_MENU_STAR_SOUND_OKEY_DOKEY, gGlobalSoundSource);
+        } else if (is_inside(fileC, tx, ty)) {
+            load_main_menu_save_file(sMainMenuButtons[MENU_BUTTON_PLAY_FILE_C], 3);
+            play_sound(SOUND_MENU_STAR_SOUND_OKEY_DOKEY, gGlobalSoundSource);
+        } else if (is_inside(fileOptions, tx, ty)) {
+            play_sound(SOUND_MENU_PAUSE_OPEN, gGlobalSoundSource);
+        } else if (is_inside(returnToMenu, tx, ty)) {
+            play_sound(SOUND_MENU_PINCH_MARIO_FACE, gGlobalSoundSource);
+        }
+    }
+
+    wasTouched = sUsingTouchInput;
+}
+
+#endif
+
 void handle_controller_cursor_input(void) {
     s16 rawStickX = gPlayer3Controller->rawStickX;
     s16 rawStickY = gPlayer3Controller->rawStickY;
@@ -192,6 +271,17 @@ void handle_controller_cursor_input(void) {
     s16 dPadR = gPlayer1Controller->buttonPressed & R_JPAD;
     s16 dPadU = gPlayer1Controller->buttonPressed & U_JPAD;
     s16 dPadD = gPlayer1Controller->buttonPressed & D_JPAD;
+
+#ifdef TARGET_WII_U
+    // Show cursor when stick moved or D-Pad pressed, but only if touch isn't active
+    if (!sUsingTouchInput) {
+        if ((rawStickX > 2 || rawStickX < -2 || rawStickY > 2 || rawStickY < -2 || dPadL || dPadR || dPadU || dPadD) 
+            && !sCursorForcedVisible) {
+            sCursorVisible = true;
+            sCursorForcedVisible = true;
+        }
+    }
+#endif
 
     // Handle deadzone
     if (rawStickY > -2 && rawStickY < 2) {
@@ -314,11 +404,20 @@ void handle_controller_cursor_input(void) {
  * to be usable on the file select.
  */
 void print_menu_cursor(void) {
+#ifdef TARGET_WII_U
+    handle_wiiu_touch_input();
+#endif
     handle_controller_cursor_input();
 
+#ifdef TARGET_WII_U
+    if (!sUsingTouchInput && sCursorVisible) {
+#endif
     create_dl_translation_matrix(MENU_MTX_PUSH, sCursorPos[0] + 160.0f - 5.0, sCursorPos[1] + 120.0f - 25.0, 0.0f);
     gSPDisplayList(gDisplayListHead++, dl_menu_cursor);
     gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
+#ifdef TARGET_WII_U
+    }
+#endif
 
     create_dl_translation_matrix(MENU_MTX_PUSH, 20, sArrowPosY, 0.0f);
     gSPDisplayList(gDisplayListHead++, dl_file_select_arrow);
