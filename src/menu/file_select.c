@@ -30,6 +30,8 @@
 #include <vpad/input.h>
 #include <math.h>
 #include <coreinit/debug.h>
+#include <stdint.h>
+#include <stdbool.h>
 #endif
 
 
@@ -203,10 +205,46 @@ static float clampf(float v, float lo, float hi) {
     return (v < lo) ? lo : (v > hi) ? hi : v;
 }
 
+// How Nintendo does it in sead
+/*
+        u32 sample_num = sead::Mathu::clamp(1, v_pad_info.last_read_length, mTouchPanelSamplingUseNum);
+
+        VPADTouchData tp_data;
+
+        for (u32 i = 0; i < sample_num; i++)
+        {
+            const VPADTouchData& tp_sample_data = v_pad_info.status[i].tpNormal;
+            if (tp_sample_data.validity == (VPAD_INVALID_X | VPAD_INVALID_Y))
+                continue;
+
+            VPADTouchData tp_calibrated_data;
+            VPADGetTPCalibratedPoint(VPAD_CHAN_0, &tp_calibrated_data, &tp_sample_data);
+
+            if (!(tp_sample_data.validity & VPAD_INVALID_X))
+            {
+                tp_data.x = tp_calibrated_data.x;
+                tp_valid_x = true;
+            }
+
+            if (!(tp_sample_data.validity & VPAD_INVALID_Y))
+            {
+                tp_data.y = tp_calibrated_data.y;
+                tp_valid_y = true;
+            }
+
+            if (tp_valid_x && tp_valid_y)
+                break;
+        }
+
+        bool touched = tp_valid_x && tp_valid_y;
+        f32 touch_x = tp_data.x;
+        f32 touch_y = tp_data.y;
+*/
+
 #ifdef TARGET_WII_U
 struct Box { float x1, y1, x2, y2; };
 
-int is_inside(struct Box box, float tx, float ty) {
+static inline int is_inside(struct Box box, float tx, float ty) {
     float left   = fminf(box.x1, box.x2);
     float right  = fmaxf(box.x1, box.x2);
     float top    = fminf(box.y1, box.y2);
@@ -215,12 +253,54 @@ int is_inside(struct Box box, float tx, float ty) {
 }
 
 static void handle_wiiu_touch_input(void) {
+    bool tp_valid_x = false;
+    bool tp_valid_y = false;
+
+    VPADTouchData tp_data;
+
+    u32 sample_num = clampf(v_pad_info.last_read_length, 1, 3);
+
+    for (u32 i = 0; i < sample_num; i++) {
+        const VPADTouchData& tp_sample_data = v_pad_info.status[i].tpNormal;
+        if (tp_sample_data.validity == (VPAD_INVALID_X | VPAD_INVALID_Y))
+            continue;
+
+        VPADTouchData tp_calibrated_data;
+        VPADGetTPCalibratedPoint(VPAD_CHAN_0, &tp_calibrated_data, &tp_sample_data);
+
+        if (!(tp_sample_data.validity & VPAD_INVALID_X)) {
+            tp_data.x = tp_calibrated_data.x;
+            tp_valid_x = true;
+        }
+
+        if (!(tp_sample_data.validity & VPAD_INVALID_Y)) {
+            tp_data.y = tp_calibrated_data.y;
+            tp_valid_y = true;
+        }
+
+        if (tp_valid_x && tp_valid_y)
+            break;
+    }
+
+    bool touched = tp_valid_x && tp_valid_y;
+    f32 touch_x = tp_data.x;
+    f32 touch_y = tp_data.y;
+
+    if (touched) {
+        OSReport("Touch detected at: (%f, %f)\n", touch_x, touch_y);
+    }
+}
+// Old method
+/*
+static void handle_wiiu_touch_input(void) {
     static bool wasTouched = false;
 
     VPADStatus vpad;
     VPADReadError err;
     VPADRead(VPAD_CHAN_0, &vpad, 1, &err);
     if (err != VPAD_READ_SUCCESS) return;
+
+    VPADGetTPCalibratedPoint(VPAD_CHAN_0, &vpad.tpFiltered1, &vpad.tpFiltered1);
 
     float tx = vpad.tpFiltered1.x;
     float ty = vpad.tpFiltered1.y;
@@ -237,11 +317,11 @@ static void handle_wiiu_touch_input(void) {
         OSReport("Touch released: X = %0.2f, Y = %0.2f\n", tx, ty);
 
         // Define bounding boxes
-        struct Box fileA = { 860.0f,  2250.0f, 1520.0f, 2980.0f };
-        struct Box fileB = { 1696.0f, 2372.0f, 2366.0f, 1620.0f };
-        struct Box fileC = { 2544.0f, 2989.0f, 3215.0f, 2237.0f };
-        struct Box fileOptions = { 1115.0f, 1168.0f, 2290.0f, 600.0f };
-        struct Box returnToMenu = { 2620.0f, 1175.0f, 3265.0f, 580.0f };
+        struct Box fileA = { 255.0f,  165.0f, 470.0f, 315.0f };
+        struct Box fileB = { 528.0f, 287.0f, 748.0f, 432.0f };
+        struct Box fileC = { 810.0f, 165.0f, 1027.0f, 315.0f };
+        struct Box fileOptions = { 336.0f, 520.0f, 722.0f, 630.0f };
+        struct Box returnToMenu = { 836.0f, 520.0f, 1043.0f, 630.0f };
 
         if (is_inside(fileA, tx, ty)) {
             load_main_menu_save_file(sMainMenuButtons[MENU_BUTTON_PLAY_FILE_A], 1);
@@ -258,9 +338,8 @@ static void handle_wiiu_touch_input(void) {
             play_sound(SOUND_MENU_PINCH_MARIO_FACE, gGlobalSoundSource);
         }
     }
-
     wasTouched = sUsingTouchInput;
-}
+}*/
 
 #endif
 
