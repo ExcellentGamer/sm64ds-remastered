@@ -252,6 +252,7 @@ static inline int is_inside(struct Box box, float tx, float ty) {
     return (tx >= left && tx <= right && ty >= top && ty <= bottom);
 }
 
+/*
 static void handle_wiiu_touch_input(void) {
     bool tp_valid_x = false;
     bool tp_valid_y = false;
@@ -290,6 +291,8 @@ static void handle_wiiu_touch_input(void) {
         OSReport("Touch detected at: (%f, %f)\n", touch_x, touch_y);
     }
 }
+*/
+
 // Old method
 /*
 static void handle_wiiu_touch_input(void) {
@@ -484,7 +487,7 @@ void handle_controller_cursor_input(void) {
  */
 void print_menu_cursor(void) {
 #ifdef TARGET_WII_U
-    handle_wiiu_touch_input();
+    //handle_wiiu_touch_input();
 #endif
     handle_controller_cursor_input();
 

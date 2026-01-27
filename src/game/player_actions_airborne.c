@@ -100,6 +100,68 @@ s32 hit_or_wall_kick_on_wall(struct PlayerState *m, f32 minVel) {
     return FALSE;
 }
 
+s32 act_air_lick(struct PlayerState *m) {
+    if (curChar != 0) {
+        return set_player_action(m, ACT_FREEFALL, 0);
+    }
+
+    if (m->actionState == 0) {
+        m->playerObj->header.gfx.animInfo.animID = -1;
+        m->actionState = 1;
+    }
+
+    switch (m->actionArg) {
+        case 0:
+            play_character_sound(m, CHAR_SOUND_PUNCH_YAH);
+            m->actionArg = 1;
+            break;
+
+        case 1:
+            set_player_animation(m, YOSHI_ANIM_EAT);
+
+            if (is_anim_past_end(m)) {
+                m->actionArg = 2;
+                break;
+            }
+
+            if (m->playerObj->header.gfx.animInfo.animFrame >= 2) {
+                if (player_check_object_grab(m)) {
+                    return TRUE;
+                }
+                m->flags |= PLAYER_PUNCHING;
+            }
+            break;
+
+        case 2:
+            set_player_animation(m, YOSHI_ANIM_EAT_FAIL);
+
+            if (m->playerObj->header.gfx.animInfo.animFrame <= 0) {
+                m->flags |= PLAYER_PUNCHING;
+            }
+
+            if (is_anim_at_end(m)) {
+                set_player_action(m, ACT_FREEFALL, 0);
+            }
+            break;
+    }
+
+    update_air_without_turn(m);
+
+    switch (perform_air_step(m, 0)) {
+        case AIR_STEP_LANDED:
+            if (!check_fall_damage_or_get_stuck(m, ACT_HARD_BACKWARD_GROUND_KB)) {
+                set_player_action(m, ACT_FREEFALL_LAND, 0);
+            }
+            break;
+
+        case AIR_STEP_HIT_WALL:
+            player_set_forward_vel(m, 0.0f);
+            break;
+    }
+
+    return FALSE;
+}
+
 s32 check_fall_damage(struct PlayerState *m, u32 hardFallAction) {
     f32 fallHeight = m->peakHeight - m->pos[1];
     f32 damageHeight = 1150.0f;
@@ -157,8 +219,8 @@ s32 check_kick_or_dive_in_air(struct PlayerState *m) {
 }
 
 s32 check_lick_in_air(struct PlayerState *m) {
-    if (m->input & INPUT_B_PRESSED) {
-        return set_player_action(m, ACT_MOVE_PUNCHING, 0);
+    if (curChar == 0 && (m->input & INPUT_B_PRESSED)) {
+        return set_player_action(m, ACT_AIR_LICK, 0);
     }
     return FALSE;
 }
@@ -2361,6 +2423,7 @@ s32 player_execute_airborne_action(struct PlayerState *m) {
         case ACT_RIDING_SHELL_JUMP:
         case ACT_RIDING_SHELL_FALL:    cancel = act_riding_shell_air(m);     break;
         case ACT_DIVE:                 cancel = act_dive(m);                 break;
+        case ACT_AIR_LICK:             cancel = act_air_lick(m);             break;
         case ACT_AIR_THROW:            cancel = act_air_throw(m);            break;
         case ACT_BACKWARD_AIR_KB:      cancel = act_backward_air_kb(m);      break;
         case ACT_FORWARD_AIR_KB:       cancel = act_forward_air_kb(m);       break;
