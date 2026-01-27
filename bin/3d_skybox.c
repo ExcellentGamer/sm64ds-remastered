@@ -3878,13 +3878,24 @@ Gfx mat_skybox_above_clouds_64[] = {
 	gsSPEndDisplayList(),
 };
 
+Gfx mat_skybox_depth[] = {
+	gsDPPipeSync(),
+	gsDPSetDepthSource(G_ZS_PRIM),
+	gsDPSetPrimDepth(0xFFFF, 0),
+	gsDPSetRenderMode(G_RM_AA_ZB_OPA_SURF & ~Z_UPD, G_RM_AA_ZB_OPA_SURF2 & ~Z_UPD),
+	gsSPEndDisplayList(),
+};
+
 Gfx mat_revert_skybox[] = {
 	gsDPPipeSync(),
+	gsDPSetDepthSource(G_ZS_PIXEL),
+	gsDPSetRenderMode(G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2),
 	gsSPSetGeometryMode(G_LIGHTING),
 	gsSPEndDisplayList(),
 };
 
 Gfx skybox_water[] = {
+	gsSPDisplayList(mat_skybox_depth),
 	gsSPDisplayList(mat_skybox_water_1),
 	gsSPDisplayList(skybox_mesh_tri_0),
 	gsSPDisplayList(mat_skybox_water_2),
@@ -4023,6 +4034,7 @@ Gfx skybox_water[] = {
 };
 
 Gfx skybox_above_clouds[] = {
+	gsSPDisplayList(mat_skybox_depth),
 	gsSPDisplayList(mat_skybox_above_clouds_1),
 	gsSPDisplayList(skybox_mesh_tri_0),
 	gsSPDisplayList(mat_skybox_above_clouds_2),

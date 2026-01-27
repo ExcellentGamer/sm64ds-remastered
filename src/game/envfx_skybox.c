@@ -16,7 +16,7 @@ Gfx *sky_3d(s32 callContext, struct GraphNode *node, Mat4 mtxf) {
       {
         struct GraphNodeGenerated *graphNode = (struct GraphNodeGenerated *) node;
 
-        Gfx *dlE = alloc_display_list(4 * sizeof(Gfx));
+        Gfx *dlE = alloc_display_list(6 * sizeof(Gfx));
         Gfx *dlS = dlE;
         Mtx *mtx = alloc_display_list(sizeof(Mtx));
 
@@ -26,6 +26,8 @@ Gfx *sky_3d(s32 callContext, struct GraphNode *node, Mat4 mtxf) {
 
         guTranslate(mtx, x, y, z);
         gSPMatrix(dlE++, mtx, G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
+
+        gSPClearGeometryMode(dlE++, G_ZBUFFER);
 
         switch (gCurrLevelNum) {
           case LEVEL_CASTLE_GROUNDS:
@@ -65,6 +67,8 @@ Gfx *sky_3d(s32 callContext, struct GraphNode *node, Mat4 mtxf) {
             //gSPDisplayList(dlE++, &bits_skybox);
             break;
         }
+
+        gSPSetGeometryMode(dlE++, G_ZBUFFER);
 
         gSPPopMatrix(dlE++, G_MTX_MODELVIEW);
         gSPEndDisplayList(dlE);

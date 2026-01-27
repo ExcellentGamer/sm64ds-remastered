@@ -9,6 +9,7 @@ const GeoLayout rec_room_geo[] = {
             GEO_OPEN_NODE(),
                 GEO_CAMERA(CAMERA_MODE_FREE_ROAM, 0, 0, 0, 0, -1024, 0, geo_camera_main),
                 GEO_OPEN_NODE(),
+                    GEO_ASM(0, sky_3d),
                     GEO_DISPLAY_LIST(LAYER_OPAQUE, rec_room_1_r0_node_mesh_layer_1),
 		            GEO_DISPLAY_LIST(LAYER_ALPHA, rec_room_1_r0_node_mesh_layer_4), // first geo
                     GEO_DISPLAY_LIST(LAYER_OPAQUE, rec_room_2_r1_node_mesh_layer_1),
@@ -20,7 +21,6 @@ const GeoLayout rec_room_geo[] = {
                     GEO_ASM(PAINTING_ID(6, 1), geo_painting_draw),
                     GEO_RENDER_OBJ(),
                     GEO_ASM(0, geo_envfx_main),
-                    GEO_ASM(0, sky_3d),
                 GEO_CLOSE_NODE(),
             GEO_CLOSE_NODE(),
         GEO_CLOSE_NODE(),
