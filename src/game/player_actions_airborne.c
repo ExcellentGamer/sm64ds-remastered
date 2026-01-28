@@ -11,6 +11,7 @@
 #include "level_update.h"
 #include "characters.h"
 #include "player.h"
+#include "player_actions_airborne.h"
 #include "player_step.h"
 #include "rumble_init.h"
 #include "save_file.h"
