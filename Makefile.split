@@ -156,8 +156,16 @@ $(BUILD_DIR)/levels/%/leveldata.elf: SEGMENT_ADDRESS := 0x07000000
 # TODO: Generate these rules from the level configs?
 
 define level_rules = 
-    $(1)_SEG7_FILES     := $$(patsubst %.png,%.inc.c,$$(wildcard levels/$(1)/*.png))
-    $$(BUILD_DIR)/levels/$(1)/leveldata.o: $$(addprefix $$(BUILD_DIR)/,$$($(1)_SEG7_FILES))
+    $(1)_SEG7_PNGS      := $$(wildcard levels/$(1)/*.png)
+    $(1)_SEG7_FILES     := $$(patsubst %.png,%.inc.c,$$($(1)_SEG7_PNGS))
+    $$(BUILD_DIR)/levels/$(1)/texture_dims.inc.c: $$($(1)_SEG7_PNGS) tools/gen_level_texture_dims.py
+	$$(call print,Generating texture dims:,$$(if $$(wildcard levels/$(1)/texture.inc.c),levels/$(1)/texture.inc.c,(none)),$$@)
+	$$(V)if [ -f levels/$(1)/texture.inc.c ]; then \
+	  $$(PYTHON) tools/gen_level_texture_dims.py levels/$(1)/texture.inc.c $$@; \
+	else \
+	  echo '#include "texture_dimensions.h"' > $$@; \
+	fi
+    $$(BUILD_DIR)/levels/$(1)/leveldata.o: $$(BUILD_DIR)/levels/$(1)/texture_dims.inc.c $$(addprefix $$(BUILD_DIR)/,$$($(1)_SEG7_FILES))
     $$(BUILD_DIR)/levels/$(1)/leveldata.elf: TEXTURE_BIN := $(2)
 endef
 

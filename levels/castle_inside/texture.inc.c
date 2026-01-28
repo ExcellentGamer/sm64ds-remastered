@@ -201,3 +201,5 @@ ALIGNED8 static const Texture si_painting_top_tex[] = {
 ALIGNED8 static const Texture si_painting_bottom_tex[] = {
 #include "levels/castle_inside/si_painting_bottom.rgba16.inc.c"
 };
+
+#include "levels/castle_inside/texture_dims.inc.c"

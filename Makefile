@@ -599,6 +599,10 @@ ifeq ($(VERBOSE),0)
   V := @
 endif
 
+ifeq ($(V),1)
+  V :=
+endif
+
 # Whether to colorize build messages
 COLOR ?= 1
 
