@@ -127,7 +127,6 @@ static void sys_fatal_impl(const char *msg) {
 // we can just ask SDL for most of this shit if we have it
 #include <SDL2/SDL.h>
 
-
 #ifdef __ANDROID__
 extern const char* SDL_AndroidGetInternalStoragePath();
 extern const char* SDL_AndroidGetExternalStoragePath();
