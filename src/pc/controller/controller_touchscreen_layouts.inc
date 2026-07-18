@@ -53,6 +53,26 @@ struct Position GetDefaultDownPos() {
     return ret;
 }
 
+struct Position GetDefaultXPos() {
+    struct Position ret = { .x = GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(20) << 2, .y = 480 };
+    return ret;
+}
+
+struct Position GetDefaultYPos() {
+    struct Position ret = { .x = GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(50) << 2, .y = 480 };
+    return ret;
+}
+
+struct Position GetDefaultZLPos() {
+    struct Position ret = { .x = GFX_DIMENSIONS_RECT_FROM_LEFT_EDGE(20) << 2, .y = 50 };
+    return ret;
+}
+
+struct Position GetDefaultZRPos() {
+    struct Position ret = { .x = GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(20) << 2, .y = 50 };
+    return ret;
+}
+
 struct Position GetDefaultLeftPos() {
     struct Position ret = { .x = GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(80) << 2, .y = 290 };
     return ret;

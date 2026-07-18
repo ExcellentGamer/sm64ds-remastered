@@ -79,8 +79,14 @@ Fork of [AloXado320/sm64ex-alo](https://github.com/AloUltraExt/sm64ex-alo)
 
   #### Install external dependencies
   ```sh
-  cd platform/android/ && ./getkhrplatform.sh && ./getSDL.sh && cd ../..
+  cd platform/android
+  chmod +x getkhrplatform.sh getSDL.sh
+  ./getkhrplatform.sh
+  ./getSDL.sh
+  cd ../..
   ```
+  
+  > **Note:** `chmod +x` is required because the scripts don't have execute permissions by default when cloning the repo.
  
   #### Build
   ```sh
@@ -88,11 +94,16 @@ Fork of [AloXado320/sm64ex-alo](https://github.com/AloUltraExt/sm64ex-alo)
   # On Termux, TARGET_ANDROID=1 is defined automatically in Makefile
   make -j4
   ```
+  
+  > **Note:** ~4,600 `int` to `s16` conversion warnings will appear. They are normal and do not affect compilation or gameplay.
 
- #### Install apk:
+  #### Install APK
   ```sh
-  xdg-open build/us_android/sm64dsr.us.(currentver).apk
+  termux-setup-storage
+  cp build/us_android/sm64dsr.us.*.apk /sdcard/
   ```
+  
+  Then open the APK from your Android file manager to install it. Make sure "Install unknown apps" is enabled.
  
 </details>
 
