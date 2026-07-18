@@ -42,7 +42,6 @@ struct ControlElement {
     struct Position (*GetPos)();
     u8 touchID; //0 = not being touched, 1-255 = Finger being used
     //Joystick
-    int joyX, joyY;
     int joyX, joyY, isJoyAnalog;
     //Button
     int buttonID;
